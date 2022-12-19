@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import {Section} from "@/components";
+import {Footer, Header, Section} from "@/components";
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <>
       <Head>
@@ -11,10 +11,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Header />
         <Section>
           Posts
+        </Section>
+        <Section>
+          <Footer />
         </Section>
       </main>
     </>
   );
+}
+
+export const getServerSideProps = async () => {
+
 }
