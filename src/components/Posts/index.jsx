@@ -2,9 +2,14 @@ import React from 'react'
 import cl from 'classnames'
 
 import styles from './index.module.scss'
-const Posts = ({className}) => {
+import {Post} from "@/components";
+const Posts = ({className, posts}) => {
   return (
-    <div>Posts</div>
+    <div>
+      {posts.map(post => (
+        <Post key={post._id} post={post} />
+      ))}
+    </div>
   )
 }
 
