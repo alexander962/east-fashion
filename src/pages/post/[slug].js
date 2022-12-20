@@ -5,11 +5,15 @@ import { client } from '~/lib/client'
 import styles from './index.module.scss';
 import {Article, Content, Footer, Header, Section, Title} from "@/components";
 import {format} from "date-fns";
+import Head from "next/head";
 const PostInfo = ({ className, post }) => {
   const date = format(new Date(post.publishedAt), 'dd MMM yyyy')
 
   return (
     <>
+      <Head>
+        <title>My blog</title>
+      </Head>
       <Header />
       <Section>
         <Article backUrl="/">
