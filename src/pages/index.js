@@ -6,7 +6,6 @@ import { loadPosts } from './api/posts';
 
 const LOAD_MORE_STEP = 4;
 export default function Home({ initialPosts, total }) {
-  console.log(initialPosts)
   const [posts, setPosts] = useState(initialPosts);
   const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
   const [loading, setLoading] = useState(false);

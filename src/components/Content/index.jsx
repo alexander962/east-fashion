@@ -1,10 +1,17 @@
-import React from 'react'
-import cl from 'classnames'
+import React from 'react';
+import BlockContent from '@sanity/block-content-to-react';
+import cl from 'classnames';
 
-import styles from './index.module.scss'
-const Content = ({className}) => {
+import { clientConfig } from "~/lib/client";
+import styles from './index.module.scss';
+const Content = ({className, body}) => {
   return (
-    <div>Content</div>
+    <BlockContent
+      blocks={body}
+      imageOptions={{w: 1000, h: 750, fit: 'max'}}
+      projectId={clientConfig.projectId}
+      dataset={clientConfig.dataset}
+    />
   )
 }
 
