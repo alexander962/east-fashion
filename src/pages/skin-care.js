@@ -22,8 +22,6 @@ export default function SkinCare({ initialPosts, total }) {
       "dataPosts": *[_type == "post" && "skin-care" in categories[]->title] | order(publishedDate desc) [${loadedAmount}...${loadedAmount + LOAD_MORE_STEP}] {_id, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}}
       }`;
       const { dataPosts } = await client.fetch(query);
-      console.log(dataPosts);
-      console.log(loadedAmount);
       setLoadedAmount(loadedAmount + LOAD_MORE_STEP);
       setPosts([...posts, ...dataPosts])
 
