@@ -7,7 +7,7 @@ import { urlFor } from '~/lib/client';
 import Title from '../Title'
 import styles from './index.module.scss';
 const Post = ({className, post}) => {
-  const {title, mainImage, description, slug} = post;
+  const {title, mainImage, description, slug, categories} = post;
   return (
     <Link href={`/post/${encodeURIComponent(slug.current)}`} className={cl(className, styles.post)}>
       <a className={cl(className, styles.post)}>
@@ -25,6 +25,8 @@ const Post = ({className, post}) => {
           </div>
           <p className={styles.postDescription}>
             {description}
+            <br/>
+            <span style={{background: 'yellow'}}>{categories[0].title}</span>
           </p>
         </div>
       </a>

@@ -19,8 +19,21 @@ export default async function posts(req, res) {
 
 export async function loadPosts(start, end) {
   const query = `{
-    "posts": *[_type == "post"] | order(publishedDate desc) [${start}...${end}] {_id, publishedAt, title, slug, description, mainImage, categories},
+    "posts": *[_type == "post"] | order(publishedDate desc) [${start}...${end}] {_id, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}},
     "total": count(*[_type == "post"])
+  }`;
+  const { posts, total } = await client.fetch(query);
+
+  return {
+    posts,
+    total
+  };
+}
+
+export async function loadCulturePosts(start, end, categories) {
+  const query = `{
+    "posts": *[_type == "post" && "${categories}" in categories[]->title] | order(publishedDate desc) [${start}...${end}] {_id, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}},
+    "total": count(*[_type == "post" && "${categories}" in categories[]->title])
   }`;
   const { posts, total } = await client.fetch(query);
 
