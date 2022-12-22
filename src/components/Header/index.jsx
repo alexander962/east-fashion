@@ -6,12 +6,33 @@ import Link from 'next/link';
 const Header = ({className}) => {
   return (
     <div>
-      <div style={{display: 'flex', justifyContent: 'center'}}><Link href={'/'}>East fashion</Link></div>
+      <div style={{display: 'flex', justifyContent: 'center'}}><Link href={'/'}>
+        <a>
+          East fashion
+        </a>
+        </Link>
+      </div>
       <nav style={{display: 'flex', justifyContent: 'space-between', maxWidth: '400px'}}>
-        <Link href={'/interviews'}>Interviews</Link>
-        <Link href={'/skin-care'}>Skin Care</Link>
-        <Link href={'/culture'}>Culture</Link>
-        <Link href={'/about'}>About us</Link>
+        <Link href={'/interviews'}>
+          <a>
+            Interviews
+          </a>
+        </Link>
+        <Link href={'/skin-care'}>
+          <a>
+            Skin Care
+          </a>
+        </Link>
+        <Link href={'/culture'}>
+          <a>
+            Culture
+          </a>
+        </Link>
+        <Link href={'/about'}>
+          <a>
+            About us
+          </a>
+        </Link>
       </nav>
     </div>
   )

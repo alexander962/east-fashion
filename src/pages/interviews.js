@@ -1,33 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Head from 'next/head';
-import {Button, Footer, Header, Posts, Section} from "@/components";
 
-import { loadCulturePosts, loadPosts } from './api/posts';
+import { loadCulturePosts } from './api/posts';
+import Category from '@/components/Category';
 
 const LOAD_MORE_STEP = 4;
 export default function Interviews({ initialPosts, total }) {
-  const [posts, setPosts] = useState(initialPosts);
-  const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
-  const [loading, setLoading] = useState(false);
-
-  const isLoadButton = total > loadedAmount;
-
-  const getMorePosts = async () => {
-    setLoading(true);
-
-    try {
-      const data = await fetch(`/api/posts?start=${loadedAmount}&end=${loadedAmount + LOAD_MORE_STEP}`)
-        .then(response => response.json());
-      setLoadedAmount(loadedAmount + LOAD_MORE_STEP);
-      setPosts([...posts, ...data.posts])
-
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  }
-
   return (
     <>
       <Head>
@@ -36,29 +14,7 @@ export default function Interviews({ initialPosts, total }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Header />
-        <Section>
-          <Posts posts={posts} />
-          {
-            isLoadButton &&  (
-              <div style={{
-                display: 'flex',
-                justifyContent: 'center'
-              }}>
-                <Button
-                  onClick={getMorePosts}
-                  disabled={loading}
-                >
-                  Load more posts...
-                </Button>
-              </div>
-            )}
-        </Section>
-        <Section>
-          <Footer />
-        </Section>
-      </main>
+      <Category initialPosts={initialPosts} total={total} category='interviews' />
     </>
   );
 }
