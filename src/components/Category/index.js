@@ -13,6 +13,7 @@ export default function Category({ initialPosts, total, category }) {
   const getMorePosts = async (category) => {
     setLoading(true);
 
+
     try {
       const query = `{
       "dataPosts": *[_type == "post" && "${category}" in categories[]->title] | order(publishedDate desc) [${loadedAmount}...${loadedAmount + LOAD_MORE_STEP}] {_id, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}}

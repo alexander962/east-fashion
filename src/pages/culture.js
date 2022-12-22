@@ -20,7 +20,7 @@ export default function Interviews({ initialPosts, total }) {
 }
 
 export const getServerSideProps = async () => {
-  const categories = "interviews";
+  const categories = "culture";
   const { posts, total } = await loadCulturePosts(0, LOAD_MORE_STEP, categories);
 
   return {
