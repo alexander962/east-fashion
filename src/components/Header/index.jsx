@@ -8,7 +8,7 @@ const Header = ({className}) => {
     <div>
       <div style={{display: 'flex', justifyContent: 'center'}}><Link href={'/'}>
         <a>
-          East fashion
+          Kyrill Kazak
         </a>
         </Link>
       </div>
