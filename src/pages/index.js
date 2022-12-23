@@ -3,7 +3,6 @@ import Head from 'next/head';
 import {Button, Footer, Header, Posts, Section} from "@/components";
 
 import { loadPosts } from './api/posts';
-import SearchBar from '@/components/SearchBar/SearchBar';
 import { client } from '~/lib/client';
 
 const LOAD_MORE_STEP = 4;

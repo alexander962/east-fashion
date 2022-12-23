@@ -3,7 +3,6 @@ import cl from 'classnames'
 
 import styles from './index.module.scss'
 import Link from 'next/link';
-import SearchBar from '@/components/SearchBar/SearchBar';
 const Header = (props) => {
 
   return (
