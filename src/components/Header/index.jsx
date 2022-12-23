@@ -3,7 +3,9 @@ import cl from 'classnames'
 
 import styles from './index.module.scss'
 import Link from 'next/link';
-const Header = ({className}) => {
+import SearchBar from '@/components/SearchBar/SearchBar';
+const Header = (props) => {
+
   return (
     <div>
       <div style={{display: 'flex', justifyContent: 'center'}}><Link href={'/'}>
@@ -12,7 +14,7 @@ const Header = ({className}) => {
         </a>
         </Link>
       </div>
-      <nav style={{display: 'flex', justifyContent: 'space-between', maxWidth: '400px'}}>
+      <nav style={{display: 'flex', justifyContent: 'space-between', maxWidth: '800px', marginTop: "40px"}}>
         <Link href={'/interviews'}>
           <a>
             Interviews

@@ -3,12 +3,27 @@ import Head from 'next/head';
 import {Button, Footer, Header, Posts, Section} from "@/components";
 
 import { loadPosts } from './api/posts';
+import SearchBar from '@/components/SearchBar/SearchBar';
+import { client } from '~/lib/client';
 
 const LOAD_MORE_STEP = 4;
 export default function Home({ initialPosts, total }) {
   const [posts, setPosts] = useState(initialPosts);
   const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
   const [loading, setLoading] = useState(false);
+
+  const [inputText, setInputText] = useState('');
+  // const [inputAmount, setInputAmount] = useState(0);
+  const handleClickButton = async () => {
+    const query = `{
+      "searchPosts": *[_type=="post" && (pt::text(body) match "${inputText}") || title match "${inputText}" || description match "${inputText}"] {_id, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}}
+      }`;
+    const { searchPosts } = await client.fetch(query);
+    console.log(searchPosts);
+    // setInputAmount(inputAmount + LOAD_MORE_STEP);
+    setPosts(searchPosts);
+    setInputText('');
+  }
 
   const isLoadButton = total > loadedAmount;
 
@@ -38,6 +53,19 @@ export default function Home({ initialPosts, total }) {
       </Head>
       <main>
         <Header />
+        <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
+          <input
+            style={{width: '20%', marginRight: '10px'}}
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+          />
+          <button
+            style={{background: 'black', color: 'white', cursor: 'pointer'}}
+            onClick={handleClickButton}
+          >
+            Search
+          </button>
+        </div>
         <Section>
           <Posts posts={posts} />
           {

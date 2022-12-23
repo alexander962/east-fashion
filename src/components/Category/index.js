@@ -31,7 +31,6 @@ export default function Category({ initialPosts, total, category }) {
   return (
     <>
       <main>
-        <Header />
         <Section>
           <Posts posts={posts} />
           {
@@ -48,9 +47,6 @@ export default function Category({ initialPosts, total, category }) {
                 </Button>
               </div>
             )}
-        </Section>
-        <Section>
-          <Footer />
         </Section>
       </main>
     </>
