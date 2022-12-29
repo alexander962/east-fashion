@@ -1,0 +1,13 @@
+.categoryPage {
+  flex-grow: 1;
+  padding: 100px 0 80px;
+
+  &__header {
+    font: 400 32px/120% 'Questrial';
+    color: #000000;
+  }
+
+  hr {
+    margin: 40px 0;
+  }
+}

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import {Button, Footer, Header, Posts, Section} from "@/components";
 import { client } from '~/lib/client';
+import cl from 'classnames';
+import styles from '@/components/Category/index.module.scss';
 
 const LOAD_MORE_STEP = 4;
 export default function Category({ initialPosts, total, category }) {
@@ -29,7 +31,11 @@ export default function Category({ initialPosts, total, category }) {
   }
 
   return (
-    <main style={{flexGrow: 1}}>
+    <main className={cl(styles.categoryPage)}>
+      <div className={cl(styles.categoryPage__header)}>
+        <span>Latest posts</span>
+        <hr />
+      </div>
       <Posts posts={posts} />
       {
         isLoadButton &&  (
@@ -41,7 +47,7 @@ export default function Category({ initialPosts, total, category }) {
               onClick={() => getMorePosts(category)}
               disabled={loading}
             >
-              Load more posts...
+              Load more
             </Button>
           </div>
         )}
