@@ -5,9 +5,12 @@ import styles from './index.module.scss'
 import {Post} from "@/components";
 const Posts = ({className, posts}) => {
   return (
-    <div>
+    <div className={cl(styles.posts)}>
       {posts.map(post => (
-        <Post key={post._id} post={post} />
+        <>
+          <Post key={post._id} post={post} />
+          <hr />
+        </>
       ))}
     </div>
   )

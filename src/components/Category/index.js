@@ -29,26 +29,22 @@ export default function Category({ initialPosts, total, category }) {
   }
 
   return (
-    <>
-      <main>
-        <Section>
-          <Posts posts={posts} />
-          {
-            isLoadButton &&  (
-              <div style={{
-                display: 'flex',
-                justifyContent: 'center'
-              }}>
-                <Button
-                  onClick={() => getMorePosts(category)}
-                  disabled={loading}
-                >
-                  Load more posts...
-                </Button>
-              </div>
-            )}
-        </Section>
-      </main>
-    </>
+    <main style={{flexGrow: 1}}>
+      <Posts posts={posts} />
+      {
+        isLoadButton &&  (
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center'
+          }}>
+            <Button
+              onClick={() => getMorePosts(category)}
+              disabled={loading}
+            >
+              Load more posts...
+            </Button>
+          </div>
+        )}
+    </main>
   );
 }

@@ -2,9 +2,9 @@ import React from 'react'
 import cl from 'classnames'
 
 import styles from './index.module.scss'
-const Title = ({className, children}) => {
+const Title = ({children}) => {
   return (
-    <h2 className={cl(className, styles.title)}>{children}</h2>
+    <h2 className={cl(styles.title)}>{children}</h2>
   )
 }
 
