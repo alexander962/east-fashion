@@ -33,4 +33,10 @@
       margin-right: 0;
     }
   }
+
+  &__icons div {
+    display: inline-block;
+    margin-right: 12px;
+    cursor: pointer;
+  }
 }

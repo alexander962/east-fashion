@@ -11,18 +11,7 @@ export default function Home({ initialPosts, total }) {
   const [posts, setPosts] = useState(initialPosts);
   const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
 
-  const [inputText, setInputText] = useState('');
   // const [inputAmount, setInputAmount] = useState(0);
-  const handleClickButton = async () => {
-    const query = `{
-      "searchPosts": *[_type=="post" && (pt::text(body) match "${inputText}") || title match "${inputText}" || description match "${inputText}"] {_id, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}}
-      }`;
-    const { searchPosts } = await client.fetch(query);
-    console.log(searchPosts);
-    // setInputAmount(inputAmount + LOAD_MORE_STEP);
-    setPosts(searchPosts);
-    setInputText('');
-  }
 
   return (
     <Section>
@@ -32,20 +21,7 @@ export default function Home({ initialPosts, total }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      {/*<div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>*/}
-      {/*  <input*/}
-      {/*    style={{width: '20%', marginRight: '10px'}}*/}
-      {/*    value={inputText}*/}
-      {/*    onChange={(e) => setInputText(e.target.value)}*/}
-      {/*  />*/}
-      {/*  <button*/}
-      {/*    style={{background: 'black', color: 'white', cursor: 'pointer'}}*/}
-      {/*    onClick={handleClickButton}*/}
-      {/*  >*/}
-      {/*    Search*/}
-      {/*  </button>*/}
-      {/*</div>*/}
+      <Header setPosts={setPosts} />
       <MainPage posts={posts} setPosts={setPosts} total={total} />
       <Footer />
     </Section>

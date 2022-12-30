@@ -28,7 +28,7 @@ const MainPage = ({posts, setPosts, total}) => {
 
   return (
     <main className={cl(styles.mainPage)}>
-      <PopularPosts />
+      <PopularPosts posts={posts} />
       <div className={cl(styles.mainPage__header)}>
         <span>Latest posts</span>
         <hr />
