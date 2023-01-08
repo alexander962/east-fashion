@@ -12,21 +12,46 @@
   &__form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 
     &_text {
       display: inline-block;
-      font: 400 14px/140% 'Questrial';
+      font: 400 32px/120% 'Questrial';
       color: #000000;
-      max-width: 283px;
+      max-width: 641px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__formBlock {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+
+    input {
+      padding: 10px 26px;
+      border: 1px solid #000000;
+      outline: none;
+      text-align: center;
+    }
+
+    button {
+      font: 400 12px/140% 'Arial';
+      color: #FFFFFF;
+      padding: 10px 20px;
+      background: #000000;
+      margin-left: -1px;
     }
   }
 
   &__nav {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 100%;
-    max-width: 430px;
   }
 
   &__menu {

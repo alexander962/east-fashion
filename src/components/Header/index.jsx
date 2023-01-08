@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import logo from 'src/assets/images/logo.png';
 import search from 'src/assets/images/search.svg';
+import close from 'src/assets/images/close.svg';
 import facebook from 'src/assets/images/facebook.svg';
 import twitter from 'src/assets/images/twitter.svg';
 import youtube from 'src/assets/images/youtube.svg';
@@ -23,6 +24,11 @@ const Header = ({setPosts}) => {
     setInputText('');
   }
 
+  const handleClickClose = () => {
+    setInputText('');
+    setInputVisible(false);
+  }
+
   return (
     <nav className={styles.header}>
       <div className={styles.header__logo}>
@@ -32,18 +38,20 @@ const Header = ({setPosts}) => {
           </a>
         </Link>
       </div>
-
       {
         inputVisible ?
-          <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
-            <div onClick={handleClickButton}>
+          <div className={styles.header__inputBlock}>
+            <div onClick={handleClickButton} className={styles.header__inputBlock_img}>
               <img src={search.src} />
             </div>
             <input
-              style={{width: '20%', marginRight: '10px'}}
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
+              placeholder='search'
             />
+            <div onClick={handleClickClose} className={styles.header__inputBlock_img}>
+              <img src={close.src} />
+            </div>
           </div> :
           <div className={styles.header__menu}>
             <Link href={'/interviews'}>

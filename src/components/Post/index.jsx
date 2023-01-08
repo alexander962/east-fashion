@@ -23,7 +23,6 @@ const Post = ({className, post}) => {
             {description}
             <br/>
           </p>
-          <button className={styles.postButton}>Read more &#8599;</button>
         </div>
 
         <div className={cl(styles.postImg)}>

@@ -12,20 +12,21 @@ const Footer = () => {
   const [inputText, setInputText] = useState('');
   return (
     <div>
+      <form className={styles.footer__form}>
+        <label className={styles.footer__form_text} htmlFor="text">Sign up for news delivered right to your inbox.
+          Unsubscribe anytime.</label>
+        <div className={styles.footer__formBlock}>
+          <input
+            id="text"
+            type="text"
+            onChange={e => setInputText(e.target.value)}
+            placeholder='YOUR EMAIL ADDRESS'
+          />
+          <button type="submit">SIGN UP</button>
+        </div>
+      </form>
       <hr className={styles.hr} />
       <div className={styles.footer}>
-        <form className={styles.footer__form}>
-          <label className={styles.footer__form_text} htmlFor="text">Sign up for news delivered right to your inbox.
-            Unsubscribe anytime.</label>
-          <div>
-            <input
-              id="text"
-              type="text"
-              onChange={e => setInputText(e.target.value)}
-            />
-            <button type="submit">SIGN UP</button>
-          </div>
-        </form>
         <nav className={styles.footer__nav}>
           <div className={styles.footer__menu}>
             <Link href={'/interviews'}>

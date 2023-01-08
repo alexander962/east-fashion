@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 
 import { loadCulturePosts } from './api/posts';
@@ -7,6 +7,8 @@ import { Footer, Header, Section } from '@/components';
 
 const LOAD_MORE_STEP = 4;
 export default function Interviews({ initialPosts, total }) {
+  const [posts, setPosts] = useState(initialPosts);
+
   return (
     <Section>
       <Head>
@@ -15,8 +17,8 @@ export default function Interviews({ initialPosts, total }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      <Category initialPosts={initialPosts} total={total} category='interviews' />
+      <Header setPosts={setPosts} />
+      <Category posts={posts} setPosts={setPosts} total={total} category='interviews' />
       <Footer />
     </Section>
   );

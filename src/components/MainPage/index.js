@@ -45,7 +45,7 @@ const MainPage = ({posts, setPosts, total}) => {
               disabled={loading}
               className={cl(styles.mainPage__button)}
             >
-              Load more
+              SHOW MORE
             </Button>
           </div>
         )}

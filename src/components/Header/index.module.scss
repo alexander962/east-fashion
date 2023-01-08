@@ -23,6 +23,11 @@
       font: 400 14px/140% 'Questrial';
       color: #000000;
       text-decoration: none;
+      border-bottom: 2px solid #ffffff;
+
+      &:hover {
+        border-bottom: 2px solid #000000;
+      }
     }
   }
 
@@ -38,5 +43,37 @@
     display: inline-block;
     margin-right: 12px;
     cursor: pointer;
+  }
+
+  &__inputBlock {
+    display: flex;
+    align-items: center;
+
+    &_img {
+      margin: 0 8px;
+      cursor: pointer;
+    }
+
+    input {
+      margin: 0;
+      width: 329px;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid #A1A1AA;
+      padding: 5px;
+      font: 400 12px/12px 'Arial';
+      color: #292828;
+
+      &::placeholder {
+        font: 400 12px/12px 'Arial';
+        color: #A1A1AA;
+      }
+
+      &:focus {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #000000;
+      }
+    }
   }
 }

@@ -6,8 +6,7 @@ import cl from 'classnames';
 import styles from '@/components/Category/index.module.scss';
 
 const LOAD_MORE_STEP = 4;
-export default function Category({ initialPosts, total, category }) {
-  const [posts, setPosts] = useState(initialPosts);
+export default function Category({ posts, setPosts, total, category }) {
   const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
   const [loading, setLoading] = useState(false);
   const isLoadButton = total > loadedAmount;
@@ -47,7 +46,7 @@ export default function Category({ initialPosts, total, category }) {
               onClick={() => getMorePosts(category)}
               disabled={loading}
             >
-              Load more
+              SHOW MORE
             </Button>
           </div>
         )}
