@@ -23,6 +23,7 @@ const Post = ({className, post}) => {
             {description}
             <br/>
           </p>
+          <button className={cl(styles.postBtnMobile)}>Read full article</button>
         </div>
 
         <div className={cl(styles.postImg)}>

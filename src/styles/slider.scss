@@ -1,0 +1,11 @@
+.slick-arrow {
+  z-index: 4;
+}
+
+.slick-arrow.slick-prev, .slick-arrow.slick-next {
+  width: 0;
+}
+
+.slick-prev:before, .slick-next:before {
+  display: none;
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 import logo from 'src/assets/images/logo.png';
+import burger from 'src/assets/images/burger.svg';
 import search from 'src/assets/images/search.svg';
 import close from 'src/assets/images/close.svg';
 import facebook from 'src/assets/images/facebook.svg';
@@ -9,7 +10,8 @@ import twitter from 'src/assets/images/twitter.svg';
 import youtube from 'src/assets/images/youtube.svg';
 import styles from './index.module.scss';
 import { client } from '~/lib/client';
-const Header = ({setPosts}) => {
+import ModalMenu from '@/components/ModalMenu';
+const Header = ({ setPosts, setTotalPosts, setModalVisible }) => {
   const [inputText, setInputText] = useState('');
   const [inputVisible, setInputVisible] = useState(false);
 
@@ -19,9 +21,9 @@ const Header = ({setPosts}) => {
       }`;
     const { searchPosts } = await client.fetch(query);
     console.log(searchPosts);
-    // setInputAmount(inputAmount + LOAD_MORE_STEP);
     setPosts(searchPosts);
     setInputText('');
+    setTotalPosts(0);
   }
 
   const handleClickClose = () => {
@@ -78,7 +80,10 @@ const Header = ({setPosts}) => {
       }
 
       <div className={styles.header__icons}>
-        <div onClick={() => setInputVisible(true)}>
+        <div className={styles.header__iconBurger} onClick={() => setModalVisible(true)}>
+          <img src={burger.src} alt='' />
+        </div>
+        <div className={styles.header__iconSearch} onClick={() => setInputVisible(true)}>
           <img src={search.src} alt='' />
         </div>
         <a href='#' target='_blank'>

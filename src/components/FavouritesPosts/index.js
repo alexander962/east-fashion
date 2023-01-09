@@ -7,7 +7,7 @@ import { urlFor } from '~/lib/client';
 import leftArrow from '../../assets/images/arrow-left.svg'
 import rightArrow from '../../assets/images/arrow-right.svg'
 import styles from './index.module.scss';
-const PopularPosts = ({ posts }) => {
+const FavouritesPosts = ({ posts }) => {
   const settings = {
     dots: false,
     infinite: false,
@@ -28,8 +28,8 @@ const PopularPosts = ({ posts }) => {
   };
 
   return (
-    <div className={styles.popularPosts}>
-      <h2 className={styles.popularHeader}>Most popular</h2>
+    <div className={styles.favouritesPosts}>
+      <h2 className={styles.popularHeader}>Favourites</h2>
         <Slider {...settings}>
         {
           posts.map((post, index) => {
@@ -54,4 +54,4 @@ const PopularPosts = ({ posts }) => {
   )
 }
 
-export default PopularPosts;
+export default FavouritesPosts;

@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import {Button, Footer, Header, Posts, Section} from "@/components";
+import { Footer, Header, Section } from "@/components";
 
 import { loadPosts } from './api/posts';
-import { client } from '~/lib/client';
 import MainPage from '@/components/MainPage';
+import ModalMenu from '@/components/ModalMenu';
 
-const LOAD_MORE_STEP = 4;
+const LOAD_MORE_STEP = 6;
 export default function Home({ initialPosts, total }) {
   const [posts, setPosts] = useState(initialPosts);
-  const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
-
-  // const [inputAmount, setInputAmount] = useState(0);
+  const [totalPosts, setTotalPosts] = useState(total);
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <Section>
@@ -21,8 +20,9 @@ export default function Home({ initialPosts, total }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header setPosts={setPosts} />
-      <MainPage posts={posts} setPosts={setPosts} total={total} />
+      <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
+      <Header setPosts={setPosts} setTotalPosts={setTotalPosts} setModalVisible={setModalVisible} />
+      <MainPage posts={posts} setPosts={setPosts} total={totalPosts} />
       <Footer />
     </Section>
   );

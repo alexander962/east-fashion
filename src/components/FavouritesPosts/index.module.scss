@@ -1,35 +1,5 @@
-//.outer {
-//  width: 100%;
-//  display: grid;
-//  margin-bottom: 100px;
-//
-//  grid-template-columns: 33% 1fr 33%;
-//  column-gap: 50px;
-//  grid-template-areas: "first first second"
-//    "third forth forth";
-//
-//  row-gap: 30px;
-//  text-decoration: none;
-//}
-//
-//@media only screen and (max-width: 767px) {
-//  .outer {
-//    grid-template-columns: 1fr;
-//    grid-template-areas: "first" "second"
-//    "third" "forth";
-//  }
-//}
-//
-//.inner:first-child {
-//  grid-area: first;
-//}
-//
-//.inner:last-child {
-//  grid-area: forth;
-//}
-
-.popularPosts {
-  margin-bottom: 30px;
+.favouritesPosts {
+  margin-bottom: 60px;
 }
 
 .inner {

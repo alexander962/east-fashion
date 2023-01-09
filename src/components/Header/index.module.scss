@@ -18,6 +18,9 @@
     max-width: 294px;
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
 
     a {
       font: 400 14px/140% 'Questrial';
@@ -33,16 +36,29 @@
 
   &__icons a {
     margin-right: 12px;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
 
     &:last-child {
       margin-right: 0;
     }
   }
 
-  &__icons div {
+  &__iconBurger {
+    display: none;
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  &__iconSearch {
     display: inline-block;
     margin-right: 12px;
     cursor: pointer;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 
   &__inputBlock {
@@ -63,6 +79,9 @@
       padding: 5px;
       font: 400 12px/12px 'Arial';
       color: #292828;
+      @media screen and (max-width: 820px) {
+        width: 200px;
+      }
 
       &::placeholder {
         font: 400 12px/12px 'Arial';

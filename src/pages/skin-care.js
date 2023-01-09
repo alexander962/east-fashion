@@ -9,6 +9,7 @@ import SearchBar from '@/components/SearchBar/SearchBar';
 const LOAD_MORE_STEP = 4;
 export default function SkinCare({ initialPosts, total }) {
   const [posts, setPosts] = useState(initialPosts);
+  const [totalPosts, setTotalPosts] = useState(total);
 
   return (
     <Section>
@@ -18,8 +19,8 @@ export default function SkinCare({ initialPosts, total }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header setPosts={setPosts} />
-      <Category posts={posts} setPosts={setPosts} total={total} category='skin-care' />
+      <Header setPosts={setPosts} setTotalPosts={setTotalPosts} />
+      <Category posts={posts} setPosts={setPosts} total={totalPosts} category='skin-care' />
       <Footer />
     </Section>
   );

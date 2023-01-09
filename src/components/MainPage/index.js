@@ -4,6 +4,7 @@ import cl from 'classnames'
 import styles from './index.module.scss'
 import { Button, Posts } from '@/components';
 import PopularPosts from '@/components/PopularPosts';
+import FavouritesPosts from '@/components/FavouritesPosts';
 const LOAD_MORE_STEP = 4;
 const MainPage = ({posts, setPosts, total}) => {
   const [loading, setLoading] = useState(false);
@@ -29,6 +30,7 @@ const MainPage = ({posts, setPosts, total}) => {
   return (
     <main className={cl(styles.mainPage)}>
       <PopularPosts posts={posts} />
+      <FavouritesPosts posts={posts} />
       <div className={cl(styles.mainPage__header)}>
         <span>Latest posts</span>
         <hr />

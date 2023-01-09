@@ -3,6 +3,9 @@
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+  }
 
   &Img {
     width: 533px;
@@ -10,6 +13,12 @@
     @media screen and (max-width: 1260px) {
       width: 360px;
       height: 360px;
+    }
+    @media screen and (max-width: 900px) {
+      width: 100%;
+    }
+    @media screen and (max-width: 500px) {
+      display: none;
     }
 
     img {
@@ -21,6 +30,9 @@
         width: 360px;
         height: 360px;
       }
+      @media screen and (max-width: 900px) {
+        width: 100%;
+      }
     }
   }
 
@@ -30,18 +42,45 @@
     @media screen and (max-width: 1260px) {
       margin-right: 104px;
     }
+    @media screen and (max-width: 900px) {
+      margin-right: 0;
+      max-width: none;
+    }
   }
 
   &Date {
     font: 400 14px/140%  'Arial';
     color: #000000;
     margin-bottom: 40px;
+
+    @media screen and (max-width: 500px) {
+      font: 400 16px/140%  'Arial';
+      margin-bottom: 20px;
+    }
   }
 
   &Description {
     font: 400 18px/140% 'Arial';
     color: #000000;
     margin-bottom: 40px;
+
+    @media screen and (max-width: 500px) {
+      font: 400 14px/140%  'Arial';
+      margin-bottom: 20px;
+    }
+  }
+
+  &BtnMobile {
+    display: none;
+
+    @media screen and (max-width: 500px) {
+      display: block;
+      width: 100%;
+      font: 400 14px/140% 'Arial';
+      color: #FFFFFF;
+      padding: 10px 0;
+      background: #000000;
+    }
   }
 
   &Button {

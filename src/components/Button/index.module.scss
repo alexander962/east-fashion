@@ -4,6 +4,17 @@
   background: #000000;
   cursor: pointer;
   padding: 10px 106px;
+  @media screen and (max-width: 500px) {
+    border: none;
+    padding: 0;
+    background: none;
+    color: #000000;
+    text-decoration: underline;
+    text-transform: lowercase;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
 
   &:hover {
     opacity: 0.8;
