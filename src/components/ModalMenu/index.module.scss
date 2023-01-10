@@ -17,4 +17,30 @@
   &Active {
     transform: translateY(0);
   }
+
+  &Menu {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+
+    a {
+      font: 400 18px/140% 'Questrial';
+      color: #000000;
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+  }
+
+  &Icons {
+    span {
+      display: inline-block;
+      font: 700 18px/140% 'Inter';
+      color: #000000;
+      margin-bottom: 15px;
+    }
+
+    a {
+      margin-right: 18px;
+    }
+  }
 }

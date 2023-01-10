@@ -24,6 +24,14 @@ const PopularPosts = ({ posts }) => {
           slidesToShow: 1,
         }
       },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          variableWidth: false,
+        }
+      },
     ]
   };
 

@@ -15,8 +15,8 @@ const FavouritesPosts = ({ posts }) => {
     slidesToShow: 2,
     slidesToScroll: 2,
     variableWidth: true,
-    prevArrow: <div><img className={cl(styles.popularArrowLeft)} src={leftArrow.src} alt="" /></div>,
-    nextArrow: <div><img className={cl(styles.popularArrowRight)} src={rightArrow.src} alt="" /></div>,
+    prevArrow: <div><img className={cl(styles.favouritesArrowLeft)} src={leftArrow.src} alt="" /></div>,
+    nextArrow: <div><img className={cl(styles.favouritesArrowRight)} src={rightArrow.src} alt="" /></div>,
     responsive: [
       {
         breakpoint: 1270,
@@ -24,24 +24,32 @@ const FavouritesPosts = ({ posts }) => {
           slidesToShow: 1,
         }
       },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          variableWidth: false,
+        }
+      },
     ]
   };
 
   return (
     <div className={styles.favouritesPosts}>
-      <h2 className={styles.popularHeader}>Favourites</h2>
+      <h2 className={styles.favouritesHeader}>Favourites</h2>
         <Slider {...settings}>
         {
           posts.map((post, index) => {
             if (index < 6) {
               return (
-                <div className={cl(styles.inner, index % 2 && styles.innerBig)}>
-                  <Link href={`/post/${encodeURIComponent(post.slug.current)}`} className={cl(styles.popularPost)}>
-                    <a className={cl(styles.popularPost)}>
-                      <div className={cl(styles.popularImg)}>
+                <div className={cl(styles.inner, index % 2 && styles.innerSmall)}>
+                  <Link href={`/post/${encodeURIComponent(post.slug.current)}`} className={cl(styles.favouritesPost)}>
+                    <a className={cl(styles.favouritesPost)}>
+                      <div className={cl(styles.favouritesImg)}>
                         <img src={urlFor(post.mainImage).url()} alt='' />
                       </div>
-                      <h3 className={cl(styles.popularTitle)}>{post.title}</h3>
+                      <h3 className={cl(styles.favouritesTitle)}>{post.title}</h3>
                     </a>
                   </Link>
                 </div>

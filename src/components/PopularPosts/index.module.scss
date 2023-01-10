@@ -34,11 +34,18 @@
 
 .inner {
   width: 420px!important;
+  @media screen and (max-width: 1024px) {
+    width: 100%!important;
+  }
 }
 
 .innerBig {
   width: 758px!important;
   padding: 0 0 0 20px;
+  @media screen and (max-width: 1024px) {
+    width: 100%!important;
+    padding: 0;
+  }
 }
 
 .popularHeader {

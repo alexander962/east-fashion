@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
       </form>
       <hr className={styles.hr} />
-      <div className={styles.footer}>
+      <footer className={styles.footer}>
         <nav className={styles.footer__nav}>
           <div className={styles.footer__menu}>
             <Link href={'/interviews'}>
@@ -62,7 +62,7 @@ const Footer = () => {
             </a>
           </div>
         </nav>
-      </div>
+      </footer>
       <hr className={styles.hr} />
     </div>
   )

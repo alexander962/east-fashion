@@ -1,6 +1,9 @@
 .mainPage {
   flex-grow: 1;
   padding: 100px 0 80px;
+  @media screen and (max-width: 500px) {
+    padding: 100px 0 40px;
+  }
 
   &__header {
     font: 400 20px/120% 'Questrial';
