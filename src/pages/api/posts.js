@@ -30,6 +30,17 @@ export async function loadPosts(start, end) {
   };
 }
 
+export async function loadFavouritesPosts() {
+  const query = `{
+    "favouritesPosts": *[_type == "favouritesPosts"] | order(publishedDate desc) [0...6] {_id, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}}
+  }`;
+  const { favouritesPosts } = await client.fetch(query);
+
+  return {
+    favouritesPosts,
+  };
+}
+
 export async function loadCulturePosts(start, end, categories) {
   const query = `{
     "posts": *[_type == "post" && "${categories}" in categories[]->title] | order(publishedDate desc) [${start}...${end}] {_id, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}},

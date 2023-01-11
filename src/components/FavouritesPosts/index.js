@@ -2,12 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import cl from 'classnames';
 import Slider from "react-slick";
-import { urlFor } from '~/lib/client';
+import { client, urlFor } from '~/lib/client';
 
 import leftArrow from '../../assets/images/arrow-left.svg'
 import rightArrow from '../../assets/images/arrow-right.svg'
 import styles from './index.module.scss';
-const FavouritesPosts = ({ posts }) => {
+const FavouritesPosts = ({ posts, total }) => {
+  console.log(posts);
   const settings = {
     dots: false,
     infinite: false,
@@ -44,7 +45,7 @@ const FavouritesPosts = ({ posts }) => {
             if (index < 6) {
               return (
                 <div className={cl(styles.inner, index % 2 && styles.innerSmall)}>
-                  <Link href={`/post/${encodeURIComponent(post.slug.current)}`} className={cl(styles.favouritesPost)}>
+                  <Link href={`/favouritesPost/${encodeURIComponent(post.slug.current)}`} className={cl(styles.favouritesPost)}>
                     <a className={cl(styles.favouritesPost)}>
                       <div className={cl(styles.favouritesImg)}>
                         <img src={urlFor(post.mainImage).url()} alt='' />

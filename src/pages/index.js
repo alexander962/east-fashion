@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { Footer, Header, Section } from "@/components";
 
-import { loadPosts } from './api/posts';
+import { loadFavouritesPosts, loadPosts } from './api/posts';
 import MainPage from '@/components/MainPage';
 import ModalMenu from '@/components/ModalMenu';
 
 const LOAD_MORE_STEP = 6;
-export default function Home({ initialPosts, total }) {
+export default function Home({ initialPosts, total, favouritesPosts }) {
   const [posts, setPosts] = useState(initialPosts);
   const [totalPosts, setTotalPosts] = useState(total);
   const [modalVisible, setModalVisible] = useState(false);
@@ -22,7 +22,7 @@ export default function Home({ initialPosts, total }) {
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
       <Header setPosts={setPosts} setTotalPosts={setTotalPosts} setModalVisible={setModalVisible} />
-      <MainPage posts={posts} setPosts={setPosts} total={totalPosts} />
+      <MainPage posts={posts} setPosts={setPosts} total={totalPosts} favouritesPosts={favouritesPosts} />
       <Footer />
     </Section>
   );
@@ -30,11 +30,13 @@ export default function Home({ initialPosts, total }) {
 
 export const getServerSideProps = async () => {
   const { posts, total } = await loadPosts(0, LOAD_MORE_STEP);
+  const { favouritesPosts } = await loadFavouritesPosts();
 
   return {
     props: {
       initialPosts: posts,
-      total
+      total,
+      favouritesPosts
     }
   }
 }

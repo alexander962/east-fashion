@@ -6,8 +6,7 @@ import styles from './index.module.scss';
 import {Article, Content, Footer, Header, Section, Title} from "@/components";
 import {format} from "date-fns";
 import Head from "next/head";
-const PostInfo = ({ className, post }) => {
-  console.log(post);
+const FavouritesPostInfo = ({ className, post }) => {
   const date = format(new Date(post.publishedAt), 'dd MMM yyyy')
 
   return (
@@ -30,10 +29,10 @@ const PostInfo = ({ className, post }) => {
   )
 }
 
-export default PostInfo;
+export default FavouritesPostInfo;
 
 export async function getStaticPaths() {
-  const query = `*[type == "post"] {
+  const query = `*[type == "favouritesPosts"] {
     slug {
       current
     }
@@ -53,7 +52,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: {slug} }) {
-  const query = `*[_type == "post" && slug.current == '${slug}'][0]`
+  const query = `*[_type == "favouritesPosts" && slug.current == '${slug}'][0]`
 
   const post = await client.fetch(query);
 

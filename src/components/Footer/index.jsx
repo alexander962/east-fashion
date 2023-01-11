@@ -8,8 +8,40 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import facebook from '@/assets/images/facebook.svg';
 import twitter from '@/assets/images/twitter.svg';
 import youtube from '@/assets/images/youtube.svg';
+import { client } from '~/lib/client';
 const Footer = () => {
   const [inputText, setInputText] = useState('');
+
+  const handleSignUp = () => {
+    // console.log('valera');
+    // const id = 'd674cb9c-e335-4f31-a3b4-49a4ee894de0';
+    // const newpatch = client
+    //   .patch(id, {"set": {'description': 'generated Valera'}})
+
+    if (window) {
+      window.scrollTo(0, 0);
+    }
+    const mutations = [
+      {
+        patch: {
+          id: "d674cb9c-e335-4f31-a3b4-49a4ee894de0",
+          set: {
+            'description':
+              "Emails",
+          },
+        },
+      },
+      {
+        create: {
+          '_type': 'emails',
+          title: inputText,
+        }
+      }
+    ]
+
+    client.mutate(mutations[1]);
+  }
+
   return (
     <div>
       <form className={styles.footer__form}>
@@ -19,10 +51,13 @@ const Footer = () => {
           <input
             id="text"
             type="text"
+            value={inputText}
             onChange={e => setInputText(e.target.value)}
             placeholder='YOUR EMAIL ADDRESS'
+            required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           />
-          <button type="submit">SIGN UP</button>
+          <button onClick={handleSignUp}>SIGN UP</button>
         </div>
       </form>
       <hr className={styles.hr} />

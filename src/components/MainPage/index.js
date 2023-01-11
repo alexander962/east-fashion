@@ -6,7 +6,7 @@ import { Button, Posts } from '@/components';
 import PopularPosts from '@/components/PopularPosts';
 import FavouritesPosts from '@/components/FavouritesPosts';
 const LOAD_MORE_STEP = 4;
-const MainPage = ({posts, setPosts, total}) => {
+const MainPage = ({ posts, setPosts, total, favouritesPosts }) => {
   const [loading, setLoading] = useState(false);
   const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
 
@@ -30,7 +30,7 @@ const MainPage = ({posts, setPosts, total}) => {
   return (
     <main className={cl(styles.mainPage)}>
       <PopularPosts posts={posts} />
-      <FavouritesPosts posts={posts} />
+      <FavouritesPosts posts={favouritesPosts} />
       <div className={cl(styles.mainPage__header)}>
         <span>Latest posts</span>
         <hr />
