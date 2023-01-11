@@ -26,6 +26,11 @@ export default defineType({
   ],
   fields: [
     defineField({
+      title: 'Make a post popular?',
+      name: 'popular',
+      type: 'boolean'
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',

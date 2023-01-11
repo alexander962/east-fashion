@@ -41,6 +41,17 @@ export async function loadFavouritesPosts() {
   };
 }
 
+export async function loadPopularPosts() {
+  const query = `{
+    "popularPosts": *[_type == "post" && popular == true] | order(publishedDate desc) [0...6] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}}
+  }`;
+  const { popularPosts } = await client.fetch(query);
+
+  return {
+    popularPosts,
+  };
+}
+
 export async function loadCulturePosts(start, end, categories) {
   const query = `{
     "posts": *[_type == "post" && "${categories}" in categories[]->title] | order(publishedDate desc) [${start}...${end}] {_id, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}},
