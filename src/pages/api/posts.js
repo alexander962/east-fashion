@@ -43,7 +43,7 @@ export async function loadFavouritesPosts() {
 
 export async function loadPopularPosts() {
   const query = `{
-    "popularPosts": *[_type == "post" && popular == true] | order(publishedDate desc) [0...6] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}}
+    "popularPosts": *[_type == "post" && popular == true && !(_id match "drafts*")] | order(publishedDate desc) [0...6] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}}
   }`;
   const { popularPosts } = await client.fetch(query);
 

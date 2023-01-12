@@ -41,20 +41,18 @@ const PopularPosts = ({ posts }) => {
         <Slider {...settings}>
         {
           posts.map((post, index) => {
-            if (index < 6) {
-              return (
-                <div className={cl(styles.inner, index % 2 && styles.innerBig)}>
-                  <Link href={`/post/${encodeURIComponent(post.slug.current)}`} className={cl(styles.popularPost)}>
-                    <a className={cl(styles.popularPost)}>
-                      <div className={cl(styles.popularImg)}>
-                        <img src={urlFor(post.mainImage).url()} alt='' />
-                      </div>
-                      <h3 className={cl(styles.popularTitle)}>{post.title}</h3>
-                    </a>
-                  </Link>
-                </div>
-              )
-            }
+            return (
+              <div className={cl(styles.inner, index % 2 && styles.innerBig)}>
+                <Link href={`/post/${encodeURIComponent(post.slug.current)}`} className={cl(styles.popularPost)}>
+                  <a className={cl(styles.popularPost)}>
+                    <div className={cl(styles.popularImg)}>
+                      <img src={urlFor(post.mainImage).url()} alt='' />
+                    </div>
+                    <h3 className={cl(styles.popularTitle)}>{post.title}</h3>
+                  </a>
+                </Link>
+              </div>
+            )
           })
         }
         </Slider>

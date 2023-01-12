@@ -7,8 +7,7 @@ import { client, urlFor } from '~/lib/client';
 import leftArrow from '../../assets/images/arrow-left.svg'
 import rightArrow from '../../assets/images/arrow-right.svg'
 import styles from './index.module.scss';
-const FavouritesPosts = ({ posts, total }) => {
-  console.log(posts);
+const FavouritesPosts = ({ posts }) => {
   const settings = {
     dots: false,
     infinite: false,
