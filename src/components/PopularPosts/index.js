@@ -30,6 +30,8 @@ const PopularPosts = ({ posts }) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           variableWidth: false,
+          arrows: false,
+          dots: true,
         }
       },
     ]
