@@ -1,5 +1,6 @@
 .card {
   padding-top: 86px;
+  box-sizing: border-box;
 
   &HrTop {
     margin-bottom: 30px;
@@ -51,5 +52,65 @@
       font: 700 20px/120% 'Arial';
       color: #000000;
     }
+  }
+
+  &Subtitle {
+    font: 400 32px/120% 'Questrial';
+    color: #000000;
+    margin-bottom: 20px;
+  }
+
+  &Input {
+    display: block;
+    width: 100%;
+    font: 400 16px/120% 'Questrial';
+    border: 1px solid #000000;
+    outline: none;
+    padding: 10px 26px;
+    box-sizing: border-box;
+
+    &Comment {
+      min-height: 80px;
+      margin-top: 20px;
+      resize: none;
+    }
+  }
+
+  &Btn {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    background: #000000;
+    padding: 10px 0;
+    font: 400 12px/140% 'Arial';
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  &Comment{
+    &Hr {
+      margin: 20px 0;
+    }
+
+    h4 {
+      font: 700 20px/120% 'Arial';
+      margin-bottom: 6px;
+    }
+
+    span {
+      display: block;
+      font: 400 12px/140% 'Arial';
+      color: #A1A1AA;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font: 400 14px/140% 'Arial';
+    }
+  }
+
+  &HrFooter {
+    margin: 62px 0 40px 0;
   }
 }
