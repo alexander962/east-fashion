@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-import logo from 'src/assets/images/logo.png';
+import logo from 'src/assets/images/logo.svg';
 import burger from 'src/assets/images/burger.svg';
 import search from 'src/assets/images/search.svg';
 import close from 'src/assets/images/close.svg';

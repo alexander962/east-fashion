@@ -1,32 +1,22 @@
 import React from 'react'
-import cl from 'classnames'
-
 import { client } from '~/lib/client'
-import styles from './index.module.scss';
-import {Article, Content, Footer, Header, Section, Title} from "@/components";
+
+import { Footer, Header, Section } from "@/components";
 import {format} from "date-fns";
 import Head from "next/head";
+import CardPostInfo from '@/components/CardPostInfo';
 const PostInfo = ({ className, post }) => {
-  console.log(post);
   const date = format(new Date(post.publishedAt), 'dd MMM yyyy')
 
   return (
-    <>
+    <Section>
       <Head>
         <title>My blog</title>
       </Head>
       <Header />
-      <Section>
-        <Article backUrl="/">
-          <Title>{post.title}</Title>
-          <p>{date}</p>
-          <Content body={post.body} />
-        </Article>
-      </Section>
-      <Section>
-        <Footer />
-      </Section>
-    </>
+      <CardPostInfo post={post} />
+      <Footer />
+    </Section>
   )
 }
 

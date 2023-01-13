@@ -11,6 +11,7 @@ const Content = ({className, body}) => {
       imageOptions={{w: 1000, h: 750, fit: 'max'}}
       projectId={clientConfig.projectId}
       dataset={clientConfig.dataset}
+      className={cl(styles.content)}
     />
   )
 }

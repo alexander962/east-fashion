@@ -1,13 +1,7 @@
 .content {
-    font-size: 1rem;
-    line-height: 1.4;
-
-    p,
-    figure,
-    blockquote,
-    ul,
-    ol {
-        margin-bottom: 1.5em;
+    p, a {
+      font: 400 14px/140%  'Arial';
+      color: #000000;
     }
 
     img {

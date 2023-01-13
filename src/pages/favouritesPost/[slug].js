@@ -1,11 +1,10 @@
 import React from 'react'
-import cl from 'classnames'
 
 import { client } from '~/lib/client'
-import styles from './index.module.scss';
-import {Article, Content, Footer, Header, Section, Title} from "@/components";
+import { Footer, Header } from "@/components";
 import {format} from "date-fns";
 import Head from "next/head";
+import CardPostInfo from '@/components/CardPostInfo';
 const FavouritesPostInfo = ({ className, post }) => {
   const date = format(new Date(post.publishedAt), 'dd MMM yyyy')
 
@@ -15,16 +14,8 @@ const FavouritesPostInfo = ({ className, post }) => {
         <title>My blog</title>
       </Head>
       <Header />
-      <Section>
-        <Article backUrl="/">
-          <Title>{post.title}</Title>
-          <p>{date}</p>
-          <Content body={post.body} />
-        </Article>
-      </Section>
-      <Section>
-        <Footer />
-      </Section>
+      <CardPostInfo post={post} />
+      <Footer />
     </>
   )
 }
@@ -52,7 +43,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: {slug} }) {
-  const query = `*[_type == "favouritesPosts" && slug.current == '${slug}'][0]`
+  const query = `*[_type == "favouritesPosts" && slug.current == '${slug}'][0]`;
 
   const post = await client.fetch(query);
 
