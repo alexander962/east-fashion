@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { client } from '~/lib/client'
 
 import { Footer, Header, Section } from "@/components";
 import {format} from "date-fns";
 import Head from "next/head";
 import CardPostInfo from '@/components/CardPostInfo';
+import ModalMenu from '@/components/ModalMenu';
 const PostInfo = ({ className, post }) => {
   const date = format(new Date(post.publishedAt), 'dd MMM yyyy')
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <Section>
       <Head>
         <title>My blog</title>
       </Head>
-      <Header />
+      <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
+      <Header searchVisible={false} />
       <CardPostInfo post={post} />
       <Footer />
     </Section>

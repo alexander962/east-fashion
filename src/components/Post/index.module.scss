@@ -69,10 +69,15 @@
     font: 400 18px/140% 'Arial';
     color: #000000;
     margin-bottom: 40px;
-
     @media screen and (max-width: 500px) {
       font: 400 14px/140%  'Arial';
       margin-bottom: 20px;
+    }
+
+    span {
+      font: 700 18px/140% 'Arial';
+      color: #000000;
+      border-bottom: 2px solid #000000;
     }
   }
 
@@ -95,4 +100,51 @@
     border: 1px solid black;
     padding: 8px;
   }
+
+  &Left {
+    flex-direction: row-reverse;
+    align-items: start;
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+    }
+
+    &Img {
+      width: 300px;
+      height: 240px;
+      @media screen and (max-width: 1260px) {
+        width: 300px;
+        height: 240px;
+      }
+      @media screen and (max-width: 900px) {
+        width: 100%;
+        height: 360px;
+      }
+
+      img {
+        @media screen and (max-width: 1260px) {
+          width: 300px;
+          height: 240px;
+        }
+        @media screen and (max-width: 900px) {
+          width: 100%;
+          height: 360px;
+        }
+      }
+    }
+
+    &Info {
+      max-width: calc(100% - 320px);
+      @media screen and (max-width: 1260px) {
+        margin-right: 0;
+      }
+      @media screen and (max-width: 900px) {
+        max-width: 100%;
+      }
+    }
+
+    &Date {
+      margin-bottom: 15px;
+    }
+  }
 }
+

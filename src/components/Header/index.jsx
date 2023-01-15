@@ -11,7 +11,7 @@ import youtube from 'src/assets/images/youtube.svg';
 import styles from './index.module.scss';
 import { client } from '~/lib/client';
 import ModalMenu from '@/components/ModalMenu';
-const Header = ({ setPosts, setTotalPosts, setModalVisible }) => {
+const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true }) => {
   const [inputText, setInputText] = useState('');
   const [inputVisible, setInputVisible] = useState(false);
 
@@ -80,11 +80,14 @@ const Header = ({ setPosts, setTotalPosts, setModalVisible }) => {
       }
 
       <div className={styles.header__icons}>
+        {
+          searchVisible &&
+          <div className={styles.header__iconSearch} onClick={() => setInputVisible(true)}>
+            <img src={search.src} alt='' />
+          </div>
+        }
         <div className={styles.header__iconBurger} onClick={() => setModalVisible(true)}>
           <img src={burger.src} alt='' />
-        </div>
-        <div className={styles.header__iconSearch} onClick={() => setInputVisible(true)}>
-          <img src={search.src} alt='' />
         </div>
         <a href='#' target='_blank'>
           <img src={facebook.src} alt='' />

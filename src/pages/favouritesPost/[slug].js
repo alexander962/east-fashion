@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { client } from '~/lib/client'
-import { Footer, Header } from "@/components";
+import { Footer, Header, Section } from '@/components';
 import {format} from "date-fns";
 import Head from "next/head";
 import CardPostInfo from '@/components/CardPostInfo';
@@ -9,14 +9,14 @@ const FavouritesPostInfo = ({ className, post }) => {
   const date = format(new Date(post.publishedAt), 'dd MMM yyyy')
 
   return (
-    <>
+    <Section>
       <Head>
         <title>My blog</title>
       </Head>
       <Header />
       <CardPostInfo post={post} />
       <Footer />
-    </>
+    </Section>
   )
 }
 

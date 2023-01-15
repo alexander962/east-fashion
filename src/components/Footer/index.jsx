@@ -9,7 +9,7 @@ import facebook from '@/assets/images/facebook.svg';
 import twitter from '@/assets/images/twitter.svg';
 import youtube from '@/assets/images/youtube.svg';
 import { client } from '~/lib/client';
-const Footer = () => {
+const Footer = ({subscribe = true}) => {
   const [inputText, setInputText] = useState('');
 
   const handleSignUp = () => {
@@ -44,22 +44,24 @@ const Footer = () => {
 
   return (
     <div>
-      <form className={styles.footer__form}>
-        <label className={styles.footer__form_text} htmlFor="text">Sign up for news delivered right to your inbox.
-          Unsubscribe anytime.</label>
-        <div className={styles.footer__formBlock}>
-          <input
-            id="text"
-            type="text"
-            value={inputText}
-            onChange={e => setInputText(e.target.value)}
-            placeholder='YOUR EMAIL ADDRESS'
-            required
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-          />
-          <button onClick={handleSignUp}>SIGN UP</button>
-        </div>
-      </form>
+      {
+        subscribe && <form className={styles.footer__form}>
+          <label className={styles.footer__form_text} htmlFor="text">Sign up for news delivered right to your inbox.
+            Unsubscribe anytime.</label>
+          <div className={styles.footer__formBlock}>
+            <input
+              id="text"
+              type="text"
+              value={inputText}
+              onChange={e => setInputText(e.target.value)}
+              placeholder='YOUR EMAIL ADDRESS'
+              required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            />
+            <button onClick={handleSignUp}>SIGN UP</button>
+          </div>
+        </form>
+      }
       <hr className={styles.hr} />
       <footer className={styles.footer}>
         <nav className={styles.footer__nav}>

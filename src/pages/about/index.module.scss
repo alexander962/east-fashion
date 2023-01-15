@@ -1,0 +1,81 @@
+.about {
+  &Img {
+    width: 100%;
+    padding: 160px 0 463px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    font: 400 32px/120% 'Questrial';
+    color: #FFFFFF;
+    @media screen and (max-width: 1260px) {
+      padding: 100px 0 300px;
+    }
+    @media screen and (max-width: 500px) {
+      padding: 80px 0 200px;
+    }
+  }
+
+  &Wrapper {
+    max-width: 1198px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    @media screen and (max-width: 1260px) {
+      padding: 0 40px;
+    }
+    @media screen and (max-width: 765px) {
+      padding: 0 20px;
+      overflow-x: hidden;
+    }
+
+    &Header {
+      padding: 26px 0;
+      @media screen and (max-width: 1260px) {
+        padding: 26px 40px;
+      }
+      @media screen and (max-width: 900px) {
+        padding: 0 20px;
+        overflow-x: hidden;
+      }
+    }
+
+    &Footer {
+      padding: 110px 0 40px;
+      @media screen and (max-width: 1260px) {
+        padding: 90px 40px 30px;
+      }
+      @media screen and (max-width: 765px) {
+        padding: 60px 20px 20px;
+        overflow-x: hidden;
+      }
+      @media screen and (max-width: 500px) {
+        padding: 0 20px;
+        overflow-x: hidden;
+      }
+    }
+  }
+
+  &Name {
+    display: block;
+    font: 400 20px/120% 'Questrial';
+    color: #000000;
+    margin-top: 40px;
+  }
+
+  &Hr {
+    margin: 20px 0 35px;
+  }
+
+  &Title {
+    font: 400 42px/120% 'Questrial';
+    color: #000000;
+    max-width: 540px;
+    margin-bottom: 20px;
+  }
+
+  &Description {
+    font: 400 14px/140% 'Arial';
+    color: #000000;
+    max-width: 540px;
+  }
+}
