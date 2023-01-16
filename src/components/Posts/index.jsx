@@ -7,7 +7,7 @@ const Posts = ({posts}) => {
   return (
     <div className={cl(styles.posts)}>
       {posts.map((post, index) => {
-        let classVariant = index % 2 ? 1 : 2;
+        let classVariant = post.additionalImage ? 3 : index % 2 ? 1 : 2;
 
         return (
           <>

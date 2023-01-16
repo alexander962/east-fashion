@@ -82,6 +82,26 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'additionalImage',
+      title: 'Additional image',
+      type: 'image',
+      group: 'content',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          group: 'content',
+          options: {
+            isHighlighted: true, // <-- make this field easily accessible
+          },
+        },
+      ],
+    }),
+    defineField({
       name: 'categories',
       title: 'Categories',
       type: 'array',
