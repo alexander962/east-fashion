@@ -59,6 +59,7 @@
 }
 
 .popularImg {
+  position: relative;
   width: 100%;
   height: 360px;
   margin-bottom: 20px;
@@ -104,5 +105,21 @@
   left: -73px;
   cursor: pointer;
   z-index: 10;
+}
+
+.popularTag {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: black;
+  z-index: 9;
+  padding: 4px 10px;
+
+  a {
+    font: 400 18px/140%  'Arial';
+    color: #ffffff;
+    text-decoration: none;
+  }
 }
 

@@ -3,17 +3,20 @@
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
+  cursor: pointer;
   @media screen and (max-width: 900px) {
     flex-direction: column;
   }
 
   &ImagesBlock {
+    position: relative;
     @media screen and (max-width: 900px) {
       width: 100%;
     }
   }
 
   &Img {
+    position: relative;
     width: 533px;
     height: 386px;
     overflow: hidden;
@@ -42,6 +45,22 @@
       @media screen and (max-width: 900px) {
         width: 100%;
       }
+    }
+  }
+
+  &Tag {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: black;
+    z-index: 9;
+    padding: 4px 10px;
+
+    a {
+      font: 400 18px/140%  'Arial';
+      color: #ffffff;
+      text-decoration: none;
     }
   }
 
