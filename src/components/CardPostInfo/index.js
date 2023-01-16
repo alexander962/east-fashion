@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid'
 import cl from 'classnames'
 import { format } from "date-fns";
-import { urlFor } from '~/lib/client';
+import { client, urlFor } from '~/lib/client';
 
 import { Content, Title } from "@/components";
 import avatar from "src/assets/images/avatar.png"
@@ -10,6 +11,32 @@ const CardPostInfo = ({ post }) => {
   const date = format(new Date(post.publishedAt), 'dd MMM yyyy');
   const [inputName, setInputName] = useState('');
   const [inputComment, setInputComment] = useState('');
+  const handleNewComment = () => {
+    const newComment = {
+      _key: nanoid(),
+      name: inputName,
+      publishedComment: new Date(),
+      description: inputComment,
+    }
+
+    const mutations = [
+      {
+        patch: {
+          id: post._id,
+          insert: {
+            after: "commentaries[-1]",
+            items: [newComment]
+          }
+        },
+      },
+    ]
+
+    client.mutate(mutations[0]);
+    if (window) {
+      window.scrollTo(0, 0);
+      window.location.reload();
+    }
+  }
 
   return (
     <div className={cl(styles.card)}>
@@ -45,19 +72,17 @@ const CardPostInfo = ({ post }) => {
           value={inputComment}
           placeholder='Comment'
         />
-        <button className={cl(styles.cardBtn)}>SEND</button>
-        <div className={cl(styles.cardComment)}>
-          <hr className={cl(styles.cardCommentHr)} />
-          <h4>Andrea Espinoza</h4>
-          <span>3 month ago</span>
-          <p>When pulpy crime novelists write about the deep, dark corners of the world, what they’re actually referring to is the middle cabinet in my bathroom. It’s wedged into the corner like it’s hiding from someone. And that someone is you. Here, I stash the products in ugly, clinical packaging and the bottles of slightly embarrassing origin that I can’t live without, but that I can live with out-of-sightline. But I’ll open it today, for your entertainment and maybe also even for your service.</p>
-        </div>
-        <div className={cl(styles.cardComment)}>
-          <hr className={cl(styles.cardCommentHr)} />
-          <h4>Andrea Espinoza</h4>
-          <span>3 month ago</span>
-          <p>When pulpy crime novelists write about the deep, dark corners of the world, what they’re actually referring to is the middle cabinet in my bathroom. It’s wedged into the corner like it’s hiding from someone. And that someone is you. Here, I stash the products in ugly, clinical packaging and the bottles of slightly embarrassing origin that I can’t live without, but that I can live with out-of-sightline. But I’ll open it today, for your entertainment and maybe also even for your service.</p>
-        </div>
+        <button className={cl(styles.cardBtn)} onClick={handleNewComment}>SEND</button>
+        {
+          post.commentaries && post.commentaries.map((comment => (
+            <div className={cl(styles.cardComment)}>
+              <hr className={cl(styles.cardCommentHr)} />
+              <h4>{comment.name}</h4>
+              <span>{format(new Date(comment.publishedComment), 'MMM dd,yyyy')}</span>
+              <p>{comment.description}</p>
+            </div>
+          )))
+        }
       </div>
       <hr className={cl(styles.cardHrFooter)} />
     </div>

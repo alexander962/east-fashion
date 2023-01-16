@@ -12,7 +12,7 @@ const textEditorStyles = [
 
 export default defineType({
   name: 'favouritesPosts',
-  title: 'Favourites Posts',
+  title: 'Favourite Posts',
   type: 'document',
   groups: [
     {

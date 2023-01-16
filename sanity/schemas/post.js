@@ -142,6 +142,36 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: 'commentaries',
+      title: 'Commentaries',
+      type: 'array',
+      group: 'content',
+      of: [
+        {
+          name: 'commentary',
+          title: 'Commentary',
+          type: 'document',
+          fields: [
+            {
+              name: 'name',
+              type: 'string',
+              title: 'Name',
+            },
+            {
+              name: 'publishedComment',
+              title: 'Published Comment',
+              type: 'datetime',
+            },
+            {
+              name: 'description',
+              type: 'text',
+              title: 'Description',
+            },
+          ],
+        },
+      ],
+    }),
   ],
 
   preview: {
