@@ -64,3 +64,14 @@ export async function loadCulturePosts(start, end, categories) {
     total
   };
 }
+
+export async function loadAboutPage() {
+  const query = `{
+    "aboutInfo": *[_type == "about"] | order(publishedDate desc) [0] {_id, title, subtitle, description, image }
+  }`;
+  const { aboutInfo } = await client.fetch(query);
+
+  return {
+    aboutInfo,
+  };
+}
