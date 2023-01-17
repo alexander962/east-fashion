@@ -179,11 +179,12 @@
     &Images {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
       width: 100%;
     }
 
     &Info {
-      max-width: calc(100% - 320px);
+      max-width: calc(100% - 650px);
       @media screen and (max-width: 1280px) {
         max-width: 100%;
       }
