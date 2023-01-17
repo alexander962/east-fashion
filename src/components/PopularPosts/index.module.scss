@@ -1,35 +1,8 @@
-//.outer {
-//  width: 100%;
-//  display: grid;
-//  margin-bottom: 100px;
-//
-//  grid-template-columns: 33% 1fr 33%;
-//  column-gap: 50px;
-//  grid-template-areas: "first first second"
-//    "third forth forth";
-//
-//  row-gap: 30px;
-//  text-decoration: none;
-//}
-//
-//@media only screen and (max-width: 767px) {
-//  .outer {
-//    grid-template-columns: 1fr;
-//    grid-template-areas: "first" "second"
-//    "third" "forth";
-//  }
-//}
-//
-//.inner:first-child {
-//  grid-area: first;
-//}
-//
-//.inner:last-child {
-//  grid-area: forth;
-//}
-
 .popularPosts {
   margin-bottom: 30px;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 90px;
+  }
 }
 
 .inner {
@@ -80,6 +53,9 @@
 .popularTitle {
   font: 400 32px/120% 'Questrial';
   color: #000000;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 15px;
+  }
 }
 
 .popularDesc {
@@ -117,9 +93,10 @@
   padding: 8px 20px;
 
   a {
-    font: 400 14px/12px  'Arial';
+    font: 400 12px/12px  'Arial';
     color: #ffffff;
     text-decoration: none;
+    text-transform: uppercase;
   }
 }
 

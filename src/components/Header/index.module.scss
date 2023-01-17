@@ -34,6 +34,13 @@
     }
   }
 
+  &__icons {
+    @media screen and (max-width: 768px) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
   &__icons a {
     margin-right: 12px;
     @media screen and (max-width: 768px) {
@@ -57,7 +64,13 @@
     margin-right: 12px;
     cursor: pointer;
     @media screen and (max-width: 768px) {
-      display: none;
+      width: 48px;
+    }
+
+    img {
+      @media screen and (max-width: 768px) {
+        width: 32px;
+      }
     }
   }
 

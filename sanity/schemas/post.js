@@ -28,19 +28,22 @@ export default defineType({
     defineField({
       title: 'Make a post popular?',
       name: 'popular',
-      type: 'boolean'
+      type: 'boolean',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'meta_title',
       title: 'Meta_title',
       type: 'string',
       group: 'meta',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -60,12 +63,14 @@ export default defineType({
       type: 'reference',
       to: {type: 'author'},
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
       group: 'content',
+      validation: (Rule) => Rule.required(),
       options: {
         hotspot: true,
       },
@@ -120,6 +125,7 @@ export default defineType({
       type: 'array',
       of: [{type: 'reference', to: {type: 'category'}}],
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'tags',
@@ -133,6 +139,7 @@ export default defineType({
       title: 'Published at',
       type: 'datetime',
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',
@@ -152,6 +159,7 @@ export default defineType({
       title: 'Body content',
       type: 'array',
       group: 'content',
+      validation: (Rule) => Rule.required(),
       of: [
         {
           type: 'block',
