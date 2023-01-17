@@ -5,6 +5,11 @@
     padding-top: 20px;
   }
 
+  &ArrowLeft {
+    left: 0;
+    top: 265px;
+  }
+
   &HrTop {
     margin: 0 0 30px 0;
     @media screen and (max-width: 768px) {
@@ -125,5 +130,10 @@
 
   &HrFooter {
     margin: 62px 0 40px 0;
+  }
+
+  &SliderWrapper {
+    width: 100%;
+    max-width: 760px;
   }
 }

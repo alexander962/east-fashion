@@ -102,6 +102,19 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'sliderImages',
+      title: 'Slider images',
+      type: 'array',
+      group: 'content',
+      of: [
+        {
+          name: 'sliderImage',
+          title: 'Slider image',
+          type: 'image',
+        },
+      ],
+    }),
+    defineField({
       name: 'categories',
       title: 'Categories',
       type: 'array',
