@@ -29,7 +29,6 @@ export default defineType({
       title: 'Make a post popular?',
       name: 'popular',
       type: 'boolean',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'title',
