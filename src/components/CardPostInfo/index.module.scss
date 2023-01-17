@@ -5,11 +5,6 @@
     padding-top: 20px;
   }
 
-  &ArrowLeft {
-    left: 0;
-    top: 265px;
-  }
-
   &HrTop {
     margin: 0 0 30px 0;
     @media screen and (max-width: 768px) {
@@ -45,6 +40,9 @@
 
   &HrBottom {
     margin: 20px 0;
+    @media screen and (max-width: 1024px) {
+      margin: 40px 0;
+    }
     @media screen and (max-width: 768px) {
       display: none;
     }
@@ -54,6 +52,9 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    @media screen and (max-width: 768px) {
+      margin-top: 50px;
+    }
 
     &Img {
       margin-right: 10px;
