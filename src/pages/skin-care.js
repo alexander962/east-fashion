@@ -4,7 +4,6 @@ import Head from 'next/head';
 import { loadCulturePosts } from './api/posts';
 import Category from '@/components/Category';
 import { Footer, Header, Section } from '@/components';
-import SearchBar from '@/components/SearchBar/SearchBar';
 import ModalMenu from '@/components/ModalMenu';
 
 const LOAD_MORE_STEP = 4;
