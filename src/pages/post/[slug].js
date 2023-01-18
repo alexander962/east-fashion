@@ -9,7 +9,6 @@ import ModalMenu from '@/components/ModalMenu';
 const PostInfo = ({ post }) => {
   const date = format(new Date(post?.publishedAt), 'dd MMM yyyy')
   const [modalVisible, setModalVisible] = useState(false);
-  console.log(post);
 
   return (
     <Section>
@@ -27,7 +26,7 @@ const PostInfo = ({ post }) => {
 export default PostInfo;
 
 export async function getStaticPaths() {
-  // const query = `*[type == "post"]{_id, slug { current } publishedAt, body, title, slug, description, mainImage, additionalImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments, sliderImages, "author": author->{name, image}} {
+  // const query = `*[type == "post"] {
   //   slug {
   //     current
   //   }
@@ -47,14 +46,17 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params: {slug} }) {
+export async function getStaticProps(props) {
+  console.log(props);
+  const { params: {slug} } = props;
   const query = `*[_type == "post" && slug.current == '${slug}']{_id, publishedAt, body, title, slug, description, mainImage, additionalImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments, sliderImages, "author": author->{name, image}}[0]`
 
   const post = await client.fetch(query);
 
   return {
     props: {
-      post
-    }
+      post,
+    },
+    revalidate: 10,
   }
 }

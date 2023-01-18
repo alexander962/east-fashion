@@ -10,10 +10,10 @@ const Posts = ({posts}) => {
         let classVariant = post.additionalImage ? 3 : index % 2 ? 1 : 2;
 
         return (
-          <>
-            <Post key={post?._id} post={post} classVariant={classVariant}/>
+          <div key={post?._id}>
+            <Post post={post} classVariant={classVariant}/>
             <hr />
-          </>
+          </div>
         );
       })}
     </div>
