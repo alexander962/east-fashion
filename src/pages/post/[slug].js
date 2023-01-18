@@ -27,7 +27,7 @@ const PostInfo = ({ className, post }) => {
 export default PostInfo;
 
 export async function getStaticPaths() {
-  const query = `*[type == "post"] {
+  const query = `*[type == "post"]{_id, publishedAt, body, title, slug, description, mainImage, additionalImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments, sliderImages, "author": author->{name, image}} {
     slug {
       current
     }
