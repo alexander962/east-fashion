@@ -199,8 +199,16 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: 'popularity',
+      title: 'Popularity',
+      type: 'number',
+      group: 'content',
+    }),
   ],
-
+  initialValue: {
+    popularity: 0,
+  },
   preview: {
     select: {
       title: 'title',

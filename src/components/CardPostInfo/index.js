@@ -74,9 +74,6 @@ const CardPostInfo = ({ post }) => {
   useEffect(() => {
     const newComment = {
       _key: nanoid(),
-      name: inputName,
-      publishedComment: new Date(),
-      description: inputComment,
     }
 
     const mutations = [
@@ -84,7 +81,6 @@ const CardPostInfo = ({ post }) => {
         patch: {
           id: post._id,
           insert: {
-            after: "comments[-1]",
             items: [newComment]
           }
         },
