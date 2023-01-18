@@ -6,7 +6,7 @@ import { loadFavouritesPosts, loadPopularPosts, loadPosts } from './api/posts';
 import MainPage from '@/components/MainPage';
 import ModalMenu from '@/components/ModalMenu';
 
-const LOAD_MORE_STEP = 6;
+const LOAD_MORE_STEP = 4;
 export default function Home({ initialPosts, total, favouritesPosts, popularPosts }) {
   const [posts, setPosts] = useState(initialPosts);
   const [totalPosts, setTotalPosts] = useState(total);
