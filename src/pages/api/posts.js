@@ -45,8 +45,16 @@ export async function loadPopularPosts() {
   const query = `{
     "popularPosts": *[_type == "post" && popular == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments}
   }`;
+  const queryCount = `{
+    "popularPostsCount": *[_type == "post" && popular == false && !(_id match "drafts*")] | order(popularity desc) [0...6] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments}
+  }`;
   const { popularPosts } = await client.fetch(query);
-
+  const { popularPostsCount } = await client.fetch(queryCount);
+  let count = 0;
+  for (let i = popularPosts.length; i <= 6; i++ ) {
+    popularPosts.push(popularPostsCount[count]);
+    count++;
+  }
   return {
     popularPosts,
   };
