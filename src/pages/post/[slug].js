@@ -46,7 +46,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: {slug} }) {
-  const query = `*[_type == "post" && slug.current == '${slug}'][0]`
+  // const query = `*[_type == "post" && slug.current == '${slug}'][0]`
+  const query = `*[_type == "post" && slug.current == '${slug}']{_id, publishedAt, body, title, slug, description, mainImage, additionalImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments, sliderImages, "author": author->{name, image}}[0]`
 
   const post = await client.fetch(query);
 

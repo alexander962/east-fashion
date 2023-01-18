@@ -11,7 +11,7 @@ import youtube from 'src/assets/images/youtube.svg';
 import styles from './index.module.scss';
 import { client } from '~/lib/client';
 import ModalMenu from '@/components/ModalMenu';
-const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true, setVisiblePopularsPosts = true }) => {
+const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true, setVisiblePopularsPosts }) => {
   const [inputText, setInputText] = useState('');
   const [inputVisible, setInputVisible] = useState(false);
 
