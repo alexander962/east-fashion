@@ -44,7 +44,7 @@ const PopularPosts = ({ posts }) => {
         {
           posts.map((post, index) => {
             return (
-              <div className={cl(styles.inner, index % 2 && styles.innerBig)}>
+              <div className={cl(styles.inner, index % 2 && styles.innerBig)} key={post?._id}>
                 <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.popularPost)}>
                   <div className={cl(styles.popularPost)}>
                     <div className={cl(styles.popularImg)}>

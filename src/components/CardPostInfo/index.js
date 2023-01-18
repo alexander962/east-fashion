@@ -100,8 +100,8 @@ const CardPostInfo = ({ post }) => {
           post?.sliderImages ?
             <Slider {...settings}>
               {
-                post?.sliderImages.map((image) => (
-                  <div className={cl(styles.cardImg)}>
+                post?.sliderImages.map((image, index) => (
+                  <div className={cl(styles.cardImg)} key={`image${index}`}>
                     <img src={urlFor(image).url()} alt='' />
                   </div>
                 ))
@@ -142,14 +142,14 @@ const CardPostInfo = ({ post }) => {
         />
         <button className={cl(styles.cardBtn)} onClick={handleNewComment}>SEND</button>
         {
-          post?.comments && post?.comments.map((comment => (
-            <div className={cl(styles.cardComment)}>
+          post?.comments && post?.comments.map((comment, index) => (
+            <div className={cl(styles.cardComment)} key={`comment${index}`}>
               <hr className={cl(styles.cardCommentHr)} />
               <h4>{comment?.name}</h4>
               <span>{format(new Date(comment?.publishedComment), 'MMM dd,yyyy')}</span>
               <p>{comment?.description}</p>
             </div>
-          )))
+          ))
         }
       </div>
       <hr className={cl(styles.cardHrFooter)} />

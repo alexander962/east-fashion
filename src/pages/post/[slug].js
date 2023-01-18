@@ -7,7 +7,7 @@ import Head from "next/head";
 import CardPostInfo from '@/components/CardPostInfo';
 import ModalMenu from '@/components/ModalMenu';
 const PostInfo = ({ post }) => {
-  const date = format(new Date(post.publishedAt), 'dd MMM yyyy')
+  const date = format(new Date(post?.publishedAt), 'dd MMM yyyy')
   const [modalVisible, setModalVisible] = useState(false);
   console.log(post);
 

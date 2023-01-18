@@ -11,7 +11,7 @@ const Posts = ({posts}) => {
 
         return (
           <>
-            <Post key={post._id} post={post} classVariant={classVariant} />
+            <Post key={post?._id} post={post} classVariant={classVariant}/>
             <hr />
           </>
         );

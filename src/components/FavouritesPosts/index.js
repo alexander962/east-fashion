@@ -45,7 +45,7 @@ const FavouritesPosts = ({ posts }) => {
           posts.map((post, index) => {
             if (index < 6) {
               return (
-                <div className={cl(styles.inner, index % 2 && styles.innerSmall)}>
+                <div className={cl(styles.inner, index % 2 && styles.innerSmall)} key={post._id}>
                   <Link href={`/favouritesPost/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.favouritesPost)}>
                     <a className={cl(styles.favouritesPost)}>
                       <div className={cl(styles.favouritesImg)}>
