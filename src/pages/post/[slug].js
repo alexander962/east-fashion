@@ -6,7 +6,7 @@ import {format} from "date-fns";
 import Head from "next/head";
 import CardPostInfo from '@/components/CardPostInfo';
 import ModalMenu from '@/components/ModalMenu';
-const PostInfo = ({ className, post }) => {
+const PostInfo = ({ post }) => {
   const date = format(new Date(post.publishedAt), 'dd MMM yyyy')
   const [modalVisible, setModalVisible] = useState(false);
   console.log(post);
@@ -27,11 +27,12 @@ const PostInfo = ({ className, post }) => {
 export default PostInfo;
 
 export async function getStaticPaths() {
-  const query = `*[type == "post"]{_id, publishedAt, body, title, slug, description, mainImage, additionalImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments, sliderImages, "author": author->{name, image}} {
-    slug {
-      current
-    }
-  }`;
+  // const query = `*[type == "post"]{_id, slug { current } publishedAt, body, title, slug, description, mainImage, additionalImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments, sliderImages, "author": author->{name, image}} {
+  //   slug {
+  //     current
+  //   }
+  // }`;
+  const query = `*[type == "post"]{_id, slug { current }, publishedAt, body, title, slug, description, mainImage, additionalImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments, sliderImages, "author": author->{name, image}}`;
 
   const posts = await client.fetch(query);
   const paths = posts.map(post => ({
