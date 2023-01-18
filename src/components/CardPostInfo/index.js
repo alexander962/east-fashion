@@ -81,7 +81,9 @@ const CardPostInfo = ({ post }) => {
         patch: {
           id: post._id,
           insert: {
-            items: [newComment]
+            inc: {
+              "popularity": 1
+            }
           }
         },
       },
