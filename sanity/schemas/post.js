@@ -170,8 +170,8 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'commentaries',
-      title: 'Commentaries',
+      name: 'comments',
+      title: 'comments',
       type: 'array',
       group: 'content',
       of: [

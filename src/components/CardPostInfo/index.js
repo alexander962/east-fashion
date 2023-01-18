@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid'
 import cl from 'classnames'
 import { format } from "date-fns";
@@ -11,7 +11,6 @@ import Slider from 'react-slick';
 import leftArrow from '@/assets/images/arrow-left.svg';
 import rightArrow from '@/assets/images/arrow-right.svg';
 const CardPostInfo = ({ post }) => {
-  console.log(post);
   const date = format(new Date(post.publishedAt), 'dd MMM yyyy');
   const [inputName, setInputName] = useState('');
   const [inputComment, setInputComment] = useState('');
@@ -72,6 +71,29 @@ const CardPostInfo = ({ post }) => {
     ]
   };
 
+  useEffect(() => {
+    const newComment = {
+      _key: nanoid(),
+      name: inputName,
+      publishedComment: new Date(),
+      description: inputComment,
+    }
+
+    const mutations = [
+      {
+        patch: {
+          id: post._id,
+          insert: {
+            after: "comments[-1]",
+            items: [newComment]
+          }
+        },
+      },
+    ]
+
+    client.mutate(mutations[0]);
+  }, [])
+
   return (
     <div className={cl(styles.card)}>
       <hr className={cl(styles.cardHrTop)} />
@@ -120,7 +142,7 @@ const CardPostInfo = ({ post }) => {
         />
         <button className={cl(styles.cardBtn)} onClick={handleNewComment}>SEND</button>
         {
-          post.commentaries && post.commentaries.map((comment => (
+          post.comments && post.comments.map((comment => (
             <div className={cl(styles.cardComment)}>
               <hr className={cl(styles.cardCommentHr)} />
               <h4>{comment.name}</h4>

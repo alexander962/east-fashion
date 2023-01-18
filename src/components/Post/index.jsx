@@ -11,7 +11,7 @@ const Post = ({className, post, classVariant = 1}) => {
   const date = format(new Date(publishedAt), 'MMM dd,yyyy');
 
   return (
-    <Link href={`/post/${encodeURIComponent(slug.current)}`} className={cl(className, styles.post)}>
+    <Link onClick={() => console.log('Hello!')} href={`/post/${encodeURIComponent(slug.current)}`} className={cl(className, styles.post)} >
       <div className={cl(styles.post, classVariant === 2 && styles.postLeft, classVariant === 3 && styles.postTwo)}>
         <div className={cl(styles.postInfo, classVariant === 2 && styles.postLeftInfo, classVariant === 3 && styles.postTwoInfo)}>
           <p className={cl(styles.postDate, classVariant === 2 && styles.postLeftDate)}>{date}</p>
