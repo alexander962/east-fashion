@@ -11,7 +11,7 @@ import Slider from 'react-slick';
 import leftArrow from '@/assets/images/arrow-left.svg';
 import rightArrow from '@/assets/images/arrow-right.svg';
 const CardPostInfo = ({ post }) => {
-  const date = format(new Date(post.publishedAt), 'dd MMM yyyy');
+  const date = format(new Date(post?.publishedAt), 'dd MMM yyyy');
   const [inputName, setInputName] = useState('');
   const [inputComment, setInputComment] = useState('');
   const handleNewComment = () => {
@@ -89,8 +89,12 @@ const CardPostInfo = ({ post }) => {
   return (
     <div className={cl(styles.card)}>
       <hr className={cl(styles.cardHrTop)} />
-      <p className={cl(styles.cardDate)}>{date}</p>
-      <Title>{post.title}</Title>
+      {
+        date && (
+          <p className={cl(styles.cardDate)}>{date}</p>
+        )
+      }
+      <Title>{post?.title}</Title>
       <div className={cl(styles.cardInfo)}>
         {
           post?.sliderImages ?
@@ -117,7 +121,7 @@ const CardPostInfo = ({ post }) => {
             <h4>{post?.author?.name}</h4>
           </div>
         </div>
-        <Content body={post.body} />
+        <Content body={post?.body} />
         <h3 className={cl(styles.cardSubtitle)}>Join discussion:</h3>
         <input
           className={cl(styles.cardInput)}
@@ -134,12 +138,12 @@ const CardPostInfo = ({ post }) => {
         />
         <button className={cl(styles.cardBtn)} onClick={handleNewComment}>SEND</button>
         {
-          post.comments && post.comments.map((comment => (
+          post?.comments && post?.comments.map((comment => (
             <div className={cl(styles.cardComment)}>
               <hr className={cl(styles.cardCommentHr)} />
-              <h4>{comment.name}</h4>
-              <span>{format(new Date(comment.publishedComment), 'MMM dd,yyyy')}</span>
-              <p>{comment.description}</p>
+              <h4>{comment?.name}</h4>
+              <span>{format(new Date(comment?.publishedComment), 'MMM dd,yyyy')}</span>
+              <p>{comment?.description}</p>
             </div>
           )))
         }

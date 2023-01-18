@@ -49,7 +49,7 @@ const ModalMenu = ({ modalVisible, setModalVisible }) => {
         </div>
       </div>
       <div>
-        <img src={close.src} onClick={() => setModalVisible(false)}  />
+        <img src={close.src} onClick={() => setModalVisible(false)} alt='' />
       </div>
     </div>
   )

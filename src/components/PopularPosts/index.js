@@ -45,10 +45,10 @@ const PopularPosts = ({ posts }) => {
           posts.map((post, index) => {
             return (
               <div className={cl(styles.inner, index % 2 && styles.innerBig)}>
-                <Link href={`/post/${encodeURIComponent(post.slug.current)}`} className={cl(styles.popularPost)}>
+                <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.popularPost)}>
                   <div className={cl(styles.popularPost)}>
                     <div className={cl(styles.popularImg)}>
-                      <img src={urlFor(post.mainImage).url()} alt='' />
+                      <img src={urlFor(post?.mainImage).url()} alt='' />
                       <div className={cl(styles.popularTag)}>
                         <Link href={`/tags/${encodeURIComponent(post?.tags[0]?.title)}`}>
                           <a>
@@ -57,7 +57,7 @@ const PopularPosts = ({ posts }) => {
                         </Link>
                       </div>
                     </div>
-                    <h3 className={cl(styles.popularTitle)}>{post.title}</h3>
+                    <h3 className={cl(styles.popularTitle)}>{post?.title}</h3>
                   </div>
                 </Link>
               </div>

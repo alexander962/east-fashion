@@ -4,15 +4,21 @@ import cl from 'classnames';
 
 import { clientConfig } from "~/lib/client";
 import styles from './index.module.scss';
-const Content = ({className, body}) => {
+const Content = ({ body }) => {
   return (
-    <BlockContent
-      blocks={body}
-      imageOptions={{w: 1000, h: 750, fit: 'max'}}
-      projectId={clientConfig.projectId}
-      dataset={clientConfig.dataset}
-      className={cl(styles.content)}
-    />
+    <>
+      {
+        body && (
+          <BlockContent
+            blocks={body}
+            imageOptions={{w: 1000, h: 750, fit: 'max'}}
+            projectId={clientConfig.projectId}
+            dataset={clientConfig.dataset}
+            className={cl(styles.content)}
+          />
+        )
+      }
+    </>
   )
 }
 
