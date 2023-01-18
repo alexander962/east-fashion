@@ -72,24 +72,24 @@ const CardPostInfo = ({ post }) => {
   };
 
   useEffect(() => {
-    const newComment = {
-      _key: nanoid(),
-    }
-
-    const mutations = [
-      {
-        patch: {
-          id: post._id,
-          insert: {
-            inc: {
-              "popularity": 1
-            }
-          }
-        },
-      },
-    ]
-
-    client.mutate(mutations[0]);
+    // const newComment = {
+    //   _key: nanoid(),
+    // }
+    //
+    // const mutations = [
+    //   {
+    //     patch: {
+    //       id: post._id,
+    //       insert: {
+    //         "inc": {
+    //           "popularity": 1
+    //         }
+    //       }
+    //     },
+    //   },
+    // ]
+    //
+    // client.mutate(mutations[0]);
   }, [])
 
   return (
