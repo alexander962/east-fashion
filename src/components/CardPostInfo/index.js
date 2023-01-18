@@ -77,7 +77,7 @@ const CardPostInfo = ({ post }) => {
         patch: {
           id: post._id,
           inc: {
-            "popularity": 0.5
+            "popularity": 1
           }
         },
       },
@@ -100,7 +100,7 @@ const CardPostInfo = ({ post }) => {
           post?.sliderImages ?
             <Slider {...settings}>
               {
-                post.sliderImages.map((image) => (
+                post?.sliderImages.map((image) => (
                   <div className={cl(styles.cardImg)}>
                     <img src={urlFor(image).url()} alt='' />
                   </div>

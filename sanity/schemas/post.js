@@ -207,7 +207,7 @@ export default defineType({
     }),
   ],
   initialValue: {
-    popularity: 0,
+    popularity: 1,
   },
   preview: {
     select: {
