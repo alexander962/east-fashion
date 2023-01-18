@@ -10,13 +10,14 @@ const PostInfo = ({ post }) => {
   const date = format(new Date(post?.publishedAt), 'dd MMM yyyy')
   const [modalVisible, setModalVisible] = useState(false);
 
+
   return (
     <Section>
       <Head>
         <title>My blog</title>
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
-      <Header searchVisible={false} />
+      <Header searchVisible={false} setModalVisible={setModalVisible} />
       <CardPostInfo post={post} />
       <Footer />
     </Section>
