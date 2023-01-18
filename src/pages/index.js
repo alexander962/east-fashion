@@ -11,6 +11,7 @@ export default function Home({ initialPosts, total, favouritesPosts, popularPost
   const [posts, setPosts] = useState(initialPosts);
   const [totalPosts, setTotalPosts] = useState(total);
   const [modalVisible, setModalVisible] = useState(false);
+  const [visiblePopularsPosts, setVisiblePopularsPosts] = useState(true);
 
   return (
     <Section>
@@ -21,8 +22,8 @@ export default function Home({ initialPosts, total, favouritesPosts, popularPost
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
-      <Header setPosts={setPosts} setTotalPosts={setTotalPosts} setModalVisible={setModalVisible} />
-      <MainPage posts={posts} setPosts={setPosts} total={totalPosts} favouritesPosts={favouritesPosts} popularPosts={popularPosts} />
+      <Header setPosts={setPosts} setTotalPosts={setTotalPosts} setModalVisible={setModalVisible} setVisiblePopularsPosts={setVisiblePopularsPosts} />
+      <MainPage posts={posts} setPosts={setPosts} total={totalPosts} favouritesPosts={favouritesPosts} popularPosts={popularPosts} visiblePopularsPosts={visiblePopularsPosts} />
       <Footer />
     </Section>
   );

@@ -11,7 +11,7 @@ import youtube from 'src/assets/images/youtube.svg';
 import styles from './index.module.scss';
 import { client } from '~/lib/client';
 import ModalMenu from '@/components/ModalMenu';
-const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true }) => {
+const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true, setVisiblePopularsPosts = true }) => {
   const [inputText, setInputText] = useState('');
   const [inputVisible, setInputVisible] = useState(false);
 
@@ -20,8 +20,8 @@ const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true
       "searchPosts": *[_type=="post" && !(_id match "drafts*") && ((pt::text(body) match "${inputText}") || title match "${inputText}" || description match "${inputText}")] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments}
       }`;
     const { searchPosts } = await client.fetch(query);
-    console.log(searchPosts);
     setPosts(searchPosts);
+    setVisiblePopularsPosts(false);
     setInputText('');
     setTotalPosts(0);
   }
