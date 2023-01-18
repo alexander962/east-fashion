@@ -113,9 +113,13 @@ const CardPostInfo = ({ post }) => {
         }
         <hr className={cl(styles.cardHrBottom)} />
         <div className={cl(styles.cardAuthor)}>
-          <div className={cl(styles.cardAuthorImg)}>
-            <img src={urlFor(post?.author?.image).url()} alt='' />
-          </div>
+          {
+            post?.author?.image && (
+              <div className={cl(styles.cardAuthorImg)}>
+                <img src={urlFor(post?.author?.image).url()} alt='' />
+              </div>
+            )
+          }
           <div>
             <span>Posted by</span>
             <h4>{post?.author?.name}</h4>
