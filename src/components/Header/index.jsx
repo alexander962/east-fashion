@@ -10,8 +10,10 @@ import twitter from 'src/assets/images/twitter.svg';
 import youtube from 'src/assets/images/youtube.svg';
 import styles from './index.module.scss';
 import { client } from '~/lib/client';
-import ModalMenu from '@/components/ModalMenu';
 import cl from 'classnames';
+import { loadPosts } from '@/pages/api/posts';
+
+const LOAD_MORE_STEP = 4;
 const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true, setVisiblePopularsPosts }) => {
   const [inputText, setInputText] = useState('');
   const [inputVisible, setInputVisible] = useState(false);
@@ -37,11 +39,21 @@ const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true
     setInputVisible(false);
   }
 
+  const handleClickLogo = async() => {
+    const { posts, total } = await loadPosts(0, LOAD_MORE_STEP);
+    setPosts(posts);
+    setVisiblePopularsPosts(true);
+    setInputText('');
+    setTotalPosts(total);
+    setInputText('');
+    setInputVisible(false);
+  }
+
   return (
     <>
       <nav className={styles.header}>
-        <div className={styles.header__logo}>
-          <Link href={'/'}>
+        <div className={styles.header__logo} onClick={handleClickLogo}>
+          <Link href={'/'} >
             <a>
               <img src={logo.src} alt='' />
             </a>
