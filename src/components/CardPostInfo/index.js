@@ -5,7 +5,6 @@ import { format } from "date-fns";
 import { client, urlFor } from '~/lib/client';
 
 import { Content, Title } from "@/components";
-import avatar from "src/assets/images/avatar.png"
 import styles from './index.module.scss';
 import Slider from 'react-slick';
 import leftArrow from '@/assets/images/arrow-left.svg';

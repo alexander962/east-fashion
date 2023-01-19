@@ -30,12 +30,14 @@ export default defineType({
       title: 'Title',
       type: 'string',
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'meta_title',
       title: 'Meta_title',
       type: 'string',
       group: 'meta',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -55,10 +57,32 @@ export default defineType({
       type: 'reference',
       to: {type: 'author'},
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'mainImage',
       title: 'Main image',
+      type: 'image',
+      group: 'content',
+      validation: (Rule) => Rule.required(),
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          group: 'content',
+          options: {
+            isHighlighted: true, // <-- make this field easily accessible
+          },
+        },
+      ],
+    }),
+    defineField({
+      name: 'additionalImage',
+      title: 'Additional image',
       type: 'image',
       group: 'content',
       options: {
@@ -77,17 +101,32 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'sliderImages',
+      title: 'Slider images',
+      type: 'array',
+      group: 'content',
+      of: [
+        {
+          name: 'sliderImage',
+          title: 'Slider image',
+          type: 'image',
+        },
+      ],
+    }),
+    defineField({
       name: 'categories',
       title: 'Categories',
       type: 'array',
       of: [{type: 'reference', to: {type: 'category'}}],
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',
@@ -107,6 +146,7 @@ export default defineType({
       title: 'Body content',
       type: 'array',
       group: 'content',
+      validation: (Rule) => Rule.required(),
       of: [
         {
           type: 'block',
@@ -117,8 +157,46 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: 'comments',
+      title: 'comments',
+      type: 'array',
+      group: 'content',
+      of: [
+        {
+          name: 'commentary',
+          title: 'Commentary',
+          type: 'document',
+          fields: [
+            {
+              name: 'name',
+              type: 'string',
+              title: 'Name',
+            },
+            {
+              name: 'publishedComment',
+              title: 'Published Comment',
+              type: 'datetime',
+            },
+            {
+              name: 'description',
+              type: 'text',
+              title: 'Description',
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'popularity',
+      title: 'Popularity',
+      type: 'number',
+      group: 'content',
+    }),
   ],
-
+  initialValue: {
+    popularity: 1,
+  },
   preview: {
     select: {
       title: 'title',

@@ -32,7 +32,7 @@ export async function loadPosts(start, end) {
 
 export async function loadFavouritesPosts() {
   const query = `{
-    "favouritesPosts": *[_type == "favouritesPosts" && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments, "author": author->{name, image}}
+    "favouritesPosts": *[_type == "favouritesPosts" && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, body, slug, description, mainImage, "categories": categories[]->{title}, comments, "author": author->{name, image}}
   }`;
   const { favouritesPosts } = await client.fetch(query);
 
