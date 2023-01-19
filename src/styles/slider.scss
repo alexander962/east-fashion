@@ -11,6 +11,10 @@
   display: none;
 }
 
+.slick-slider .slick-track {
+  display: flex;
+}
+
 .cardArrowLeft {
   position: absolute;
   top: 265px;
