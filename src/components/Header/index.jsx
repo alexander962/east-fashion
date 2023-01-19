@@ -14,7 +14,6 @@ import ModalMenu from '@/components/ModalMenu';
 const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true, setVisiblePopularsPosts }) => {
   const [inputText, setInputText] = useState('');
   const [inputVisible, setInputVisible] = useState(false);
-
   const handleClickButton = async () => {
     const query = `{
       "searchPosts": *[_type=="post" && !(_id match "drafts*") && ((pt::text(body) match "${inputText}") || title match "${inputText}" || description match "${inputText}")] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments}
@@ -24,6 +23,12 @@ const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true
     setVisiblePopularsPosts(false);
     setInputText('');
     setTotalPosts(0);
+  }
+
+  const handleKeyUp = (e) => {
+    if (e.keyCode === 13) {
+      handleClickButton();
+    }
   }
 
   const handleClickClose = () => {
@@ -49,6 +54,7 @@ const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true
             <input
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
+              onKeyUp={(e) => handleKeyUp(e)}
               placeholder='search'
             />
             <div onClick={handleClickClose} className={styles.header__inputBlock_img}>
