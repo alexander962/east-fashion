@@ -49,13 +49,17 @@ const PopularPosts = ({ posts }) => {
                   <div className={cl(styles.popularPost)}>
                     <div className={cl(styles.popularImg)}>
                       <img src={urlFor(post?.mainImage).url()} alt='' />
-                      <div className={cl(styles.popularTag)}>
-                        <Link href={`/tags/${encodeURIComponent(post?.tags[0]?.title)}`}>
-                          <a>
-                            {"#" + post?.tags[0]?.title}
-                          </a>
-                        </Link>
-                      </div>
+                      {
+                        post?.tags && (
+                          <div className={cl(styles.popularTag)}>
+                            <Link href={`/tags/${encodeURIComponent(post?.tags[0]?.title)}`}>
+                              <a>
+                                {"#" + post?.tags[0]?.title}
+                              </a>
+                            </Link>
+                          </div>
+                        )
+                      }
                     </div>
                     <h3 className={cl(styles.popularTitle)}>{post?.title}</h3>
                   </div>
