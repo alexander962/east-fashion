@@ -51,7 +51,7 @@ export async function loadPopularPosts() {
   const { popularPosts } = await client.fetch(query);
   const { popularPostsCount } = await client.fetch(queryCount);
   let count = 0;
-  for (let i = popularPosts.length; i <= 6; i++ ) {
+  for (let i = popularPosts.length; i < 6; i++ ) {
     popularPosts.push(popularPostsCount[count]);
     count++;
   }
