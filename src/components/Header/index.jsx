@@ -11,6 +11,7 @@ import youtube from 'src/assets/images/youtube.svg';
 import styles from './index.module.scss';
 import { client } from '~/lib/client';
 import ModalMenu from '@/components/ModalMenu';
+import cl from 'classnames';
 const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true, setVisiblePopularsPosts }) => {
   const [inputText, setInputText] = useState('');
   const [inputVisible, setInputVisible] = useState(false);
@@ -37,17 +38,79 @@ const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true
   }
 
   return (
-    <nav className={styles.header}>
-      <div className={styles.header__logo}>
-        <Link href={'/'}>
-          <a>
-            <img src={logo.src} alt='' />
+    <>
+      <nav className={styles.header}>
+        <div className={styles.header__logo}>
+          <Link href={'/'}>
+            <a>
+              <img src={logo.src} alt='' />
+            </a>
+          </Link>
+        </div>
+        {
+          inputVisible ?
+            <div className={cl(styles.header__inputBlock, styles.header__inputBlockDesktop)}>
+              <div onClick={handleClickButton} className={styles.header__inputBlock_img}>
+                <img src={search.src} />
+              </div>
+              <input
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                onKeyUp={(e) => handleKeyUp(e)}
+                placeholder='search'
+              />
+              <div onClick={handleClickClose} className={styles.header__inputBlock_img}>
+                <img src={close.src} />
+              </div>
+            </div> :
+            <div className={styles.header__menu}>
+              <Link href={'/interviews'}>
+                <a>
+                  Interviews
+                </a>
+              </Link>
+              <Link href={'/skin-care'}>
+                <a>
+                  Skin Care
+                </a>
+              </Link>
+              <Link href={'/culture'}>
+                <a>
+                  Culture
+                </a>
+              </Link>
+              <Link href={'/about'}>
+                <a>
+                  About us
+                </a>
+              </Link>
+            </div>
+        }
+
+        <div className={styles.header__icons}>
+          {
+            searchVisible &&
+            <div className={styles.header__iconSearch} onClick={() => setInputVisible(true)}>
+              <img src={search.src} alt='' />
+            </div>
+          }
+          <div className={styles.header__iconBurger} onClick={() => setModalVisible(true)}>
+            <img src={burger.src} alt='' />
+          </div>
+          <a href='#' target='_blank'>
+            <img src={facebook.src} alt='' />
           </a>
-        </Link>
-      </div>
+          <a href='#' target='_blank'>
+            <img src={twitter.src} alt='' />
+          </a>
+          <a href='#' target='_blank'>
+            <img src={youtube.src} alt='' />
+          </a>
+        </div>
+      </nav>
       {
-        inputVisible ?
-          <div className={styles.header__inputBlock}>
+        inputVisible && (
+          <div className={cl(styles.header__inputBlock, styles.header__inputBlockMobile)}>
             <div onClick={handleClickButton} className={styles.header__inputBlock_img}>
               <img src={search.src} />
             </div>
@@ -60,52 +123,10 @@ const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true
             <div onClick={handleClickClose} className={styles.header__inputBlock_img}>
               <img src={close.src} />
             </div>
-          </div> :
-          <div className={styles.header__menu}>
-            <Link href={'/interviews'}>
-              <a>
-                Interviews
-              </a>
-            </Link>
-            <Link href={'/skin-care'}>
-              <a>
-                Skin Care
-              </a>
-            </Link>
-            <Link href={'/culture'}>
-              <a>
-                Culture
-              </a>
-            </Link>
-            <Link href={'/about'}>
-              <a>
-                About us
-              </a>
-            </Link>
           </div>
+        )
       }
-
-      <div className={styles.header__icons}>
-        {
-          searchVisible &&
-          <div className={styles.header__iconSearch} onClick={() => setInputVisible(true)}>
-            <img src={search.src} alt='' />
-          </div>
-        }
-        <div className={styles.header__iconBurger} onClick={() => setModalVisible(true)}>
-          <img src={burger.src} alt='' />
-        </div>
-        <a href='#' target='_blank'>
-          <img src={facebook.src} alt='' />
-        </a>
-        <a href='#' target='_blank'>
-          <img src={twitter.src} alt='' />
-        </a>
-        <a href='#' target='_blank'>
-          <img src={youtube.src} alt='' />
-        </a>
-      </div>
-    </nav>
+    </>
   )
 }
 
