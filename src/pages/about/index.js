@@ -11,24 +11,24 @@ const About = ({aboutInfo}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <div>
-      <div className={cl(styles.aboutWrapper, styles.aboutWrapperHeader)}>
+    <Section>
+      {/*<div className={cl(styles.aboutWrapper, styles.aboutWrapperHeader)}>*/}
         <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
         <Header setModalVisible={setModalVisible} searchVisible={false} />
+      {/*</div>*/}
+      <div className={cl(styles.aboutImg)} >
+        <img src={urlFor(aboutInfo.image).url()} alt='' />
       </div>
-      <div className={cl(styles.aboutImg)} style={{backgroundImage: `url(${urlFor(aboutInfo.image).url()})`}}>
-        {aboutInfo.subtitle}
-      </div>
-      <div className={cl(styles.aboutWrapper)}>
+      {/*<div className={cl(styles.aboutWrapper)}>*/}
         <span className={cl(styles.aboutName)}>About us</span>
         <hr className={cl(styles.aboutHr)} />
         <p className={cl(styles.aboutTitle)}>{aboutInfo.title}</p>
         <p className={cl(styles.aboutDescription)}> {aboutInfo.description} </p>
-      </div>
-      <div className={cl(styles.aboutWrapper, styles.aboutWrapperFooter)}>
+      {/*</div>*/}
+      {/*<div className={cl(styles.aboutWrapper, styles.aboutWrapperFooter)}>*/}
         <Footer subscribe={false} />
-      </div>
-    </div>
+      {/*</div>*/}
+    </Section>
   )
 }
 

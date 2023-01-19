@@ -86,7 +86,7 @@ export async function loadTagPosts(tag) {
 
 export async function loadAboutPage() {
   const query = `{
-    "aboutInfo": *[_type == "about"] | order(publishedDate desc) [0] {_id, title, subtitle, description, image }
+    "aboutInfo": *[_type == "about"] | order(publishedDate desc) [0] {_id, title, description, image }
   }`;
   const { aboutInfo } = await client.fetch(query);
 
