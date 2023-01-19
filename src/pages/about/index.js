@@ -10,6 +10,9 @@ import { urlFor } from '~/lib/client';
 import Head from 'next/head';
 const About = ({aboutInfo}) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [totalPosts, setTotalPosts] = useState(0);
+  const [visiblePopularsPosts, setVisiblePopularsPosts] = useState(true);
 
   return (
     <Section>
@@ -20,7 +23,7 @@ const About = ({aboutInfo}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
-      <Header setModalVisible={setModalVisible} searchVisible={false} />
+      <Header setModalVisible={setModalVisible} searchVisible={false} setPosts={setPosts} setVisiblePopularsPosts={setVisiblePopularsPosts} setTotalPosts={setTotalPosts} />
       <div className={cl(styles.aboutImg)} >
         <img src={urlFor(aboutInfo.image).url()} alt='' />
       </div>
