@@ -208,6 +208,7 @@ export default defineType({
   ],
   initialValue: {
     popularity: 1,
+    comments: [{}],
   },
   preview: {
     select: {

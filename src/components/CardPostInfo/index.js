@@ -26,7 +26,7 @@ const CardPostInfo = ({ post }) => {
         patch: {
           id: post._id,
           insert: {
-            after: "comments[-1]",
+            after: post?.comments?.length ? "comments[0]" : "comments[-1]",
             items: [newComment]
           }
         },
@@ -34,6 +34,7 @@ const CardPostInfo = ({ post }) => {
     ]
 
     client.mutate(mutations[0]);
+    alert(`Your comment is on moderation now and will appear in a couple of minutes`);
     if (window) {
       window.scrollTo(0, 0);
       window.location.reload();
@@ -71,6 +72,7 @@ const CardPostInfo = ({ post }) => {
   };
 
   useEffect(() => {
+    console.log(post);
     const mutations = [
       {
         patch: {
