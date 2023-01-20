@@ -1,0 +1,13 @@
+.notFound {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 400 32px/120% 'Questrial';
+  color: #000000;
+  text-align: center;
+
+  h1 {
+    font: 700 68px/140% 'Questrial';
+  }
+}
