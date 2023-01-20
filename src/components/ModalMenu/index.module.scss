@@ -21,6 +21,12 @@
   &Menu {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &MenuBlock {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 16px;
 
     a {

@@ -10,8 +10,8 @@ import youtube from '@/assets/images/youtube.svg';
 const ModalMenu = ({ modalVisible, setModalVisible }) => {
   return (
     <div className={cl(styles.modal, modalVisible && styles.modalActive)}>
-      <div>
-        <div className={styles.modalMenu}>
+      <div className={styles.modalMenu}>
+        <div className={styles.modalMenuBlock}>
           <Link href={'/interviews'} onClick={() => setModalVisible(false)}>
             <a>
               Interviews
