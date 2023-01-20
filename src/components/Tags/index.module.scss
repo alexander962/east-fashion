@@ -1,0 +1,20 @@
+.categoryPage {
+  flex-grow: 1;
+  padding: 100px 0 80px;
+  @media screen and (max-width: 768px) {
+    padding: 40px 0;
+  }
+
+  &__header {
+    font: 400 32px/120% 'Questrial';
+    color: #000000;
+  }
+
+  hr {
+    margin: 40px 0;
+  }
+
+  &NotFound {
+    font: 400 40px/120% 'Questrial';
+  }
+}
