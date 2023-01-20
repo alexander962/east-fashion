@@ -28,7 +28,7 @@ const CardPostInfo = ({ post }) => {
           insert: {
             after: post?.comments?.length ? "comments[0]" : "comments[-1]",
             items: [newComment]
-          }
+          },
         },
       },
     ]
