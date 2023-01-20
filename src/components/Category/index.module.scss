@@ -1,6 +1,9 @@
 .categoryPage {
   flex-grow: 1;
   padding: 100px 0 80px;
+  @media screen and (max-width: 768px) {
+    padding: 40px 0;
+  }
 
   &__header {
     font: 400 32px/120% 'Questrial';
