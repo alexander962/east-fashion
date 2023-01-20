@@ -5,6 +5,7 @@ import { loadTagPosts } from '../api/posts';
 import Category from '@/components/Category';
 import { Footer, Header, Section } from '@/components';
 import ModalMenu from '@/components/ModalMenu';
+import Tags from '@/components/Tags';
 
 const LOAD_MORE_STEP = 4;
 export default function Interviews({ initialPosts, total, tag }) {
@@ -23,7 +24,7 @@ export default function Interviews({ initialPosts, total, tag }) {
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
       <Header setPosts={setPosts} setTotalPosts={setTotalPosts} setModalVisible={setModalVisible} setVisiblePopularsPosts={setVisiblePopularsPosts} />
-      <Category posts={posts} setPosts={setPosts} total={totalPosts} category='culture' />
+      <Tags posts={posts} setPosts={setPosts} total={totalPosts} tag={tag} />
       <Footer />
     </Section>
   );
