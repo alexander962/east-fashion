@@ -27,6 +27,8 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, visib
     }
   }
 
+  console.log(posts);
+
   return (
     <main className={cl(styles.mainPage)}>
       {
@@ -37,11 +39,20 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, visib
           </>
         )
       }
-      <div className={cl(styles.mainPage__header)}>
-        <span>Latest posts</span>
-        <hr />
-      </div>
-      <Posts posts={posts} />
+      {
+        posts.length === 0 ? (
+            <div className={cl(styles.mainPageNotFound)}>Articles not found</div>
+          ) : (
+            <>
+              <div className={cl(styles.mainPage__header)}>
+                <span>Latest posts</span>
+                <hr />
+              </div>
+              <Posts posts={posts} />
+            </>
+          )
+      }
+
       {
         isLoadButton &&  (
           <div style={{

@@ -31,11 +31,19 @@ export default function Category({ posts, setPosts, total, category }) {
 
   return (
     <main className={cl(styles.categoryPage)}>
-      <div className={cl(styles.categoryPage__header)}>
-        <span>Latest posts</span>
-        <hr />
-      </div>
-      <Posts posts={posts} />
+      {
+        posts.length === 0 ? (
+          <div className={cl(styles.categoryPageNotFound)}>Articles not found</div>
+        ) : (
+          <>
+            <div className={cl(styles.categoryPage__header)}>
+              <span>Latest posts</span>
+              <hr />
+            </div>
+            <Posts posts={posts} />
+          </>
+        )
+      }
       {
         isLoadButton &&  (
           <div style={{
