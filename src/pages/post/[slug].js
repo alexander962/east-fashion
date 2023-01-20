@@ -1,27 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { client } from '~/lib/client'
 
 import { Footer, Header, Section } from "@/components";
-import {format} from "date-fns";
 import Head from "next/head";
 import CardPostInfo from '@/components/CardPostInfo';
 import ModalMenu from '@/components/ModalMenu';
 const PostInfo = ({ post }) => {
-  const date = format(new Date(post?.publishedAt), 'dd MMM yyyy')
   const [modalVisible, setModalVisible] = useState(false);
   const [posts, setPosts] = useState([]);
   const [totalPosts, setTotalPosts] = useState(0);
   const [visiblePopularsPosts, setVisiblePopularsPosts] = useState(true);
+  const router = useRouter();
 
+  useEffect(() => {
+    if (!post) {
+      router.push('/404');
+    }
+  }, [post]);
 
   return (
     <Section>
       <Head>
-        <title>{post.meta_title}</title>
+        <title>{post?.meta_title}</title>
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
       <Header searchVisible={false} setModalVisible={setModalVisible} setPosts={setPosts} setVisiblePopularsPosts={setVisiblePopularsPosts} setTotalPosts={setTotalPosts} />
-      <CardPostInfo post={post} />
+      {
+        post && <CardPostInfo post={post} />
+      }
       <Footer />
     </Section>
   )

@@ -9,10 +9,12 @@ import styles from './index.module.scss';
 import Slider from 'react-slick';
 import leftArrow from '@/assets/images/arrow-left.svg';
 import rightArrow from '@/assets/images/arrow-right.svg';
+import { useRouter } from 'next/router';
 const CardPostInfo = ({ post }) => {
   const date = format(new Date(post?.publishedAt), 'dd MMM yyyy');
   const [inputName, setInputName] = useState('');
   const [inputComment, setInputComment] = useState('');
+
   const handleNewComment = () => {
     const newComment = {
       _key: nanoid(),
@@ -85,7 +87,7 @@ const CardPostInfo = ({ post }) => {
     ]
 
     client.mutate(mutations[0]);
-  }, [])
+  }, []);
 
   return (
     <div className={cl(styles.card)}>

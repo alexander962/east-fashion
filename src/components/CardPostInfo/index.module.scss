@@ -1,6 +1,7 @@
 .card {
   padding-top: 86px;
   box-sizing: border-box;
+  flex: 1 0 auto;
   @media screen and (max-width: 768px) {
     padding-top: 20px;
   }
