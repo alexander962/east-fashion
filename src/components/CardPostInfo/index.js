@@ -142,6 +142,7 @@ const CardPostInfo = ({ post }) => {
           onChange={(e) => setInputComment(e.target.value)}
           value={inputComment}
           placeholder='Comment'
+          maxLength="800"
         />
         <button className={cl(styles.cardBtn)} onClick={handleNewComment}>SEND</button>
         {
