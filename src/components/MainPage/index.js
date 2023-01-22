@@ -6,7 +6,7 @@ import { Button, Posts } from '@/components';
 import PopularPosts from '@/components/PopularPosts';
 import FavouritesPosts from '@/components/FavouritesPosts';
 const LOAD_MORE_STEP = 4;
-const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, visiblePopularsPosts }) => {
+const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, visiblePopularsPosts, visibleSearchResult }) => {
   const [loading, setLoading] = useState(false);
   const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
 
@@ -27,8 +27,6 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, visib
     }
   }
 
-  console.log(posts);
-
   return (
     <main className={cl(styles.mainPage)}>
       {
@@ -45,7 +43,13 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, visib
           ) : (
             <>
               <div className={cl(styles.mainPage__header)}>
-                <span>Latest posts</span>
+                {
+                  !visibleSearchResult ? (
+                    <span>Latest posts</span>
+                  ) : (
+                    <span>Search results</span>
+                  )
+                }
                 <hr />
               </div>
               <Posts posts={posts} />

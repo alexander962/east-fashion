@@ -6,7 +6,7 @@ import cl from 'classnames';
 import styles from '@/components/Category/index.module.scss';
 
 const LOAD_MORE_STEP = 4;
-export default function Tags({ posts, setPosts, total, tag }) {
+export default function Tags({ posts, setPosts, total, tag, visibleSearchResult }) {
   const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
   const [loading, setLoading] = useState(false);
   const isLoadButton = total > loadedAmount;
@@ -37,7 +37,13 @@ export default function Tags({ posts, setPosts, total, tag }) {
         ) : (
           <>
             <div className={cl(styles.categoryPage__header)}>
-              <span>Post by tag - {`#${tag}`}</span>
+              {
+                !visibleSearchResult ? (
+                  <span>Post by tag - {`#${tag}`}</span>
+                ) : (
+                  <span>Search results</span>
+                )
+              }
               <hr />
             </div>
             <Posts posts={posts} />

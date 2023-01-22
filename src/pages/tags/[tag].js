@@ -13,6 +13,7 @@ export default function Interviews({ initialPosts, total, tag }) {
   const [totalPosts, setTotalPosts] = useState(total);
   const [modalVisible, setModalVisible] = useState(false);
   const [visiblePopularsPosts, setVisiblePopularsPosts] = useState(true);
+  const [visibleSearchResult, setVisibleSearchResult] = useState(false);
 
   return (
     <Section>
@@ -23,8 +24,8 @@ export default function Interviews({ initialPosts, total, tag }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
-      <Header setPosts={setPosts} setTotalPosts={setTotalPosts} setModalVisible={setModalVisible} setVisiblePopularsPosts={setVisiblePopularsPosts} />
-      <Tags posts={posts} setPosts={setPosts} total={totalPosts} tag={tag} />
+      <Header setPosts={setPosts} setTotalPosts={setTotalPosts} setModalVisible={setModalVisible} setVisiblePopularsPosts={setVisiblePopularsPosts} setVisibleSearchResult={setVisibleSearchResult} />
+      <Tags posts={posts} setPosts={setPosts} total={totalPosts} tag={tag} visibleSearchResult={visibleSearchResult} />
       <Footer />
     </Section>
   );

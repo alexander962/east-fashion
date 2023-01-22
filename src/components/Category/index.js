@@ -6,7 +6,7 @@ import cl from 'classnames';
 import styles from '@/components/Category/index.module.scss';
 
 const LOAD_MORE_STEP = 4;
-export default function Category({ posts, setPosts, total, category }) {
+export default function Category({ posts, setPosts, total, category, visibleSearchResult }) {
   const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
   const [loading, setLoading] = useState(false);
   const isLoadButton = total > loadedAmount;
@@ -37,7 +37,13 @@ export default function Category({ posts, setPosts, total, category }) {
         ) : (
           <>
             <div className={cl(styles.categoryPage__header)}>
-              <span>Latest posts</span>
+              {
+                !visibleSearchResult ? (
+                  <span>Latest posts</span>
+                ) : (
+                  <span>Search results</span>
+                )
+              }
               <hr />
             </div>
             <Posts posts={posts} />

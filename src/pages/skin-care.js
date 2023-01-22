@@ -12,6 +12,7 @@ export default function SkinCare({ initialPosts, total }) {
   const [totalPosts, setTotalPosts] = useState(total);
   const [modalVisible, setModalVisible] = useState(false);
   const [visiblePopularsPosts, setVisiblePopularsPosts] = useState(true);
+  const [visibleSearchResult, setVisibleSearchResult] = useState(false);
 
   return (
     <Section>
@@ -22,8 +23,8 @@ export default function SkinCare({ initialPosts, total }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
-      <Header setPosts={setPosts} setTotalPosts={setTotalPosts} setModalVisible={setModalVisible} setVisiblePopularsPosts={setVisiblePopularsPosts} />
-      <Category posts={posts} setPosts={setPosts} total={totalPosts} category='skin-care' />
+      <Header setPosts={setPosts} setTotalPosts={setTotalPosts} setModalVisible={setModalVisible} setVisiblePopularsPosts={setVisiblePopularsPosts} setVisibleSearchResult={setVisibleSearchResult} />
+      <Category posts={posts} setPosts={setPosts} total={totalPosts} category='skin-care' visibleSearchResult={visibleSearchResult} />
       <Footer />
     </Section>
   );

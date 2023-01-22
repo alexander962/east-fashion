@@ -14,10 +14,11 @@ import cl from 'classnames';
 import { loadPosts } from '@/pages/api/posts';
 
 const LOAD_MORE_STEP = 4;
-const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true, setVisiblePopularsPosts }) => {
+const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true, setVisiblePopularsPosts, setVisibleSearchResult }) => {
   const [inputText, setInputText] = useState('');
   const [inputVisible, setInputVisible] = useState(false);
   const handleClickButton = async () => {
+    setVisibleSearchResult(true);
     const query = `{
       "searchPosts": *[_type=="post" && !(_id match "drafts*") && ((pt::text(body) match "${inputText}") || title match "${inputText}" || description match "${inputText}")] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories->{title}, "tags": tags->{title}, comments}
       }`;
