@@ -13,39 +13,39 @@ const Footer = ({subscribe = true}) => {
   const [inputText, setInputText] = useState('');
 
   const handleSignUp = () => {
-    // console.log('valera');
-    // const id = 'd674cb9c-e335-4f31-a3b4-49a4ee894de0';
-    // const newpatch = client
-    //   .patch(id, {"set": {'description': 'generated Valera'}})
-
-    if (window) {
-      window.scrollTo(0, 0);
-    }
-    const mutations = [
-      {
-        patch: {
-          id: "d674cb9c-e335-4f31-a3b4-49a4ee894de0",
-          set: {
-            'description':
-              "Emails",
+    const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    if (reg.test(inputText)) {
+      alert('Subscribed successfully!');
+      const mutations = [
+        {
+          patch: {
+            id: "d674cb9c-e335-4f31-a3b4-49a4ee894de0",
+            set: {
+              'description':
+                "Emails",
+            },
           },
         },
-      },
-      {
-        create: {
-          '_type': 'emails',
-          title: inputText,
+        {
+          create: {
+            '_type': 'emails',
+            title: inputText,
+          }
         }
-      }
-    ]
+      ]
+      client.mutate(mutations[1]);
+      setInputText('');
+    } else {
+      alert('Enter a valid email, for example: example@mail.com');
+    }
 
-    client.mutate(mutations[1]);
+
   }
 
   return (
     <div>
       {
-        subscribe && <form className={styles.footer__form}>
+        subscribe && <div className={styles.footer__form} >
           <label className={styles.footer__form_text} htmlFor="text">Sign up for news delivered right to your inbox.
             Unsubscribe anytime.</label>
           <div className={styles.footer__formBlock}>
@@ -56,11 +56,10 @@ const Footer = ({subscribe = true}) => {
               onChange={e => setInputText(e.target.value)}
               placeholder='YOUR EMAIL ADDRESS'
               required
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             />
             <button onClick={handleSignUp}>SIGN UP</button>
           </div>
-        </form>
+        </div>
       }
       <hr className={styles.hr} />
       <footer className={styles.footer}>
