@@ -8,6 +8,8 @@ import leftArrow from '../../assets/images/arrow-left.svg';
 import rightArrow from '../../assets/images/arrow-right.svg';
 import styles from './index.module.scss';
 const FavouritesPosts = ({ posts }) => {
+  const SlickButtonFix = ({ currentSlide, slideCount, children, ...props }) => <span {...props}>{children}</span>;
+
   const settings = {
     dots: false,
     infinite: true,
@@ -16,14 +18,18 @@ const FavouritesPosts = ({ posts }) => {
     slidesToScroll: 2,
     variableWidth: true,
     prevArrow: (
-      <div>
-        <img className={cl(styles.favouritesArrowLeft)} src={leftArrow.src} alt="" />
-      </div>
+      <SlickButtonFix>
+        <div>
+          <img className={cl(styles.favouritesArrowLeft)} src={leftArrow.src} alt="" />
+        </div>
+      </SlickButtonFix>
     ),
     nextArrow: (
-      <div>
-        <img className={cl(styles.favouritesArrowRight)} src={rightArrow.src} alt="" />
-      </div>
+      <SlickButtonFix>
+        <div>
+          <img className={cl(styles.favouritesArrowRight)} src={rightArrow.src} alt="" />
+        </div>
+      </SlickButtonFix>
     ),
     responsive: [
       {

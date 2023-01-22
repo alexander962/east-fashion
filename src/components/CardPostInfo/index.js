@@ -56,6 +56,8 @@ const CardPostInfo = ({ post }) => {
     }
   };
 
+  const SlickButtonFix = ({ currentSlide, slideCount, children, ...props }) => <span {...props}>{children}</span>;
+
   const settings = {
     dots: false,
     speed: 500,
@@ -64,14 +66,18 @@ const CardPostInfo = ({ post }) => {
     variableWidth: false,
     infinite: true,
     prevArrow: (
-      <div>
-        <img className={'cardArrowLeft'} src={leftArrow.src} alt="" />
-      </div>
+      <SlickButtonFix>
+        <div>
+          <img className={'cardArrowLeft'} src={leftArrow.src} alt="" />
+        </div>
+      </SlickButtonFix>
     ),
     nextArrow: (
-      <div>
-        <img className={'cardArrowRight'} src={rightArrow.src} alt="" />
-      </div>
+      <SlickButtonFix>
+        <div>
+          <img className={'cardArrowRight'} src={rightArrow.src} alt="" />
+        </div>
+      </SlickButtonFix>
     ),
     fade: true,
     responsive: [
