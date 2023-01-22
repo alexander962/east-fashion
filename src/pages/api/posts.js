@@ -1,20 +1,20 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { client } from '~/lib/client'
+import { client } from '~/lib/client';
 export default async function posts(req, res) {
-  const {start, end} = req.query;
+  const { start, end } = req.query;
 
-  if(isNaN(Number(start)) || isNaN(Number(end))) {
+  if (isNaN(Number(start)) || isNaN(Number(end))) {
     return res.status(400).json({
-      error: 'Data invalid'
-    })
+      error: 'Data invalid',
+    });
   }
 
-  const {posts, total} = await loadPosts(start, end);
+  const { posts, total } = await loadPosts(start, end);
 
   res.status(200).json({
     posts,
-    total
-  })
+    total,
+  });
 }
 
 export async function loadPosts(start, end) {
@@ -26,7 +26,7 @@ export async function loadPosts(start, end) {
 
   return {
     posts,
-    total
+    total,
   };
 }
 
@@ -51,7 +51,7 @@ export async function loadPopularPosts() {
   const { popularPosts } = await client.fetch(query);
   const { popularPostsCount } = await client.fetch(queryCount);
   let count = 0;
-  for (let i = popularPosts.length; i < 6; i++ ) {
+  for (let i = popularPosts.length; i < 6; i++) {
     popularPosts.push(popularPostsCount[count]);
     count++;
   }
@@ -69,7 +69,7 @@ export async function loadCulturePosts(start, end, categories) {
 
   return {
     posts,
-    total
+    total,
   };
 }
 

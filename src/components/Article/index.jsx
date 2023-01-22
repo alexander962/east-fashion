@@ -1,12 +1,10 @@
-import React from 'react'
-import Link from "next/link";
-import {AiOutlineArrowLeft} from "react-icons/ai";
-import cl from 'classnames'
+import React from 'react';
+import Link from 'next/link';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
+import cl from 'classnames';
 
-import styles from './index.module.scss'
-
-// wrapper on the article
-const Article = ({className, backUrl, children}) => {
+import styles from './index.module.scss';
+const Article = ({ className, backUrl, children }) => {
   return (
     <article className={cl(className, styles.article)}>
       <Link href={backUrl}>
@@ -14,11 +12,9 @@ const Article = ({className, backUrl, children}) => {
           <AiOutlineArrowLeft />
         </a>
       </Link>
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
     </article>
-  )
-}
+  );
+};
 
 export default Article;

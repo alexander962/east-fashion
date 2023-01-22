@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import { Footer, Header, Section } from "@/components";
 
+import { Footer, Header, Section } from '@/components';
 import { loadFavouritesPosts, loadPopularPosts, loadPosts } from './api/posts';
 import MainPage from '@/components/MainPage';
 import ModalMenu from '@/components/ModalMenu';
@@ -23,8 +23,22 @@ export default function Home({ initialPosts, total, favouritesPosts, popularPost
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
-      <Header setPosts={setPosts} setTotalPosts={setTotalPosts} setModalVisible={setModalVisible} setVisiblePopularsPosts={setVisiblePopularsPosts} setVisibleSearchResult={setVisibleSearchResult} />
-      <MainPage posts={posts} setPosts={setPosts} total={totalPosts} favouritesPosts={favouritesPosts} popularPosts={popularPosts} visiblePopularsPosts={visiblePopularsPosts} visibleSearchResult={visibleSearchResult} />
+      <Header
+        setPosts={setPosts}
+        setTotalPosts={setTotalPosts}
+        setModalVisible={setModalVisible}
+        setVisiblePopularsPosts={setVisiblePopularsPosts}
+        setVisibleSearchResult={setVisibleSearchResult}
+      />
+      <MainPage
+        posts={posts}
+        setPosts={setPosts}
+        total={totalPosts}
+        favouritesPosts={favouritesPosts}
+        popularPosts={popularPosts}
+        visiblePopularsPosts={visiblePopularsPosts}
+        visibleSearchResult={visibleSearchResult}
+      />
       <Footer />
     </Section>
   );
@@ -40,7 +54,7 @@ export const getServerSideProps = async () => {
       initialPosts: posts,
       total,
       favouritesPosts,
-      popularPosts
-    }
-  }
-}
+      popularPosts,
+    },
+  };
+};

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 
 import { loadTagPosts } from '../api/posts';
-import Category from '@/components/Category';
 import { Footer, Header, Section } from '@/components';
 import ModalMenu from '@/components/ModalMenu';
 import Tags from '@/components/Tags';
@@ -24,20 +23,26 @@ export default function Interviews({ initialPosts, total, tag }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
-      <Header setPosts={setPosts} setTotalPosts={setTotalPosts} setModalVisible={setModalVisible} setVisiblePopularsPosts={setVisiblePopularsPosts} setVisibleSearchResult={setVisibleSearchResult} />
+      <Header
+        setPosts={setPosts}
+        setTotalPosts={setTotalPosts}
+        setModalVisible={setModalVisible}
+        setVisiblePopularsPosts={setVisiblePopularsPosts}
+        setVisibleSearchResult={setVisibleSearchResult}
+      />
       <Tags posts={posts} setPosts={setPosts} total={totalPosts} tag={tag} visibleSearchResult={visibleSearchResult} />
       <Footer />
     </Section>
   );
 }
 
-export const getServerSideProps = async ({query}) => {
+export const getServerSideProps = async ({ query }) => {
   const { posts } = await loadTagPosts(query.tag);
 
   return {
     props: {
       initialPosts: posts,
       tag: query.tag,
-    }
-  }
-}
+    },
+  };
+};

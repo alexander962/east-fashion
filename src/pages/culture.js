@@ -23,21 +23,33 @@ export default function Interviews({ initialPosts, total }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
-      <Header setPosts={setPosts} setTotalPosts={setTotalPosts} setModalVisible={setModalVisible} setVisiblePopularsPosts={setVisiblePopularsPosts} setVisibleSearchResult={setVisibleSearchResult} />
-      <Category posts={posts} setPosts={setPosts} total={totalPosts} category='culture' visibleSearchResult={visibleSearchResult} />
+      <Header
+        setPosts={setPosts}
+        setTotalPosts={setTotalPosts}
+        setModalVisible={setModalVisible}
+        setVisiblePopularsPosts={setVisiblePopularsPosts}
+        setVisibleSearchResult={setVisibleSearchResult}
+      />
+      <Category
+        posts={posts}
+        setPosts={setPosts}
+        total={totalPosts}
+        category="culture"
+        visibleSearchResult={visibleSearchResult}
+      />
       <Footer />
     </Section>
   );
 }
 
 export const getServerSideProps = async () => {
-  const categories = "culture";
+  const categories = 'culture';
   const { posts, total } = await loadCulturePosts(0, LOAD_MORE_STEP, categories);
 
   return {
     props: {
       initialPosts: posts,
       total,
-    }
-  }
-}
+    },
+  };
+};

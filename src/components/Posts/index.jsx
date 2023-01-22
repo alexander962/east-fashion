@@ -1,9 +1,10 @@
-import React from 'react'
-import cl from 'classnames'
+import React from 'react';
+import cl from 'classnames';
 
-import styles from './index.module.scss'
-import {Post} from "@/components";
-const Posts = ({posts}) => {
+import { Post } from '@/components';
+import styles from './index.module.scss';
+
+const Posts = ({ posts }) => {
   return (
     <div className={cl(styles.posts)}>
       {posts.map((post, index) => {
@@ -11,13 +12,13 @@ const Posts = ({posts}) => {
 
         return (
           <div key={post?._id}>
-            <Post post={post} classVariant={classVariant}/>
+            <Post post={post} classVariant={classVariant} />
             <hr />
           </div>
         );
       })}
     </div>
-  )
-}
+  );
+};
 
 export default Posts;

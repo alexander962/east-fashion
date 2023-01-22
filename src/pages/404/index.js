@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import cl from 'classnames'
+import cl from 'classnames';
 import styles from './index.module.scss';
 import { Footer, Header, Section } from '@/components';
 
@@ -17,7 +17,13 @@ const PageNotFound = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header searchVisible={false} setModalVisible={setModalVisible} setPosts={setPosts} setVisiblePopularsPosts={setVisiblePopularsPosts} setTotalPosts={setTotalPosts} />
+      <Header
+        searchVisible={false}
+        setModalVisible={setModalVisible}
+        setPosts={setPosts}
+        setVisiblePopularsPosts={setVisiblePopularsPosts}
+        setTotalPosts={setTotalPosts}
+      />
       <div className={cl(styles.notFound)}>
         <div>
           <h3>Oops:(</h3>
@@ -27,7 +33,7 @@ const PageNotFound = () => {
       </div>
       <Footer />
     </Section>
-  )
+  );
 };
 
 export default PageNotFound;

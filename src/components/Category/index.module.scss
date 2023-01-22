@@ -17,4 +17,9 @@
   &NotFound {
     font: 400 40px/120% 'Questrial';
   }
+
+  &Btn {
+    display: flex;
+    justify-content: center;
+  }
 }

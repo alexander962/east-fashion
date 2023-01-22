@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import cl from 'classnames'
-
-import aboutImg from '../../assets/images/about-img.png'
-import styles from './index.module.scss'
-import { Footer, Header, Section, Title } from '@/components';
-import ModalMenu from '@/components/ModalMenu';
-import { loadAboutPage, loadFavouritesPosts, loadPopularPosts, loadPosts } from '@/pages/api/posts';
-import { urlFor } from '~/lib/client';
+import cl from 'classnames';
 import Head from 'next/head';
-const About = ({aboutInfo}) => {
+
+import { Footer, Header, Section } from '@/components';
+import ModalMenu from '@/components/ModalMenu';
+import { loadAboutPage } from '@/pages/api/posts';
+import { urlFor } from '~/lib/client';
+import styles from './index.module.scss';
+
+const About = ({ aboutInfo }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [posts, setPosts] = useState([]);
   const [totalPosts, setTotalPosts] = useState(0);
@@ -23,18 +23,24 @@ const About = ({aboutInfo}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
-      <Header setModalVisible={setModalVisible} searchVisible={false} setPosts={setPosts} setVisiblePopularsPosts={setVisiblePopularsPosts} setTotalPosts={setTotalPosts} />
-      <div className={cl(styles.aboutImg)} >
-        <img src={urlFor(aboutInfo.image).url()} alt='' />
+      <Header
+        setModalVisible={setModalVisible}
+        searchVisible={false}
+        setPosts={setPosts}
+        setVisiblePopularsPosts={setVisiblePopularsPosts}
+        setTotalPosts={setTotalPosts}
+      />
+      <div className={cl(styles.aboutImg)}>
+        <img src={urlFor(aboutInfo.image).url()} alt="" />
       </div>
-        <span className={cl(styles.aboutName)}>About us</span>
-        <hr className={cl(styles.aboutHr)} />
-        <p className={cl(styles.aboutTitle)}>{aboutInfo.title}</p>
-        <p className={cl(styles.aboutDescription)}> {aboutInfo.description} </p>
-        <Footer subscribe={false} />
+      <span className={cl(styles.aboutName)}>About us</span>
+      <hr className={cl(styles.aboutHr)} />
+      <p className={cl(styles.aboutTitle)}>{aboutInfo.title}</p>
+      <p className={cl(styles.aboutDescription)}> {aboutInfo.description} </p>
+      <Footer subscribe={false} />
     </Section>
-  )
-}
+  );
+};
 
 export default About;
 
@@ -43,7 +49,7 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      aboutInfo
-    }
-  }
-}
+      aboutInfo,
+    },
+  };
+};

@@ -23,21 +23,33 @@ export default function SkinCare({ initialPosts, total }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
-      <Header setPosts={setPosts} setTotalPosts={setTotalPosts} setModalVisible={setModalVisible} setVisiblePopularsPosts={setVisiblePopularsPosts} setVisibleSearchResult={setVisibleSearchResult} />
-      <Category posts={posts} setPosts={setPosts} total={totalPosts} category='skin-care' visibleSearchResult={visibleSearchResult} />
+      <Header
+        setPosts={setPosts}
+        setTotalPosts={setTotalPosts}
+        setModalVisible={setModalVisible}
+        setVisiblePopularsPosts={setVisiblePopularsPosts}
+        setVisibleSearchResult={setVisibleSearchResult}
+      />
+      <Category
+        posts={posts}
+        setPosts={setPosts}
+        total={totalPosts}
+        category="skin-care"
+        visibleSearchResult={visibleSearchResult}
+      />
       <Footer />
     </Section>
   );
 }
 
 export const getServerSideProps = async () => {
-  const categories = "skin-care";
+  const categories = 'skin-care';
   const { posts, total } = await loadCulturePosts(0, LOAD_MORE_STEP, categories);
 
   return {
     props: {
       initialPosts: posts,
       total,
-    }
-  }
-}
+    },
+  };
+};
