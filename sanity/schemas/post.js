@@ -126,11 +126,18 @@ export default defineType({
       group: 'content',
       validation: (Rule) => Rule.required(),
     }),
+    // defineField({
+    //   name: 'tags',
+    //   title: 'Tags',
+    //   type: 'array',
+    //   of: [{type: 'reference', to: {type: 'tag'}}],
+    //   group: 'content',
+    // }),
     defineField({
       name: 'tags',
       title: 'Tags',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'tag'}}],
+      type: 'reference',
+      to: {type: 'tag'},
       group: 'content',
     }),
     defineField({
@@ -147,12 +154,6 @@ export default defineType({
       validation: (Rule) => Rule.required(),
       group: 'content',
     }),
-    // defineField({
-    //   name: 'body',
-    //   title: 'Body content',
-    //   type: 'blockContent',
-    //   styles: textEditorStyles,
-    // }),
     defineField({
       name: 'body',
       title: 'Body content',

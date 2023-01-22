@@ -19,7 +19,7 @@ const Header = ({ setPosts, setTotalPosts, setModalVisible, searchVisible = true
   const [inputVisible, setInputVisible] = useState(false);
   const handleClickButton = async () => {
     const query = `{
-      "searchPosts": *[_type=="post" && !(_id match "drafts*") && ((pt::text(body) match "${inputText}") || title match "${inputText}" || description match "${inputText}")] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories->{title}, "tags": tags[]->{title}, comments}
+      "searchPosts": *[_type=="post" && !(_id match "drafts*") && ((pt::text(body) match "${inputText}") || title match "${inputText}" || description match "${inputText}")] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories->{title}, "tags": tags->{title}, comments}
       }`;
     const { searchPosts } = await client.fetch(query);
     setPosts(searchPosts);

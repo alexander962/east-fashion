@@ -37,9 +37,9 @@ const Post = ({className, post, classVariant = 1}) => {
             {
               post?.tags && (
                 <div className={cl(styles.postTag)}>
-                  <Link href={`/tags/${encodeURIComponent(post?.tags[0]?.title)}`}>
+                  <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
                     <a>
-                      {"#" + post?.tags[0]?.title}
+                      {"#" + post?.tags?.title}
                     </a>
                   </Link>
                 </div>

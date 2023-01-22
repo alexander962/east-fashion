@@ -52,9 +52,9 @@ const PopularPosts = ({ posts }) => {
                       {
                         post?.tags && (
                           <div className={cl(styles.popularTag)}>
-                            <Link href={`/tags/${encodeURIComponent(post?.tags[0]?.title)}`}>
+                            <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
                               <a>
-                                {"#" + post?.tags[0]?.title}
+                                {"#" + post?.tags?.title}
                               </a>
                             </Link>
                           </div>
