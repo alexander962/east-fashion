@@ -9,35 +9,50 @@ import { Content, Title } from '@/components';
 import leftArrow from '@/assets/images/arrow-left.svg';
 import rightArrow from '@/assets/images/arrow-right.svg';
 import styles from './index.module.scss';
+import { toast, ToastContainer } from 'react-nextjs-toast';
 const CardPostInfo = ({ post }) => {
   const date = format(new Date(post?.publishedAt), 'dd MMM yyyy');
   const [inputName, setInputName] = useState('');
   const [inputComment, setInputComment] = useState('');
   const handleNewComment = () => {
-    const newComment = {
-      _key: nanoid(),
-      name: inputName,
-      publishedComment: new Date(),
-      description: inputComment,
-    };
+    if (inputName !== '' && inputComment !== '') {
+      const newComment = {
+        _key: nanoid(),
+        name: inputName,
+        publishedComment: new Date(),
+        description: inputComment,
+      };
 
-    const mutations = [
-      {
-        patch: {
-          id: post._id,
-          insert: {
-            after: post?.comments?.length ? 'comments[0]' : 'comments[-1]',
-            items: [newComment],
+      const mutations = [
+        {
+          patch: {
+            id: post._id,
+            insert: {
+              after: post?.comments?.length ? 'comments[0]' : 'comments[-1]',
+              items: [newComment],
+            },
           },
         },
-      },
-    ];
+      ];
 
-    client.mutate(mutations[0]);
-    alert(`Your comment is on moderation now and will appear in a couple of minutes`);
-    if (window) {
-      window.scrollTo(0, 0);
-      window.location.reload();
+      client.mutate(mutations[0]);
+      toast.notify('Your comment is on moderation now and will appear in a couple of minutes', {
+        duration: 5,
+        type: 'success',
+        title: '',
+      });
+      setInputName('');
+      setInputComment('');
+      // if (window) {
+      //   window.scrollTo(0, 0);
+      //   window.location.reload();
+      // }
+    } else {
+      toast.notify('Enter name and comment', {
+        duration: 5,
+        type: 'error',
+        title: '',
+      });
     }
   };
 
@@ -80,7 +95,6 @@ const CardPostInfo = ({ post }) => {
   };
 
   useEffect(() => {
-    console.log(post);
     const mutations = [
       {
         patch: {
@@ -97,6 +111,7 @@ const CardPostInfo = ({ post }) => {
 
   return (
     <div className={cl(styles.card)}>
+      <ToastContainer align={'right'} position={'bottom'} />
       <hr className={cl(styles.cardHrTop)} />
       {date && <p className={cl(styles.cardDate)}>{date}</p>}
       <Title>{post?.title}</Title>

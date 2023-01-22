@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { toast, ToastContainer } from 'react-nextjs-toast';
 
 import { client } from '~/lib/client';
 import facebook from '@/assets/images/facebook.svg';
@@ -12,7 +13,11 @@ const Footer = ({ subscribe = true }) => {
   const handleSignUp = () => {
     const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     if (reg.test(inputText)) {
-      alert('Subscribed successfully!');
+      toast.notify('Subscribed successfully!', {
+        duration: 5,
+        type: 'success',
+        title: '',
+      });
       const mutations = [
         {
           patch: {
@@ -32,12 +37,17 @@ const Footer = ({ subscribe = true }) => {
       client.mutate(mutations[1]);
       setInputText('');
     } else {
-      alert('Enter a valid email, for example: example@mail.com');
+      toast.notify('Enter a valid email, for example: example@mail.com', {
+        duration: 5,
+        type: 'error',
+        title: '',
+      });
     }
   };
 
   return (
     <div>
+      <ToastContainer align={'right'} position={'bottom'} />
       {subscribe && (
         <div className={styles.footer__form}>
           <label className={styles.footer__form_text} htmlFor="text">
