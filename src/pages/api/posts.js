@@ -19,7 +19,7 @@ export default async function posts(req, res) {
 
 export async function loadPosts(start, end) {
   const query = `{
-    "posts": *[_type == "post" && !(_id match "drafts*")] | order(publishedAt desc) [${start}...${end}] {_id, publishedAt, title, slug, description, mainImage, additionalImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments, sliderImages, "author": author->{name, image}},
+    "posts": *[_type == "post" && !(_id match "drafts*")] | order(publishedAt desc) [${start}...${end}] {_id, publishedAt, title, slug, description, mainImage, additionalImage, "categories": categories->{title}, "tags": tags[]->{title}, comments, sliderImages, "author": author->{name, image}},
     "total": count(*[_type == "post" && !(_id match "drafts*")])
   }`;
   const { posts, total } = await client.fetch(query);
@@ -32,7 +32,7 @@ export async function loadPosts(start, end) {
 
 export async function loadFavouritesPosts() {
   const query = `{
-    "favouritesPosts": *[_type == "favouritesPosts" && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, body, slug, description, mainImage, "categories": categories[]->{title}, comments, "author": author->{name, image}}
+    "favouritesPosts": *[_type == "favouritesPosts" && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, body, slug, description, mainImage, "categories": categories->{title}, comments, "author": author->{name, image}}
   }`;
   const { favouritesPosts } = await client.fetch(query);
 
@@ -43,10 +43,10 @@ export async function loadFavouritesPosts() {
 
 export async function loadPopularPosts() {
   const query = `{
-    "popularPosts": *[_type == "post" && popular == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments, "author": author->{name, image}}
+    "popularPosts": *[_type == "post" && popular == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories->{title}, "tags": tags[]->{title}, comments, "author": author->{name, image}}
   }`;
   const queryCount = `{
-    "popularPostsCount": *[_type == "post" && popular == false && !(_id match "drafts*")] | order(popularity desc) [0...6] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments, "author": author->{name, image}}
+    "popularPostsCount": *[_type == "post" && popular == false && !(_id match "drafts*")] | order(popularity desc) [0...6] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories->{title}, "tags": tags[]->{title}, comments, "author": author->{name, image}}
   }`;
   const { popularPosts } = await client.fetch(query);
   const { popularPostsCount } = await client.fetch(queryCount);
@@ -62,8 +62,8 @@ export async function loadPopularPosts() {
 
 export async function loadCulturePosts(start, end, categories) {
   const query = `{
-    "posts": *[_type == "post" && !(_id match "drafts*") && "${categories}" in categories[]->title] | order(publishedAt desc) [${start}...${end}] {_id, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments, "author": author->{name, image}},
-    "total": count(*[_type == "post" && "${categories}" in categories[]->title && !(_id match "drafts*")])
+    "posts": *[_type == "post" && !(_id match "drafts*") && (categories->title match "${categories}")] | order(publishedAt desc) [${start}...${end}] {_id, publishedAt, title, slug, description, mainImage, "categories": categories->{title}, "tags": tags[]->{title}, comments, "author": author->{name, image}},
+    "total": count(*[_type == "post" && !(_id match "drafts*") && (categories->title match "${categories}")])
   }`;
   const { posts, total } = await client.fetch(query);
 
@@ -75,7 +75,7 @@ export async function loadCulturePosts(start, end, categories) {
 
 export async function loadTagPosts(tag) {
   const query = `{
-    "posts": *[_type == "post" && !(_id match "drafts*") && "${tag}" in tags[]->title] | order(publishedAt desc) {_id, publishedAt, title, slug, description, mainImage, "categories": categories[]->{title}, "tags": tags[]->{title}, comments, "author": author->{name, image}}
+    "posts": *[_type == "post" && !(_id match "drafts*") && "${tag}" in tags[]->title] | order(publishedAt desc) {_id, publishedAt, title, slug, description, mainImage, "categories": categories->{title}, "tags": tags[]->{title}, comments, "author": author->{name, image}}
   }`;
   const { posts } = await client.fetch(query);
 

@@ -17,7 +17,7 @@ export default function Category({ posts, setPosts, total, category }) {
 
     try {
       const query = `{
-      "dataPosts": *[_type == "post" && !(_id match "drafts*") && "${category}" in categories[]->title] | order(publishedDate desc) [${loadedAmount}...${loadedAmount + LOAD_MORE_STEP}]
+      "dataPosts": *[_type == "post" && !(_id match "drafts*") && (categories->title match "${category}")] | order(publishedAt desc) [${loadedAmount}...${loadedAmount + LOAD_MORE_STEP}]{_id, publishedAt, title, slug, description, mainImage, "categories": categories->{title}, "tags": tags[]->{title}, comments, "author": author->{name, image}}
       }`;
       const { dataPosts } = await client.fetch(query);
       setLoadedAmount(loadedAmount + LOAD_MORE_STEP);

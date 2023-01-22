@@ -42,7 +42,7 @@ export async function getStaticPaths() {
   //     current
   //   }
   // }`;
-  const query = `*[type == "post"]{_id, slug { current }, publishedAt, body, title, description, mainImage, additionalImage, meta_title, "categories": categories[]->{title}, comments, sliderImages, "author": author->{name, image}}`;
+  const query = `*[type == "post"]{_id, slug { current }, publishedAt, body, title, description, mainImage, additionalImage, meta_title, "categories": categories->{title}, comments, sliderImages, "author": author->{name, image}}`;
 
   const posts = await client.fetch(query);
   const paths = posts.map(post => ({
@@ -60,7 +60,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(props) {
   console.log(props);
   const { params: {slug} } = props;
-  const query = `*[_type == "post" && slug.current == '${slug}']{_id, publishedAt, body, title, slug, description, mainImage, additionalImage, meta_title, "categories": categories[]->{title}, comments, sliderImages, "author": author->{name, image}}[0]`
+  const query = `*[_type == "post" && slug.current == '${slug}']{_id, publishedAt, body, title, slug, description, mainImage, additionalImage, meta_title, "categories": categories->{title}, comments, sliderImages, "author": author->{name, image}}[0]`
 
   const post = await client.fetch(query);
 
