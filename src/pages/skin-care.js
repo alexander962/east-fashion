@@ -29,6 +29,7 @@ export default function SkinCare({ initialPosts, total }) {
         setModalVisible={setModalVisible}
         setVisiblePopularsPosts={setVisiblePopularsPosts}
         setVisibleSearchResult={setVisibleSearchResult}
+        category="skin-care"
       />
       <Category
         posts={posts}

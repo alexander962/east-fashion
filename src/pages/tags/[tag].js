@@ -29,6 +29,7 @@ export default function Interviews({ initialPosts, total, tag }) {
         setModalVisible={setModalVisible}
         setVisiblePopularsPosts={setVisiblePopularsPosts}
         setVisibleSearchResult={setVisibleSearchResult}
+        tag={tag}
       />
       <Tags posts={posts} setPosts={setPosts} total={totalPosts} tag={tag} visibleSearchResult={visibleSearchResult} />
       <Footer />

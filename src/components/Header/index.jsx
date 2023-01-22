@@ -21,16 +21,32 @@ const Header = ({
   searchVisible = true,
   setVisiblePopularsPosts,
   setVisibleSearchResult,
+  category = '',
+  tag = '',
 }) => {
   const [inputText, setInputText] = useState('');
   const [inputVisible, setInputVisible] = useState(false);
   const handleClickButton = async () => {
     setVisibleSearchResult(true);
-    const query = `{
+    if (category) {
+      const query = `{
+      "searchPosts": *[_type=="post" && (categories->title match "${category}") &&  !(_id match "drafts*") && ((pt::text(body) match "${inputText}") || title match "${inputText}" || description match "${inputText}")] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories->{title}, "tags": tags->{title}, comments}
+      }`;
+      const { searchPosts } = await client.fetch(query);
+      setPosts(searchPosts);
+    } else if (tag) {
+      const query = `{
+      "searchPosts": *[_type=="post" && ("${tag}" match tags->title) && !(_id match "drafts*") && ((pt::text(body) match "${inputText}") || title match "${inputText}" || description match "${inputText}")] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories->{title}, "tags": tags->{title}, comments}
+      }`;
+      const { searchPosts } = await client.fetch(query);
+      setPosts(searchPosts);
+    } else {
+      const query = `{
       "searchPosts": *[_type=="post" && !(_id match "drafts*") && ((pt::text(body) match "${inputText}") || title match "${inputText}" || description match "${inputText}")] {_id, popular, publishedAt, title, slug, description, mainImage, "categories": categories->{title}, "tags": tags->{title}, comments}
       }`;
-    const { searchPosts } = await client.fetch(query);
-    setPosts(searchPosts);
+      const { searchPosts } = await client.fetch(query);
+      setPosts(searchPosts);
+    }
     setVisiblePopularsPosts(false);
     setInputText('');
     setTotalPosts(0);

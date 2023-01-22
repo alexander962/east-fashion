@@ -29,6 +29,7 @@ export default function Interviews({ initialPosts, total }) {
         setModalVisible={setModalVisible}
         setVisiblePopularsPosts={setVisiblePopularsPosts}
         setVisibleSearchResult={setVisibleSearchResult}
+        category="culture"
       />
       <Category
         posts={posts}
