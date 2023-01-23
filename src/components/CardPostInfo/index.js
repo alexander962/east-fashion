@@ -23,6 +23,8 @@ const CardPostInfo = ({ post }) => {
         description: inputComment,
       };
 
+      console.log(post);
+
       const mutations = [
         {
           patch: {
@@ -43,10 +45,6 @@ const CardPostInfo = ({ post }) => {
       });
       setInputName('');
       setInputComment('');
-      // if (window) {
-      //   window.scrollTo(0, 0);
-      //   window.location.reload();
-      // }
     } else {
       toast.notify('Enter name and comment', {
         duration: 5,

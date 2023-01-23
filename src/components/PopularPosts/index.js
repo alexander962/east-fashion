@@ -53,7 +53,7 @@ const PopularPosts = ({ posts }) => {
 
   return (
     <div className={styles.popularPosts}>
-      <h2 className={styles.popularHeader}>Most popular</h2>
+      <h2 className={styles.popularHeader}>Les Plus Lus</h2>
       <Slider {...settings}>
         {posts.map((post, index) => {
           return (

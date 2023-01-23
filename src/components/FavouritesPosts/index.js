@@ -53,7 +53,7 @@ const FavouritesPosts = ({ posts }) => {
 
   return (
     <div className={styles.favouritesPosts}>
-      <h2 className={styles.favouritesHeader}>Favourites</h2>
+      <h2 className={styles.favouritesHeader}>A La Une</h2>
       <Slider {...settings}>
         {posts.map((post, index) => {
           if (index < 6) {

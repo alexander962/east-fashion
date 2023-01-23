@@ -57,7 +57,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(props) {
-  console.log(props);
   const {
     params: { slug },
   } = props;

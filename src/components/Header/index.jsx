@@ -100,17 +100,17 @@ const Header = ({
           </div>
         ) : (
           <div className={styles.header__menu}>
-            <Link href={'/interviews'}>
-              <a>Interviews</a>
-            </Link>
             <Link href={'/skin-care'}>
-              <a>Skin Care</a>
+              <a>Soins de Beauté</a>
+            </Link>
+            <Link href={'/interviews'}>
+              <a>Entretiens</a>
             </Link>
             <Link href={'/culture'}>
-              <a>Culture</a>
+              <a>Art &amp; Culture</a>
             </Link>
             <Link href={'/about'}>
-              <a>About us</a>
+              <a>A Propos</a>
             </Link>
           </div>
         )}

@@ -70,17 +70,17 @@ const Footer = ({ subscribe = true }) => {
       <footer className={styles.footer}>
         <nav className={styles.footer__nav}>
           <div className={styles.footer__menu}>
-            <Link href={'/interviews'}>
-              <a>Interviews</a>
-            </Link>
             <Link href={'/skin-care'}>
-              <a>Skincare</a>
+              <a>Soins de Beauté</a>
+            </Link>
+            <Link href={'/interviews'}>
+              <a>Entretiens</a>
             </Link>
             <Link href={'/culture'}>
-              <a>Culture</a>
+              <a>Art &amp; Culture</a>
             </Link>
             <Link href={'/about'}>
-              <a>About us</a>
+              <a>A Propos</a>
             </Link>
           </div>
           <div className={styles.footer__icons}>
