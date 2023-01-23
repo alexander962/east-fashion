@@ -37,9 +37,9 @@ const CardPostInfo = ({ post }) => {
         },
         {
           set: {
-            'comments': [newComment],
-          }
-        }
+            comments: [newComment],
+          },
+        },
       ];
 
       client.mutate(post.comments ? mutations[0] : mutations[1]);
@@ -62,12 +62,7 @@ const CardPostInfo = ({ post }) => {
   const SlickButtonFix = ({ currentSlide, slideCount, children, ...props }) => <span {...props}>{children}</span>;
 
   const settings = {
-    dots: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    variableWidth: false,
-    infinite: true,
+    arrows: true,
     prevArrow: (
       <SlickButtonFix>
         <div>
@@ -85,19 +80,9 @@ const CardPostInfo = ({ post }) => {
     fade: true,
     responsive: [
       {
-        breakpoint: 1270,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-      {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          variableWidth: false,
           arrows: false,
-          dots: true,
         },
       },
     ],
@@ -130,19 +115,21 @@ const CardPostInfo = ({ post }) => {
       <div className={cl(styles.cardInfo)}>
         {post?.sliderImages ? (
           <>
-            <Slider asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
+            <Slider asNavFor={nav2} ref={slider1 => setNav1(slider1)} {...settings}>
               {post?.sliderImages.map((image, index) => (
                 <div className={cl(styles.cardImg)} key={`image${index}`}>
                   <img src={urlFor(image).url()} alt="" />
                 </div>
               ))}
             </Slider>
-            <Slider asNavFor={nav1}
-                    ref={(slider2) => setNav2(slider2)}
-                    slidesToShow={post?.sliderImages?.length}
-                    swipeToSlide={true}
-                    focusOnSelect={true}
-                    className={'slider-inner'}>
+            <Slider
+              asNavFor={nav1}
+              ref={slider2 => setNav2(slider2)}
+              slidesToShow={post?.sliderImages?.length}
+              swipeToSlide={true}
+              focusOnSelect={true}
+              className={'slider-inner'}
+            >
               {post?.sliderImages.map((image, index) => (
                 <div className={cl(styles.cardImgInner)} key={`image${index}`}>
                   <img src={urlFor(image).url()} alt="" />
