@@ -170,7 +170,7 @@ const CardPostInfo = ({ post }) => {
           SEND
         </button>
         {post?.comments &&
-          post?.comments.map((comment, index) => (
+          post?.comments.reverse().map((comment, index) => (
             <div className={cl(styles.cardComment)} key={`comment${index}`}>
               <hr className={cl(styles.cardCommentHr)} />
               <h4>{comment?.name}</h4>
