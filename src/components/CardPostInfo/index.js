@@ -30,14 +30,19 @@ const CardPostInfo = ({ post }) => {
           patch: {
             id: post._id,
             insert: {
-              after: post?.comments?.length ? 'comments[0]' : 'comments[-1]',
+              after: 'comments[-1]',
               items: [newComment],
             },
           },
         },
+        {
+          set: {
+            'comments': [newComment],
+          }
+        }
       ];
 
-      client.mutate(mutations[0]);
+      client.mutate(post.comments ? mutations[0] : mutations[1]);
       toast.notify('Your comment is on moderation now and will appear in a couple of minutes', {
         duration: 5,
         type: 'success',
