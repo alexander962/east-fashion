@@ -4,6 +4,7 @@ import { client } from '~/lib/client';
 import { Footer, Header, Section } from '@/components';
 import Head from 'next/head';
 import CardPostInfo from '@/components/CardPostInfo';
+import ModalMenu from '@/components/ModalMenu';
 const FavouritesPostInfo = ({ post }) => {
   const [posts, setPosts] = useState([]);
   const [totalPosts, setTotalPosts] = useState(0);
@@ -16,12 +17,14 @@ const FavouritesPostInfo = ({ post }) => {
       <Head>
         <title>My blog</title>
       </Head>
+      <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
       <Header
         setPosts={setPosts}
         setTotalPosts={setTotalPosts}
         setModalVisible={setModalVisible}
         setVisiblePopularsPosts={setVisiblePopularsPosts}
         setVisibleSearchResult={setVisibleSearchResult}
+        searchVisible={false}
       />
       <CardPostInfo post={post} />
       <Footer />
