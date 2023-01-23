@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import styles from './index.module.scss';
 import facebook from '@/assets/images/facebook.svg';
-import twitter from '@/assets/images/twitter.svg';
+import twitter from '@/assets/images/instagram.svg';
 import youtube from '@/assets/images/youtube.svg';
 import close from 'src/assets/images/close-big.svg';
 

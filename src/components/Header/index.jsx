@@ -9,7 +9,7 @@ import burger from 'src/assets/images/burger.svg';
 import search from 'src/assets/images/search.svg';
 import close from 'src/assets/images/close.svg';
 import facebook from 'src/assets/images/facebook.svg';
-import twitter from 'src/assets/images/twitter.svg';
+import twitter from 'src/assets/images/instagram.svg';
 import youtube from 'src/assets/images/youtube.svg';
 import styles from './index.module.scss';
 

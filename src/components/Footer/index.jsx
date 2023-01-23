@@ -4,7 +4,7 @@ import { toast, ToastContainer } from 'react-nextjs-toast';
 
 import { client } from '~/lib/client';
 import facebook from '@/assets/images/facebook.svg';
-import twitter from '@/assets/images/twitter.svg';
+import twitter from '@/assets/images/instagram.svg';
 import youtube from '@/assets/images/youtube.svg';
 import styles from './index.module.scss';
 const Footer = ({ subscribe = true }) => {
