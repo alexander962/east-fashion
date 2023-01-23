@@ -4,17 +4,21 @@
     color: #000000;
     flex: 1 0 auto;
 
-    p, a {
+    p {
+      margin-bottom: 20px;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    p, a, h2, h3 {
       font: 400 14px/140%  'Arial';
       color: #000000;
-
-      strong {
-        font-weight: bold;
-      }
-
-      em {
-        font-style: italic;
-      }
     }
 
     img {
