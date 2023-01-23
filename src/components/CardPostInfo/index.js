@@ -118,6 +118,9 @@ const CardPostInfo = ({ post }) => {
     client.mutate(mutations[0]);
   }, []);
 
+  const [nav1, setNav1] = useState();
+  const [nav2, setNav2] = useState();
+
   return (
     <div className={cl(styles.card)}>
       <ToastContainer align={'right'} position={'bottom'} />
@@ -126,13 +129,27 @@ const CardPostInfo = ({ post }) => {
       <Title>{post?.title}</Title>
       <div className={cl(styles.cardInfo)}>
         {post?.sliderImages ? (
-          <Slider {...settings}>
-            {post?.sliderImages.map((image, index) => (
-              <div className={cl(styles.cardImg)} key={`image${index}`}>
-                <img src={urlFor(image).url()} alt="" />
-              </div>
-            ))}
-          </Slider>
+          <>
+            <Slider asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
+              {post?.sliderImages.map((image, index) => (
+                <div className={cl(styles.cardImg)} key={`image${index}`}>
+                  <img src={urlFor(image).url()} alt="" />
+                </div>
+              ))}
+            </Slider>
+            <Slider asNavFor={nav1}
+                    ref={(slider2) => setNav2(slider2)}
+                    slidesToShow={post?.sliderImages?.length}
+                    swipeToSlide={true}
+                    focusOnSelect={true}
+                    className={'slider-inner'}>
+              {post?.sliderImages.map((image, index) => (
+                <div className={cl(styles.cardImgInner)} key={`image${index}`}>
+                  <img src={urlFor(image).url()} alt="" />
+                </div>
+              ))}
+            </Slider>
+          </>
         ) : (
           <div className={cl(styles.cardImg)}>
             <img src={urlFor(post.mainImage).url()} alt="" />

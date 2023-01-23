@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { client } from '~/lib/client';
 import { Footer, Header, Section } from '@/components';
 import Head from 'next/head';
 import CardPostInfo from '@/components/CardPostInfo';
 const FavouritesPostInfo = ({ post }) => {
+  const [posts, setPosts] = useState([]);
+  const [totalPosts, setTotalPosts] = useState(0);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [visiblePopularsPosts, setVisiblePopularsPosts] = useState(true);
+  const [visibleSearchResult, setVisibleSearchResult] = useState(false);
+
   return (
     <Section>
       <Head>
         <title>My blog</title>
       </Head>
-      <Header />
+      <Header
+        setPosts={setPosts}
+        setTotalPosts={setTotalPosts}
+        setModalVisible={setModalVisible}
+        setVisiblePopularsPosts={setVisiblePopularsPosts}
+        setVisibleSearchResult={setVisibleSearchResult}
+      />
       <CardPostInfo post={post} />
       <Footer />
     </Section>

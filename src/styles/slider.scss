@@ -26,3 +26,17 @@
   top: 265px;
   Right: 20px;
 }
+
+.slider-inner {
+  margin-top: 20px;
+}
+
+.slider-inner .slick-track .slick-slide {
+  width: 48px!important;
+  margin-right: 10px;
+  opacity: 0.6;
+}
+
+.slider-inner .slick-track .slick-slide.slick-current {
+  opacity: 1;
+}
