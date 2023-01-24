@@ -7,7 +7,8 @@ import facebook from '@/assets/images/facebook.svg';
 import twitter from '@/assets/images/instagram.svg';
 import youtube from '@/assets/images/youtube.svg';
 import styles from './index.module.scss';
-const Footer = ({ subscribe = true }) => {
+import cl from 'classnames';
+const Footer = ({ classname, subscribe = true, icons = true }) => {
   const [inputText, setInputText] = useState('');
 
   const handleSignUp = () => {
@@ -49,7 +50,7 @@ const Footer = ({ subscribe = true }) => {
     <div>
       <ToastContainer align={'right'} position={'bottom'} />
       {subscribe && (
-        <div className={styles.footer__form}>
+        <div className={cl(classname, styles.footer__form)}>
           <label className={styles.footer__form_text} htmlFor="text">
             Sign up for news delivered right to your inbox. Unsubscribe anytime.
           </label>
@@ -66,37 +67,41 @@ const Footer = ({ subscribe = true }) => {
           </div>
         </div>
       )}
-      <hr className={styles.hr} />
-      <footer className={styles.footer}>
-        <nav className={styles.footer__nav}>
-          <div className={styles.footer__menu}>
-            <Link href={'/skin-care'}>
-              <a>Soins de Beauté</a>
-            </Link>
-            <Link href={'/interviews'}>
-              <a>Entretiens</a>
-            </Link>
-            <Link href={'/culture'}>
-              <a>Art &amp; Culture</a>
-            </Link>
-            <Link href={'/about'}>
-              <a>A Propos</a>
-            </Link>
-          </div>
-          <div className={styles.footer__icons}>
-            <a href="#" target="_blank">
-              <img src={facebook.src} alt="" />
-            </a>
-            <a href="#" target="_blank">
-              <img src={twitter.src} alt="" />
-            </a>
-            <a href="#" target="_blank">
-              <img src={youtube.src} alt="" />
-            </a>
-          </div>
-        </nav>
-      </footer>
-      <hr className={styles.hr} />
+      {icons && (
+        <>
+          <hr className={styles.hr} />
+          <footer className={styles.footer}>
+            <nav className={styles.footer__nav}>
+              <div className={styles.footer__menu}>
+                <Link href={'/skin-care'}>
+                  <a>Soins de Beauté</a>
+                </Link>
+                <Link href={'/interviews'}>
+                  <a>Entretiens</a>
+                </Link>
+                <Link href={'/culture'}>
+                  <a>Art &amp; Culture</a>
+                </Link>
+                <Link href={'/about'}>
+                  <a>A Propos</a>
+                </Link>
+              </div>
+              <div className={styles.footer__icons}>
+                <a href="#" target="_blank">
+                  <img src={facebook.src} alt="" />
+                </a>
+                <a href="#" target="_blank">
+                  <img src={twitter.src} alt="" />
+                </a>
+                <a href="#" target="_blank">
+                  <img src={youtube.src} alt="" />
+                </a>
+              </div>
+            </nav>
+          </footer>
+          <hr className={styles.hr} />
+        </>
+      )}
     </div>
   );
 };

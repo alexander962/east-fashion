@@ -10,7 +10,8 @@ import leftArrow from '@/assets/images/arrow-left.svg';
 import rightArrow from '@/assets/images/arrow-right.svg';
 import styles from './index.module.scss';
 import { toast, ToastContainer } from 'react-nextjs-toast';
-const CardPostInfo = ({ post }) => {
+import Sidebar from '@/components/Sidebar';
+const CardPostInfo = ({ post, popularPosts }) => {
   const date = format(new Date(post?.publishedAt), 'dd MMM yyyy');
   const [inputName, setInputName] = useState('');
   const [inputComment, setInputComment] = useState('');
@@ -110,78 +111,81 @@ const CardPostInfo = ({ post }) => {
     <div className={cl(styles.card)}>
       <ToastContainer align={'right'} position={'bottom'} />
       <hr className={cl(styles.cardHrTop)} />
-      {date && <p className={cl(styles.cardDate)}>{date}</p>}
-      <Title>{post?.title}</Title>
-      <div className={cl(styles.cardInfo)}>
-        {post?.sliderImages ? (
-          <>
-            <Slider asNavFor={nav2} ref={slider1 => setNav1(slider1)} {...settings}>
-              {post?.sliderImages.map((image, index) => (
-                <div className={cl(styles.cardImg)} key={`image${index}`}>
-                  <img src={urlFor(image).url()} alt="" />
-                </div>
-              ))}
-            </Slider>
-            <Slider
-              asNavFor={nav1}
-              ref={slider2 => setNav2(slider2)}
-              slidesToShow={post?.sliderImages?.length}
-              swipeToSlide={true}
-              focusOnSelect={true}
-              className={'slider-inner'}
-            >
-              {post?.sliderImages.map((image, index) => (
-                <div className={cl(styles.cardImgInner)} key={`image${index}`}>
-                  <img src={urlFor(image).url()} alt="" />
-                </div>
-              ))}
-            </Slider>
-          </>
-        ) : (
-          <div className={cl(styles.cardImg)}>
-            <img src={urlFor(post.mainImage).url()} alt="" />
-          </div>
-        )}
-        <hr className={cl(styles.cardHrBottom)} />
-        <div className={cl(styles.cardAuthor)}>
-          {post?.author?.image && (
-            <div className={cl(styles.cardAuthorImg)}>
-              <img src={urlFor(post?.author?.image).url()} alt="" />
+      <div className={cl(styles.cardBlocks)}>
+        <div className={cl(styles.cardInfo)}>
+          {date && <p className={cl(styles.cardDate)}>{date}</p>}
+          <Title>{post?.title}</Title>
+          {post?.sliderImages ? (
+            <>
+              <Slider asNavFor={nav2} ref={slider1 => setNav1(slider1)} {...settings}>
+                {post?.sliderImages.map((image, index) => (
+                  <div className={cl(styles.cardImg)} key={`image${index}`}>
+                    <img src={urlFor(image).url()} alt="" />
+                  </div>
+                ))}
+              </Slider>
+              <Slider
+                asNavFor={nav1}
+                ref={slider2 => setNav2(slider2)}
+                slidesToShow={post?.sliderImages?.length}
+                swipeToSlide={true}
+                focusOnSelect={true}
+                className={'slider-inner'}
+              >
+                {post?.sliderImages.map((image, index) => (
+                  <div className={cl(styles.cardImgInner)} key={`image${index}`}>
+                    <img src={urlFor(image).url()} alt="" />
+                  </div>
+                ))}
+              </Slider>
+            </>
+          ) : (
+            <div className={cl(styles.cardImg)}>
+              <img src={urlFor(post.mainImage).url()} alt="" />
             </div>
           )}
-          <div>
-            <span>Posted by</span>
-            <h4>{post?.author?.name}</h4>
-          </div>
-        </div>
-        <Content body={post?.body} />
-        <h3 className={cl(styles.cardSubtitle)}>Join discussion:</h3>
-        <input
-          className={cl(styles.cardInput)}
-          onChange={e => setInputName(e.target.value)}
-          value={inputName}
-          placeholder="Enter your name"
-          maxLength="80"
-        />
-        <textarea
-          className={cl(styles.cardInput, styles.cardInputComment)}
-          onChange={e => setInputComment(e.target.value)}
-          value={inputComment}
-          placeholder="Comment"
-          maxLength="800"
-        />
-        <button className={cl(styles.cardBtn)} onClick={handleNewComment}>
-          SEND
-        </button>
-        {post?.comments &&
-          post?.comments.reverse().map((comment, index) => (
-            <div className={cl(styles.cardComment)} key={`comment${index}`}>
-              <hr className={cl(styles.cardCommentHr)} />
-              <h4>{comment?.name}</h4>
-              <span>{format(new Date(comment?.publishedComment), 'MMM dd,yyyy')}</span>
-              <p>{comment?.description}</p>
+          <hr className={cl(styles.cardHrBottom)} />
+          <div className={cl(styles.cardAuthor)}>
+            {post?.author?.image && (
+              <div className={cl(styles.cardAuthorImg)}>
+                <img src={urlFor(post?.author?.image).url()} alt="" />
+              </div>
+            )}
+            <div>
+              <span>Posted by</span>
+              <h4>{post?.author?.name}</h4>
             </div>
-          ))}
+          </div>
+          <Content body={post?.body} />
+          <h3 className={cl(styles.cardSubtitle)}>Join discussion:</h3>
+          <input
+            className={cl(styles.cardInput)}
+            onChange={e => setInputName(e.target.value)}
+            value={inputName}
+            placeholder="Enter your name"
+            maxLength="80"
+          />
+          <textarea
+            className={cl(styles.cardInput, styles.cardInputComment)}
+            onChange={e => setInputComment(e.target.value)}
+            value={inputComment}
+            placeholder="Comment"
+            maxLength="800"
+          />
+          <button className={cl(styles.cardBtn)} onClick={handleNewComment}>
+            SEND
+          </button>
+          {post?.comments &&
+            post?.comments.reverse().map((comment, index) => (
+              <div className={cl(styles.cardComment)} key={`comment${index}`}>
+                <hr className={cl(styles.cardCommentHr)} />
+                <h4>{comment?.name}</h4>
+                <span>{format(new Date(comment?.publishedComment), 'MMM dd,yyyy')}</span>
+                <p>{comment?.description}</p>
+              </div>
+            ))}
+        </div>
+        <Sidebar popularPosts={popularPosts} />
       </div>
       <hr className={cl(styles.cardHrFooter)} />
     </div>
