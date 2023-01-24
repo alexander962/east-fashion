@@ -7,7 +7,7 @@ import { urlFor } from '~/lib/client';
 const Sidebar = ({ popularPosts }) => {
   return (
     <div className={cl(styles.sidebar)}>
-      <h3 className={cl(styles.sidebarTitle)}>Most Popular</h3>
+      <h3 className={cl(styles.sidebarTitle)}>Les Plus Lus</h3>
       <div>
         {popularPosts?.map(post => (
           <div className={cl(styles.sidebarItems)}>

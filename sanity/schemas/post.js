@@ -1,14 +1,14 @@
 import {defineField, defineType} from 'sanity'
 
-const textEditorStyles = [
-  {title: 'Paragraph', value: 'normal'},
-  {title: 'Heading 1', value: 'h1'},
-  {title: 'Heading 2', value: 'h2'},
-  {title: 'Heading 3', value: 'h3'},
-  {title: 'Bullet', value: 'bullet'},
-  {title: 'Numbered', value: 'number'},
-  {title: 'Quote', value: 'blockquote'},
-]
+// const textEditorStyles = [
+//   {title: 'Paragraph', value: 'normal'},
+//   {title: 'Heading 1', value: 'h1'},
+//   {title: 'Heading 2', value: 'h2'},
+//   {title: 'Heading 3', value: 'h3'},
+//   {title: 'Bullet', value: 'bullet'},
+//   {title: 'Numbered', value: 'number'},
+//   {title: 'Quote', value: 'blockquote'},
+// ]
 
 export default defineType({
   name: 'post',
@@ -164,7 +164,7 @@ export default defineType({
       of: [
         {
           type: 'block',
-          styles: textEditorStyles,
+          // styles: textEditorStyles,
         },
         {
           type: 'image',
