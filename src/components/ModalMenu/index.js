@@ -13,17 +13,17 @@ const ModalMenu = ({ modalVisible, setModalVisible }) => {
     <div className={cl(styles.modal, modalVisible && styles.modalActive)}>
       <div className={styles.modalMenu}>
         <div className={styles.modalMenuBlock}>
-          <Link href={'/interviews'}>
-            <a onClick={() => setModalVisible(false)}>Interviews</a>
-          </Link>
           <Link href={'/skin-care'}>
-            <a onClick={() => setModalVisible(false)}>Skin Care</a>
+            <a onClick={() => setModalVisible(false)}>Soins de Beauté</a>
+          </Link>
+          <Link href={'/interviews'}>
+            <a onClick={() => setModalVisible(false)}>Entretiens</a>
           </Link>
           <Link href={'/culture'}>
-            <a onClick={() => setModalVisible(false)}>Culture</a>
+            <a onClick={() => setModalVisible(false)}>Art &amp; Culture</a>
           </Link>
           <Link href={'/about'}>
-            <a onClick={() => setModalVisible(false)}>About us</a>
+            <a onClick={() => setModalVisible(false)}>A Propos</a>
           </Link>
         </div>
         <div className={styles.modalIcons}>

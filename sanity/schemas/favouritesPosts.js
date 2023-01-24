@@ -105,6 +105,7 @@ export default defineType({
       title: 'Slider images',
       type: 'array',
       group: 'content',
+      maxItems: 10,
       of: [
         {
           name: 'sliderImage',
