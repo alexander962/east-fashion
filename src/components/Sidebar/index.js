@@ -17,7 +17,9 @@ const Sidebar = ({ popularPosts }) => {
                 <img src={urlFor(post?.mainImage).url()} alt="" />
               </div>
               <div className={cl(styles.sidebarInfo)}>
-                <span className={cl(styles.sidebarPostTitle)}>{post?.title}</span>
+                <span className={cl(styles.sidebarPostTitle)}>
+                  {post?.title?.length > 40 ? post?.title.substring(0, 40) + '... ' : post?.title}
+                </span>
                 <p className={cl(styles.sidebarDescription)}>
                   {post?.description?.length > 80 ? post?.description.substring(0, 80) + '... ' : post?.description}
                 </p>
