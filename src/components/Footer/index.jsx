@@ -19,23 +19,70 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
         type: 'success',
         title: '',
       });
+      // const mutations = [
+      //   {
+      //     patch: {
+      //       id: 'd674cb9c-e335-4f31-a3b4-49a4ee894de0',
+      //       set: {
+      //         description: 'Emails',
+      //       },
+      //     },
+      //   },
+      //   {
+      //     create: {
+      //       _type: 'emails',
+      //       title: inputText,
+      //     },
+      //   },
+      // ];
+      // client.mutate(mutations[1]);
+
+      // const mutation = `mutation {
+      //   createOrReplace(input: { _id: "e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b", patch: { set: { text: "New text" } } }) { document { _id } }
+      // }`;
+      // client.fetch(mutation).then(res => console.log(res));
+
+      // const mutation = {
+      //   createOrReplace(input: {
+      //     id: "e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b"
+      //     patch: {
+      //       set: {
+      //         textFieldName: "New Text"
+      //       }
+      //     }
+      //   }) {}
+      // }
+
       const mutations = [
         {
           patch: {
-            id: 'd674cb9c-e335-4f31-a3b4-49a4ee894de0',
-            set: {
-              description: 'Emails',
+            id: 'e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b',
+            insert: {
+              after: 'emailList[-1]',
+              items: [inputText],
             },
-          },
-        },
-        {
-          create: {
-            _type: 'emails',
-            title: inputText,
+            // set: {
+            //   emailList: [inputText],
+            // },
           },
         },
       ];
-      client.mutate(mutations[1]);
+
+      client.mutate(mutations[0]);
+
+      // const mutationAddEmails = [
+      //   {
+      //     patch: {
+      //       id: 'e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b',
+      //       set: {
+      //         email: 'New text',
+      //       },
+      //     },
+      //   },
+      // ];
+      //
+      // client.mutate(mutationAddEmails[0]);
+
       setInputText('');
     } else {
       toast.notify('Enter a valid email, for example: example@mail.com', {
