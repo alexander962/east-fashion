@@ -1,10 +1,7 @@
 import React from 'react'
 import {Card, Inline, Button} from '@sanity/ui'
 
-function ButtonPreviewComponent({value}) {
-  if (!value) {
-    return <pre>Please upload an svg image</pre>
-  }
+function ButtonPreviewComponent() {
   return (
     <Card padding={4} style={{textAlign: 'center'}}>
       <Inline space={[3, 3, 4]}>

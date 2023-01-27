@@ -11,7 +11,7 @@ import cl from 'classnames';
 const Footer = ({ classname, subscribe = true, icons = true }) => {
   const [inputText, setInputText] = useState('');
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     if (reg.test(inputText)) {
       toast.notify('Subscribed successfully!', {
@@ -53,35 +53,43 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
       //   }) {}
       // }
 
-      const mutations = [
-        {
-          patch: {
-            id: 'e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b',
-            insert: {
-              after: 'emailList[-1]',
-              items: [inputText],
-            },
-            // set: {
-            //   emailList: [inputText],
-            // },
-          },
-        },
-      ];
-
-      client.mutate(mutations[0]);
-
-      // const mutationAddEmails = [
+      // const mutations = [
       //   {
       //     patch: {
       //       id: 'e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b',
-      //       set: {
-      //         email: 'New text',
+      //       insert: {
+      //         after: 'emailList[-1]',
+      //         items: [inputText],
       //       },
+      //       // set: {
+      //       //   emailList: [inputText],
+      //       // },
       //     },
       //   },
       // ];
       //
-      // client.mutate(mutationAddEmails[0]);
+      // client.mutate(mutations[0]);
+      const query = `{
+        "emailText": *[_type == "emails"]
+      }`;
+      const { emailText } = await client.fetch(query);
+      console.log(emailText);
+
+      const mutationAddEmails = [
+        {
+          patch: {
+            id: 'e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b',
+            set: {
+              email: emailText[0].email + ' ' + inputText,
+            },
+          },
+        },
+      ];
+
+      client.mutate(mutationAddEmails[0]);
+      // client.update('email', existingText => {
+      //   return existingText + 'New Text';
+      // });
 
       setInputText('');
     } else {

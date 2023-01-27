@@ -11,7 +11,23 @@ export default defineConfig({
   projectId: 'lnrtwdfv',
   dataset: 'production',
 
-  plugins: [deskTool(), visionTool()],
+  plugins: [
+    '@sanity/base',
+    '@sanity/components',
+    '@sanity/default-layout',
+    '@sanity/default-login',
+    '@sanity/desk-tool',
+    'comment-moderation',
+    '@sanity/form-builder',
+    deskTool(),
+    visionTool(),
+  ],
+
+  env: {
+    development: {
+      plugins: ['@sanity/vision'],
+    },
+  },
 
   schema: {
     types: schemaTypes,

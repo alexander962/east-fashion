@@ -9,6 +9,13 @@ export default {
       type: 'string',
       name: 'source',
       title: 'Client Button',
+      inputComponent: ButtonPreviewComponent,
+
+      form: {
+        components: {
+          input: ButtonPreviewComponent,
+        },
+      },
     },
   ],
   preview: {
