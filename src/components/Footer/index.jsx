@@ -53,45 +53,52 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
       //   }) {}
       // }
 
-      const mutations = [
-        {
-          patch: {
-            id: 'e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b',
-            insert: {
-              after: 'emailList[-1]',
-              items: [inputText],
-            },
-            // set: {
-            //   emailList: [inputText],
-            // },
-          },
-        },
-      ];
-
-      client.mutate(mutations[0]);
-      const query = `{
-        "emailText": *[_type == "emails"]
-      }`;
-      const { emailText } = await client.fetch(query);
-      console.log(emailText);
-      let newText = emailText[0].email ? emailText[0].email + ' ' + inputText : inputText;
-      console.log(newText);
-
-      const mutationAddEmails = [
-        {
-          patch: {
-            id: 'e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b',
-            set: {
-              email: newText,
-            },
-          },
-        },
-      ];
-
-      client.mutate(mutationAddEmails[0]);
+      // const mutations = [
+      //   {
+      //     patch: {
+      //       id: 'e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b',
+      //       insert: {
+      //         after: 'emailList[-1]',
+      //         items: [inputText],
+      //       },
+      //       // set: {
+      //       //   emailList: [inputText],
+      //       // },
+      //     },
+      //   },
+      // ];
+      //
+      // client.mutate(mutations[0]);
+      // const query = `{
+      //   "emailText": *[_type == "emails"]
+      // }`;
+      // const { emailText } = await client.fetch(query);
+      // console.log(emailText);
+      // let newText = emailText[0].email ? emailText[0].email + ' ' + inputText : inputText;
+      // console.log(newText);
+      //
+      // const mutationAddEmails = [
+      //   {
+      //     patch: {
+      //       id: 'e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b',
+      //       set: {
+      //         email: newText,
+      //       },
+      //     },
+      //   },
+      // ];
+      //
+      // client.mutate(mutationAddEmails[0]);
       // client.update('email', existingText => {
       //   return existingText + 'New Text';
       // });
+      try {
+        const url =
+          'https://script.google.com/macros/s/AKfycbyujzcrUoYWgbN8XSyTREcHxts917QABltBmOLZUjUcehVkq_m3uonqc3xKU4xkgzkIvw/exec';
+        fetch(`${url}?email=${inputText}`);
+      } catch (err) {
+        console.log(err);
+      }
       setInputText('');
     } else {
       toast.notify('Enter a valid email, for example: example@mail.com', {
