@@ -37,8 +37,11 @@ const CardPostInfo = ({ post, popularPosts }) => {
           },
         },
         {
-          set: {
-            comments: [newComment],
+          patch: {
+            id: post._id,
+            set: {
+              comments: [newComment],
+            },
           },
         },
       ];
