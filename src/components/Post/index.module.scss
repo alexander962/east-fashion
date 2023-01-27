@@ -1,6 +1,6 @@
 .post {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   text-decoration: none;
   cursor: pointer;
@@ -68,12 +68,14 @@
   &Info {
     width: 100%;
     max-width: 587px;
+    padding-top: 10px;
     @media screen and (max-width: 1260px) {
       margin-right: 104px;
     }
     @media screen and (max-width: 900px) {
       margin-right: 0;
       max-width: none;
+      padding-top: 0;
     }
   }
 
