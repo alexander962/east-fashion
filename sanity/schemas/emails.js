@@ -21,17 +21,17 @@ export default defineType({
     //   title: 'Twitter',
     //   inputComponent: TwitterUrl,
     // },
-    // {
-    //   name: 'emailList',
-    //   title: 'Email List',
-    //   type: 'array',
-    //   validation: (Rule) => Rule.required().min(1),
-    //   of: [
-    //     {
-    //       type: 'string',
-    //     },
-    //   ],
-    // },
+    {
+      name: 'emailList',
+      title: 'Email List',
+      type: 'array',
+      validation: (Rule) => Rule.required().min(1),
+      of: [
+        {
+          type: 'string',
+        },
+      ],
+    },
   ],
   preview: {
     select: {
