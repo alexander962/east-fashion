@@ -1,6 +1,4 @@
 import {defineField, defineType} from 'sanity'
-import ButtonPreviewComponent from '../schemas/shared/buttonPreviewComponent'
-import TwitterUrl from './components/TwitterUrl'
 
 export default defineType({
   name: 'emails',
