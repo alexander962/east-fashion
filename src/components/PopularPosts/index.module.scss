@@ -5,10 +5,38 @@
   }
 }
 
+.popularArrowLeft {
+  display: block;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 166px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.popularArrowRight {
+  display: block;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 166px;
+  left: -73px;
+  cursor: pointer;
+  z-index: 10;
+}
+
 .inner {
   width: 420px!important;
   @media screen and (max-width: 1024px) {
     width: 100%!important;
+  }
+
+  &:hover {
+    .popularArrowLeft {
+      display: block;
+    }
   }
 }
 
@@ -62,26 +90,6 @@
 .popularDesc {
   font: 400 15px/140% 'Arial';
   color: #000000;
-}
-
-.popularArrowLeft {
-  position: absolute;
-  width: 48px;
-  height: 48px;
-  top: 166px;
-  left: 20px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.popularArrowRight {
-  position: absolute;
-  width: 48px;
-  height: 48px;
-  top: 166px;
-  left: -73px;
-  cursor: pointer;
-  z-index: 10;
 }
 
 .popularTag {

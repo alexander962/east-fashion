@@ -20,14 +20,14 @@ const FavouritesPosts = ({ posts }) => {
     prevArrow: (
       <SlickButtonFix>
         <div>
-          <img className={cl(styles.favouritesArrowLeft)} src={leftArrow.src} alt="" />
+          <img className={cl(styles.favouritesArrowLeft, 'favouritesArrowLeft')} src={leftArrow.src} alt="" />
         </div>
       </SlickButtonFix>
     ),
     nextArrow: (
       <SlickButtonFix>
         <div>
-          <img className={cl(styles.favouritesArrowRight)} src={rightArrow.src} alt="" />
+          <img className={cl(styles.favouritesArrowRight, 'favouritesArrowRight')} src={rightArrow.src} alt="" />
         </div>
       </SlickButtonFix>
     ),
@@ -52,7 +52,7 @@ const FavouritesPosts = ({ posts }) => {
   };
 
   return (
-    <div className={styles.favouritesPosts}>
+    <div className={cl(styles.favouritesPosts, 'favouritesPosts')}>
       <h2 className={styles.favouritesHeader}>A La Une</h2>
       <Slider {...settings}>
         {posts.map((post, index) => {

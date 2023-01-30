@@ -20,14 +20,14 @@ const PopularPosts = ({ posts }) => {
     prevArrow: (
       <SlickButtonFix>
         <div>
-          <img className={cl(styles.popularArrowLeft)} src={leftArrow.src} alt="" />
+          <img className={cl(styles.popularArrowLeft, 'popularArrowLeft')} src={leftArrow.src} alt="" />
         </div>
       </SlickButtonFix>
     ),
     nextArrow: (
       <SlickButtonFix>
         <div>
-          <img className={cl(styles.popularArrowRight)} src={rightArrow.src} alt="" />
+          <img className={cl(styles.popularArrowRight, 'popularArrowRight')} src={rightArrow.src} alt="" />
         </div>
       </SlickButtonFix>
     ),
@@ -52,7 +52,7 @@ const PopularPosts = ({ posts }) => {
   };
 
   return (
-    <div className={styles.popularPosts}>
+    <div className={cl(styles.popularPosts, 'popularPosts')}>
       <h2 className={styles.popularHeader}>Les Plus Lus</h2>
       <Slider {...settings}>
         {posts.map((post, index) => {

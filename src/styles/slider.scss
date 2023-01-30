@@ -40,3 +40,33 @@
 .slider-inner .slick-track .slick-slide.slick-current {
   opacity: 1;
 }
+
+.popularPosts .slick-slider .slick-arrow .popularArrowLeft, .popularPosts .slick-slider .slick-arrow .popularArrowRight {
+  display: none;
+}
+
+.popularPosts .slick-slider:hover {
+  .slick-arrow .popularArrowLeft, .popularArrowRight {
+    display: block;
+  }
+}
+
+.favouritesPosts .slick-slider .slick-arrow .favouritesArrowLeft, .popularPosts .slick-slider .slick-arrow .favouritesArrowRight {
+  display: none;
+}
+
+.favouritesPosts .slick-slider:hover {
+  .slick-arrow .favouritesArrowLeft, .favouritesArrowRight {
+    display: block;
+  }
+}
+
+.card .slick-slider .slick-arrow .cardArrowLeft, .card .slick-slider .slick-arrow .cardArrowRight {
+  display: none;
+}
+
+.card .slick-slider:hover {
+  .slick-arrow .cardArrowLeft, .slick-arrow .cardArrowRight {
+    display: block;
+  }
+}

@@ -111,7 +111,7 @@ const CardPostInfo = ({ post, popularPosts }) => {
   const [nav2, setNav2] = useState();
 
   return (
-    <div className={cl(styles.card)}>
+    <div className={cl(styles.card, 'card')}>
       <ToastContainer align={'right'} position={'bottom'} />
       <hr className={cl(styles.cardHrTop)} />
       <div className={cl(styles.cardBlocks)}>
