@@ -1,5 +1,10 @@
 .hr {
   margin: 0;
+  color: rgba(161, 161, 170, 0.5);
+  background-color: rgba(161, 161, 170, 0.5);
+  border:0 none;
+  height:1px;
+  clear:both;
   @media screen and (max-width: 500px) {
     display: none;
   }
