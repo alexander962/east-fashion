@@ -93,7 +93,9 @@
   &Description {
     font: 400 14px/140% 'Arial';
     color: #000000;
-    margin-bottom: 40px;
+    @media screen and (max-width: 1280px) {
+      margin-bottom: 40px;
+    }
     @media screen and (max-width: 500px) {
       font: 400 14px/140%  'Arial';
       margin-bottom: 20px;
@@ -137,6 +139,7 @@
     &Img {
       width: 300px;
       height: 240px;
+      margin-right: 30px;
       @media screen and (max-width: 1260px) {
         width: 300px;
         height: 240px;
@@ -144,6 +147,7 @@
       @media screen and (max-width: 900px) {
         width: 100%;
         height: 360px;
+        margin-right: 0;
       }
 
       img {

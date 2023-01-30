@@ -11,7 +11,11 @@
   }
 
   hr {
-    margin: 20px 0 30px;
+    margin: 40px 0 40px;
+
+    &.mainPageHrMain {
+      margin: 20px 0 40px;
+    }
   }
 
   &NotFound {
