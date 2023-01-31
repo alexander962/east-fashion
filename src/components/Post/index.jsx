@@ -46,7 +46,7 @@ const Post = ({ className, post, classVariant = 1 }) => {
             )}
           </div>
           {classVariant === 3 && (
-            <div className={cl(styles.postImg, classVariant === 3 && styles.postTwoImg)}>
+            <div className={cl(styles.postImg, styles.postTwoImg)}>
               <img src={urlFor(post?.additionalImage).url()} alt="" />
             </div>
           )}

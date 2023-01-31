@@ -67,7 +67,9 @@ const FavouritesPosts = ({ posts }) => {
                     <div className={cl(styles.favouritesImg)}>
                       <img src={urlFor(post?.mainImage).url()} alt="" />
                     </div>
-                    <h3 className={cl(styles.favouritesTitle)}>{post?.title}</h3>
+                    <div className={cl(styles.favouritesTitle)}>
+                      <h3>{post?.title}</h3>
+                    </div>
                   </a>
                 </Link>
               </div>

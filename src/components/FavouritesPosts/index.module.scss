@@ -16,6 +16,10 @@
     width: 100%!important;
     padding: 0;
   }
+
+  .favouritesTitle {
+    max-width: 300px;
+  }
 }
 
 .favouritesHeader {
@@ -25,6 +29,8 @@
 }
 
 .favouritesPost {
+  display: block;
+  position: relative;
   text-decoration: none;
 }
 
@@ -48,8 +54,15 @@
 }
 
 .favouritesTitle {
-  font: 400 32px/120% 'Questrial';
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  z-index: 99;
+  font: 400 22px/120% 'Questrial';
   color: #000000;
+  max-width: 416px;
+  background: #ffffff;
 }
 
 .favouritesDesc {
