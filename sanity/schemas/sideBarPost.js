@@ -9,8 +9,8 @@ const textEditorStyles = [
 ]
 
 export default defineType({
-  name: 'post',
-  title: 'Post',
+  name: 'sideBarPost',
+  title: 'Side Bar Post',
   type: 'document',
   groups: [
     {
@@ -23,37 +23,6 @@ export default defineType({
     },
   ],
   fields: [
-    defineField({
-      title: 'Make a post popular?',
-      name: 'popular',
-      type: 'boolean',
-    }),
-    // defineField({
-    //   name: 'displayTypes',
-    //   title: 'Display type',
-    //   type: 'reference',
-    //   to: {type: 'displayType'},
-    //   group: 'content',
-    //   validation: (Rule) => Rule.required(),
-    // }),
-    defineField({
-      name: 'displayTypes',
-      title: 'Display type',
-      type: 'string',
-      options: {
-        list: [
-          {title: 'Type 1 image small', value: 'type1'},
-          {title: 'Type 1 image middle', value: 'type2'},
-          {title: 'Type 1 image big', value: 'type3'},
-          {title: 'Type 2 images small', value: 'type4'},
-          {title: 'Type 2 images big', value: 'type5'},
-          {title: 'Type 3 images', value: 'type6'},
-        ],
-        layout: 'dropdown',
-      },
-      default: 'type1',
-      validation: (Rule) => Rule.required(),
-    }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -124,27 +93,7 @@ export default defineType({
           title: 'Caption',
           group: 'content',
           options: {
-            isHighlighted: true,
-          },
-        },
-      ],
-    }),
-    defineField({
-      name: 'thirdImage',
-      title: 'Third image',
-      type: 'image',
-      group: 'content',
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        {
-          name: 'caption',
-          type: 'string',
-          title: 'Caption',
-          group: 'content',
-          options: {
-            isHighlighted: true,
+            isHighlighted: true, // <-- make this field easily accessible
           },
         },
       ],
@@ -255,7 +204,6 @@ export default defineType({
   initialValue: {
     popularity: 1,
     comments: [{}],
-    popular: false,
   },
   preview: {
     select: {

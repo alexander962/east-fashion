@@ -18,7 +18,7 @@ export default function Tags({ posts, setPosts, total, tag, visibleSearchResult 
       const query = `{
       "dataPosts": *[_type == "post" && !(_id match "drafts*") && ("${tag}" match tags->title)] | order(publishedDate desc) [${loadedAmount}...${
         loadedAmount + LOAD_MORE_STEP
-      }] {_id, publishedAt, title, slug, description, mainImage, "categories": categories->{title}, "tags": tags->{title}, comments, "author": author->{name, image}}
+      }] {_id, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, "categories": categories->{title}, "tags": tags->{title}, comments, "author": author->{name, image}}
       }`;
       const { dataPosts } = await client.fetch(query);
       setLoadedAmount(loadedAmount + LOAD_MORE_STEP);

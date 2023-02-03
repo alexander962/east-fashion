@@ -5,13 +5,32 @@
     padding: 40px 0;
   }
 
+  &Block {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    align-items: flex-start;
+  }
+
   &__header {
     font: 400 20px/120% 'Questrial';
     color: #000000;
+
+    span {
+      display: block;
+      margin-top: 30px;
+      font: 400 22px/120% 'FreightText-BookItalic' ;
+      color: #000000;
+    }
   }
 
   hr {
-    margin: 20px 0;
+    margin: 0;
+    color: rgba(161, 161, 170, 0.5);
+    background-color: rgba(161, 161, 170, 0.5);
+    border:0 none;
+    height:1px;
+    clear:both;
   }
 
   &NotFound {

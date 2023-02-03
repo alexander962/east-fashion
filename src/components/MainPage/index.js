@@ -5,6 +5,7 @@ import { Button, Posts } from '@/components';
 import PopularPosts from '@/components/PopularPosts';
 import FavouritesPosts from '@/components/FavouritesPosts';
 import styles from './index.module.scss';
+import Sidebar from '@/components/Sidebar';
 
 const LOAD_MORE_STEP = 4;
 const MainPage = ({
@@ -13,6 +14,7 @@ const MainPage = ({
   total,
   favouritesPosts,
   popularPosts,
+  sideBarPosts,
   visiblePopularsPosts,
   visibleSearchResult,
 }) => {
@@ -50,10 +52,13 @@ const MainPage = ({
       ) : (
         <>
           <div className={cl(styles.mainPage__header)}>
-            {!visibleSearchResult ? <span>Latest posts</span> : <span>Search results</span>}
             <hr className={styles.mainPageHrMain} />
+            {!visibleSearchResult ? <span>Latest posts</span> : <span>Search results</span>}
           </div>
-          <Posts posts={posts} />
+          <div className={styles.mainPageBlock}>
+            <Posts posts={posts} />
+            <Sidebar sideBarPosts={sideBarPosts} />
+          </div>
         </>
       )}
 

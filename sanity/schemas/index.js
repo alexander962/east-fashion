@@ -6,6 +6,7 @@ import favouritesPosts from './favouritesPosts'
 import about from './about'
 import tag from './tag'
 import shared from './shared'
+import sideBarPost from './sideBarPost'
 
 export const schemaTypes = [
   post,
@@ -15,5 +16,6 @@ export const schemaTypes = [
   favouritesPosts,
   about,
   tag,
+  sideBarPost,
   ...shared,
 ]

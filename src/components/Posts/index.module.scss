@@ -1,6 +1,19 @@
 .posts {
+  width: 100%;
+  position: relative;
+  max-width: 880px;
+  border-right: 1px solid rgba(161, 161, 170, 0.25);
+
   hr {
-    margin: 40px 0;
-    color: #000000;
+    margin: 0;
+    color: rgba(161, 161, 170, 0.5);
+    background-color: rgba(161, 161, 170, 0.5);
+    border:0 none;
+    height:1px;
+    clear:both;
   }
+}
+
+.postWrapper {
+  padding-right: 20px;
 }

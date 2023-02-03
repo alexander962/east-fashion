@@ -6,37 +6,24 @@ import { format } from 'date-fns';
 import { urlFor } from '~/lib/client';
 import Title from '../Title';
 import styles from './index.module.scss';
-const Post = ({ className, post, classVariant = 1 }) => {
-  const date = format(new Date(post?.publishedAt), 'MMM dd,yyyy');
+const Post = ({ post }) => {
+  // const date = format(new Date(post?.publishedAt), 'MMM dd,yyyy');
+  // <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(className, styles.post)}>
+  console.log(post);
 
   return (
-    <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(className, styles.post)}>
-      <div className={cl(styles.post, classVariant === 2 && styles.postLeft, classVariant === 3 && styles.postTwo)}>
-        <div
-          className={cl(
-            styles.postInfo,
-            classVariant === 2 && styles.postLeftInfo,
-            classVariant === 3 && styles.postTwoInfo
-          )}
-        >
-          {date && <p className={cl(styles.postDate, classVariant === 2 && styles.postLeftDate)}>{date}</p>}
-          <Title>{post?.title}</Title>
-          <p className={styles.postDescription}>
-            {classVariant === 1 ? post?.description : post?.description.substring(0, 90) + '... '}
-            {(classVariant === 2 || classVariant === 3) && <span>Read more</span>}
-          </p>
+    <div className={cl(styles.postMain)}>
+      {post?.author?.image ? (
+        <div className={cl(styles.postAuthor)}>
+          <img src={urlFor(post?.author?.image).url()} alt="" />
         </div>
-
-        <div className={cl(styles.postImagesBlock, classVariant === 3 && styles.postTwoImages)}>
-          <div
-            className={cl(
-              styles.postImg,
-              classVariant === 2 && styles.postLeftImg,
-              classVariant === 3 && styles.postLeftImg,
-              classVariant === 3 && styles.postTwoImg
-            )}
-          >
-            <img src={urlFor(post?.mainImage).url()} alt="" />
+      ) : (
+        <div className={cl(styles.postAuthor, styles.postAuthorBlack)}></div>
+      )}
+      {post?.displayTypes && post?.displayTypes === 'type1' && (
+        <div className={cl(styles.post)}>
+          <div className={cl(styles.postInfo)}>
+            {/*{date && <p className={cl(styles.postDate)}>{date}</p>}*/}
             {post?.tags && (
               <div className={cl(styles.postTag)}>
                 <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
@@ -44,16 +31,91 @@ const Post = ({ className, post, classVariant = 1 }) => {
                 </Link>
               </div>
             )}
+            <Title>
+              {post?.title?.length > 55 ? <p>{post?.title.substring(0, 55) + '... '}</p> : <p>{post?.title}</p>}
+            </Title>
+            {post?.description?.length > 180 ? (
+              <>
+                <p className={styles.postDescription}>
+                  {post?.description.substring(0, 180) + '... '}
+                  <span>Read more</span>
+                </p>
+              </>
+            ) : (
+              <p className={styles.postDescription}>{post?.description}</p>
+            )}
           </div>
-          {classVariant === 3 && (
-            <div className={cl(styles.postImg, styles.postTwoImg)}>
-              <img src={urlFor(post?.additionalImage).url()} alt="" />
+
+          <div className={cl(styles.postImagesBlock)}>
+            <div className={cl(styles.postImg)}>
+              <img src={urlFor(post?.mainImage)?.url()} alt="" />s
             </div>
-          )}
+          </div>
+          <button className={cl(styles.postBtnMobile)}>Read full article</button>
         </div>
-        <button className={cl(styles.postBtnMobile)}>Read full article</button>
-      </div>
-    </Link>
+      )}
+
+      {post?.displayTypes && (post?.displayTypes === 'type2' || post?.displayTypes === 'type3') && (
+        <div className={cl(styles.postType3)} key={post?._id}>
+          <div className={cl(styles.postType3Block)}>
+            <div className={cl(styles.postType3Img, post?.displayTypes === 'type3' && styles.postType3ImgBig)}>
+              <img src={urlFor(post?.mainImage)?.url()} alt="" />
+              {post?.tags && (
+                <div className={cl(styles.postType3Info)}>
+                  <div className={cl(styles.postType3Tag)}>
+                    <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
+                      <a>{'#' + post?.tags?.title}</a>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className={cl(styles.postType3Title)}>
+              <h3>
+                {post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '... '}</p> : <p>{post?.title}</p>}
+              </h3>
+              {post?.description?.length > 180 ? (
+                <>
+                  <p className={styles.postType3Description}>
+                    {post?.description.substring(0, 180) + '... '}
+                    <span>Read more</span>
+                  </p>
+                </>
+              ) : (
+                <p className={styles.postType3Description}>{post?.description}</p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {post?.displayTypes && (post?.displayTypes === 'type4' || post?.displayTypes === 'type5') && (
+        <div className={cl(styles.postType4)} key={post?._id}>
+          <div className={cl(styles.postType4Block)}>
+            <div className={cl(styles.postType4Img)}>
+              <img src={urlFor(post?.mainImage)?.url()} alt="" />
+              {post?.tags && (
+                <div className={cl(styles.postType4Info)}>
+                  <div className={cl(styles.postType4Tag)}>
+                    <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
+                      <a>{'#' + post?.tags?.title}</a>
+                    </Link>
+                  </div>
+                  <div className={cl(styles.postType4Title)}>
+                    <h3>{post?.title}</h3>
+                  </div>
+                </div>
+              )}
+            </div>
+            {post?.additionalImage && (
+              <div className={cl(styles.postType4ImgAdditional)}>
+                <img src={urlFor(post?.additionalImage)?.url()} alt="" />
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 

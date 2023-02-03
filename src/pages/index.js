@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 
 import { Footer, Header, Section } from '@/components';
-import { loadFavouritesPosts, loadPopularPosts, loadPosts } from './api/posts';
+import { loadFavouritesPosts, loadPopularPosts, loadPosts, loadSideBarPosts } from './api/posts';
 import MainPage from '@/components/MainPage';
 import ModalMenu from '@/components/ModalMenu';
 
 const LOAD_MORE_STEP = 4;
-export default function Home({ initialPosts, total, favouritesPosts, popularPosts }) {
+export default function Home({ initialPosts, total, favouritesPosts, popularPosts, sideBarPosts }) {
   const [posts, setPosts] = useState(initialPosts);
   const [totalPosts, setTotalPosts] = useState(total);
   const [modalVisible, setModalVisible] = useState(false);
@@ -36,6 +36,7 @@ export default function Home({ initialPosts, total, favouritesPosts, popularPost
         total={totalPosts}
         favouritesPosts={favouritesPosts}
         popularPosts={popularPosts}
+        sideBarPosts={sideBarPosts}
         visiblePopularsPosts={visiblePopularsPosts}
         visibleSearchResult={visibleSearchResult}
       />
@@ -48,6 +49,7 @@ export const getServerSideProps = async () => {
   const { posts, total } = await loadPosts(0, LOAD_MORE_STEP);
   const { favouritesPosts } = await loadFavouritesPosts();
   const { popularPosts } = await loadPopularPosts();
+  const { sideBarPosts } = await loadSideBarPosts();
 
   return {
     props: {
@@ -55,6 +57,7 @@ export const getServerSideProps = async () => {
       total,
       favouritesPosts,
       popularPosts,
+      sideBarPosts,
     },
   };
 };

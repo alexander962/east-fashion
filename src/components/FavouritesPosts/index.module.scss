@@ -1,5 +1,5 @@
 .favouritesPosts {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .inner {
@@ -23,7 +23,8 @@
 }
 
 .favouritesHeader {
-  font: 400 20px/120% 'Questrial';
+  font: 400 22px/120% 'FreightText-BookItalic';
+  font-style: italic;
   color: #000000;
   margin-bottom: 15px;
 }
@@ -37,9 +38,11 @@
 .favouritesImg {
   width: 100%;
   height: 360px;
-  margin-bottom: 20px;
   overflow: hidden;
   position: relative;
+  @media screen and (max-width: 1024px) {
+    margin-bottom: 20px;
+  }
 
   img {
     width: 100%;
@@ -59,10 +62,11 @@
   bottom: 20px;
   left: 0;
   z-index: 99;
-  font: 400 22px/120% 'Questrial';
+  font: 400 22px/120% 'FreightTextProMedium-Regular';
   color: #000000;
   max-width: 416px;
   background: #ffffff;
+  padding: 20px 10px;
 }
 
 .favouritesDesc {
