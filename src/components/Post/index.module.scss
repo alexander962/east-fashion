@@ -3,11 +3,15 @@
   align-items: flex-start;
   justify-content: space-between;
   text-decoration: none;
-  cursor: pointer;
   flex-direction: row-reverse;
   padding: 20px 0;
   @media screen and (max-width: 900px) {
     flex-direction: column;
+  }
+
+  &Link {
+    outline: 1px solid red;
+    cursor: pointer;
   }
 
   &Main {
@@ -81,6 +85,7 @@
     z-index: 9;
     padding: 8px 20px;
     margin-bottom: 15px;
+    cursor: pointer;
 
     a {
       font: 400 12px/140%  'GillSans';
@@ -208,7 +213,6 @@
 
     &Block {
       text-decoration: none;
-      cursor: pointer;
     }
 
     &Img {
@@ -271,11 +275,13 @@
       display: inline-block;
       padding: 10px 20px;
       background: #000000;
+      cursor: pointer;
     }
   }
 
   &Type4 {
     padding: 20px 0;
+    width: 100%;
 
     &Block {
       display: flex;
@@ -287,7 +293,7 @@
       position: relative;
       width: calc((100%/12)*8);
       height: 240px;
-      max-width: 560px;
+      max-width: 479px;
 
       img {
         width: 100%;
@@ -299,6 +305,72 @@
         width: calc((100%/12)*4);
         height: 240px;
         max-width: 280px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    &Info {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 9;
+
+      a {
+        font: 400 12px/12px  'Arial';
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+    }
+
+    &Tag {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #000000;
+      cursor: pointer;
+    }
+
+    &Title {
+      font: 400 22px/130% 'Questrial';
+      color: #000000;
+      padding: 20px 10px;
+      background: #ffffff;
+      max-width: 430px;
+    }
+  }
+
+  &Type5 {
+    padding: 20px 0;
+    width: 100%;
+
+    &Block {
+      display: flex;
+      align-items: center;
+    }
+
+    &Img {
+      position: relative;
+      width: calc((100%/12)*6);
+      height: 380px;
+      max-width: 360px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &Additional {
+        width: calc((100%/12)*6);
+        height: 380px;
+        max-width: 360px;
+        margin-left: 20px;
 
         img {
           width: 100%;
@@ -327,6 +399,85 @@
       display: inline-block;
       padding: 10px 20px;
       background: #000000;
+      cursor: pointer;
+    }
+
+    &Title {
+      font: 400 22px/130% 'Questrial';
+      color: #000000;
+      padding: 20px 10px;
+      background: #ffffff;
+      max-width: 300px;
+    }
+  }
+
+  &Type6 {
+    padding: 20px 0;
+    width: 100%;
+
+    &Block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &Img {
+      position: relative;
+      width: calc((100%/12)*4);
+      height: 240px;
+      max-width: 240px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &Additional {
+        width: calc((100%/12)*4);
+        height: 240px;
+        max-width: 240px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &Third {
+        width: calc((100%/12)*4);
+        height: 240px;
+        max-width: 240px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    &Info {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 9;
+
+      a {
+        font: 400 12px/12px  'Arial';
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+    }
+
+    &Tag {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #000000;
+      cursor: pointer;
     }
 
     &Title {

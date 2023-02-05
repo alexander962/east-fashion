@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 
-import { loadTagPosts } from '../api/posts';
+import { loadSideBarPosts, loadTagPosts } from '../api/posts';
 import { Footer, Header, Section } from '@/components';
 import ModalMenu from '@/components/ModalMenu';
 import Tags from '@/components/Tags';
 
 const LOAD_MORE_STEP = 4;
-export default function Interviews({ initialPosts, total, tag }) {
+export default function Interviews({ initialPosts, total, tag, sideBarPosts }) {
   const [posts, setPosts] = useState(initialPosts);
   const [totalPosts, setTotalPosts] = useState(total);
   const [modalVisible, setModalVisible] = useState(false);
@@ -31,7 +31,14 @@ export default function Interviews({ initialPosts, total, tag }) {
         setVisibleSearchResult={setVisibleSearchResult}
         tag={tag}
       />
-      <Tags posts={posts} setPosts={setPosts} total={totalPosts} tag={tag} visibleSearchResult={visibleSearchResult} />
+      <Tags
+        posts={posts}
+        setPosts={setPosts}
+        total={totalPosts}
+        tag={tag}
+        visibleSearchResult={visibleSearchResult}
+        sideBarPosts={sideBarPosts}
+      />
       <Footer />
     </Section>
   );
@@ -39,11 +46,13 @@ export default function Interviews({ initialPosts, total, tag }) {
 
 export const getServerSideProps = async ({ query }) => {
   const { posts } = await loadTagPosts(query.tag);
+  const { sideBarPosts } = await loadSideBarPosts();
 
   return {
     props: {
       initialPosts: posts,
       tag: query.tag,
+      sideBarPosts,
     },
   };
 };

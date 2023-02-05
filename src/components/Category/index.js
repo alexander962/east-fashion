@@ -4,9 +4,10 @@ import cl from 'classnames';
 import { client } from '~/lib/client';
 import { Button, Posts } from '@/components';
 import styles from '@/components/Category/index.module.scss';
+import Sidebar from '@/components/Sidebar';
 
 const LOAD_MORE_STEP = 4;
-export default function Category({ posts, setPosts, total, category, visibleSearchResult }) {
+export default function Category({ posts, setPosts, total, category, visibleSearchResult, sideBarPosts }) {
   const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
   const [loading, setLoading] = useState(false);
   const isLoadButton = total > loadedAmount;
@@ -39,7 +40,10 @@ export default function Category({ posts, setPosts, total, category, visibleSear
             {!visibleSearchResult ? <span>Latest posts</span> : <span>Search results</span>}
             <hr />
           </div>
-          <Posts posts={posts} />
+          <div className={styles.categoryPageBlock}>
+            <Posts posts={posts} />
+            <Sidebar sideBarPosts={sideBarPosts} />
+          </div>
         </>
       )}
       {isLoadButton && (

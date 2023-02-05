@@ -11,7 +11,7 @@ import rightArrow from '@/assets/images/arrow-right.svg';
 import styles from './index.module.scss';
 import { toast, ToastContainer } from 'react-nextjs-toast';
 import Sidebar from '@/components/Sidebar';
-const CardPostInfo = ({ post }) => {
+const CardPostInfo = ({ post, sideBarPosts }) => {
   const date = format(new Date(post?.publishedAt), 'dd MMM yyyy');
   const [inputName, setInputName] = useState('');
   const [inputComment, setInputComment] = useState('');
@@ -188,7 +188,7 @@ const CardPostInfo = ({ post }) => {
               </div>
             ))}
         </div>
-        <Sidebar />
+        <Sidebar sideBarPosts={sideBarPosts} />
       </div>
       <hr className={cl(styles.cardHrFooter)} />
     </div>

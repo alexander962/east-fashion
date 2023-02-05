@@ -4,9 +4,10 @@ import cl from 'classnames';
 import { Button, Posts } from '@/components';
 import { client } from '~/lib/client';
 import styles from '@/components/Category/index.module.scss';
+import Sidebar from '@/components/Sidebar';
 
 const LOAD_MORE_STEP = 4;
-export default function Tags({ posts, setPosts, total, tag, visibleSearchResult }) {
+export default function Tags({ posts, setPosts, total, tag, visibleSearchResult, sideBarPosts }) {
   const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
   const [loading, setLoading] = useState(false);
   const isLoadButton = total > loadedAmount;
@@ -40,7 +41,10 @@ export default function Tags({ posts, setPosts, total, tag, visibleSearchResult 
             {!visibleSearchResult ? <span>Posts by tag - {`#${tag}`}</span> : <span>Search results</span>}
             <hr />
           </div>
-          <Posts posts={posts} />
+          <div className={styles.categoryPageBlock}>
+            <Posts posts={posts} />
+            <Sidebar sideBarPosts={sideBarPosts} />
+          </div>
         </>
       )}
       {isLoadButton && (
@@ -48,6 +52,7 @@ export default function Tags({ posts, setPosts, total, tag, visibleSearchResult 
           style={{
             display: 'flex',
             justifyContent: 'center',
+            marginTop: '30px',
           }}
         >
           <Button onClick={() => getMorePosts(category)} disabled={loading}>

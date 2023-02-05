@@ -6,8 +6,8 @@ import { client } from '~/lib/client';
 import { Footer, Header, Section } from '@/components';
 import CardPostInfo from '@/components/CardPostInfo';
 import ModalMenu from '@/components/ModalMenu';
-import { loadPopularPosts } from '@/pages/api/posts';
-const PostInfo = ({ post, popularPosts }) => {
+import { loadPopularPosts, loadSideBarPosts } from '@/pages/api/posts';
+const PostInfo = ({ post, popularPosts, sideBarPosts }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [posts, setPosts] = useState([]);
   const [totalPosts, setTotalPosts] = useState(0);
@@ -33,7 +33,7 @@ const PostInfo = ({ post, popularPosts }) => {
         setVisiblePopularsPosts={setVisiblePopularsPosts}
         setTotalPosts={setTotalPosts}
       />
-      {post && <CardPostInfo post={post} popularPosts={popularPosts} />}
+      {post && <CardPostInfo post={post} popularPosts={popularPosts} sideBarPosts={sideBarPosts} />}
       <Footer />
     </Section>
   );
@@ -65,11 +65,13 @@ export async function getStaticProps(props) {
 
   const post = await client.fetch(query);
   const { popularPosts } = await loadPopularPosts();
+  const { sideBarPosts } = await loadSideBarPosts();
 
   return {
     props: {
       post,
       popularPosts,
+      sideBarPosts,
     },
     revalidate: 1,
   };

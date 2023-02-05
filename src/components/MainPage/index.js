@@ -63,12 +63,7 @@ const MainPage = ({
       )}
 
       {isLoadButton && (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
+        <div className={cl(styles.mainPageBtn)}>
           <Button onClick={getMorePosts} disabled={loading} className={cl(styles.mainPage__button)}>
             SHOW MORE
           </Button>
