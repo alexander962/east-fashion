@@ -14,7 +14,7 @@ const Sidebar = ({ sideBarPosts = [] }) => {
           sideBarPosts?.map(post => (
             <>
               <hr />
-              <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+              <Link href={`/sideBarPost/${encodeURIComponent(post?.slug?.current)}`}>
                 <div className={cl(styles.sidebarItems)}>
                   <div className={cl(styles.sidebarImg)}>
                     <img src={urlFor(post?.mainImage).url()} alt="" />

@@ -183,7 +183,7 @@ const CardPostInfo = ({ post, sideBarPosts }) => {
               <div className={cl(styles.cardComment)} key={`comment${index}`}>
                 <hr className={cl(styles.cardCommentHr)} />
                 <h4>{comment?.name}</h4>
-                <span>{format(new Date(comment?.publishedComment), 'MMM dd,yyyy')}</span>
+                <span>{comment?.publishedComment && format(new Date(comment?.publishedComment), 'MMM dd,yyyy')}</span>
                 <p>{comment?.description}</p>
               </div>
             ))}
