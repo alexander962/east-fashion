@@ -115,8 +115,17 @@ export default defineType({
     defineField({
       name: 'categories',
       title: 'Categories',
-      type: 'reference',
-      to: {type: 'category'},
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Favourites', value: 'favourites'},
+          {title: 'Culture', value: 'culture'},
+          {title: 'Skin-care', value: 'skin-care'},
+          {title: 'Interviews', value: 'interviews'},
+        ],
+        layout: 'dropdown',
+      },
+      default: 'culture',
       group: 'content',
       validation: (Rule) => Rule.required(),
     }),
