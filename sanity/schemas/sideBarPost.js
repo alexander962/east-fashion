@@ -10,7 +10,7 @@ const textEditorStyles = [
 
 export default defineType({
   name: 'sideBarPost',
-  title: 'Side Bar Post',
+  title: 'Side Bar',
   type: 'document',
   groups: [
     {

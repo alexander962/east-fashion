@@ -10,7 +10,7 @@ const textEditorStyles = [
 
 export default defineType({
   name: 'post',
-  title: 'Post',
+  title: 'Posts',
   type: 'document',
   groups: [
     {
