@@ -43,7 +43,7 @@ export default defineType({
       options: {
         list: [
           {title: 'One small image type', value: 'type1'},
-          {title: 'One middle image type', value: 'type2'},
+          {title: 'One medium image type', value: 'type2'},
           {title: 'One big image type', value: 'type3'},
           {title: 'Two small images type', value: 'type4'},
           {title: 'Two big images type', value: 'type5'},
