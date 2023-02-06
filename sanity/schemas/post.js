@@ -24,7 +24,7 @@ export default defineType({
   ],
   fields: [
     defineField({
-      title: 'Make a post popular?',
+      title: 'Popular',
       name: 'popular',
       type: 'boolean',
     }),
@@ -38,16 +38,16 @@ export default defineType({
     // }),
     defineField({
       name: 'displayTypes',
-      title: 'Display type',
+      title: 'Post layout type',
       type: 'string',
       options: {
         list: [
-          {title: 'Type 1 image small', value: 'type1'},
-          {title: 'Type 1 image middle', value: 'type2'},
-          {title: 'Type 1 image big', value: 'type3'},
-          {title: 'Type 2 images small', value: 'type4'},
-          {title: 'Type 2 images big', value: 'type5'},
-          {title: 'Type 3 images', value: 'type6'},
+          {title: 'One small image type', value: 'type1'},
+          {title: 'One middle image type', value: 'type2'},
+          {title: 'One big image type', value: 'type3'},
+          {title: 'Two small images type', value: 'type4'},
+          {title: 'Two big images type', value: 'type5'},
+          {title: 'Three images type', value: 'type6'},
         ],
         layout: 'dropdown',
       },
