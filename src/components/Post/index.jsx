@@ -30,58 +30,84 @@ const Post = ({ post }) => {
                 </div>
               </Link>
             )}
-            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.postLink)}>
-              <Title>
-                {post?.title?.length > 55 ? <p>{post?.title.substring(0, 55) + '... '}</p> : <p>{post?.title}</p>}
-              </Title>
+            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+              <a className={cl(styles.postLink)}>
+                <Title>
+                  {post?.title?.length > 55 ? <p>{post?.title.substring(0, 55) + '... '}</p> : <p>{post?.title}</p>}
+                </Title>
+              </a>
             </Link>
             {post?.description?.length > 180 ? (
-              <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.postLink)}>
-                <p className={styles.postDescription}>
-                  {post?.description.substring(0, 180) + '... '}
-                  <span>Read more</span>
-                </p>
-              </Link>
+              <p className={styles.postDescription}>
+                {post?.description.substring(0, 180) + '... '}
+                <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+                  <a className={cl(styles.postLink)}>
+                    <span>Read more</span>
+                  </a>
+                </Link>
+              </p>
             ) : (
-              <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.postLink)}>
-                <p className={styles.postDescription}>{post?.description}</p>
-              </Link>
+              <p className={styles.postDescription}>{post?.description}</p>
             )}
           </div>
 
           <div className={cl(styles.postImagesBlock)}>
-            <div className={cl(styles.postImg)}>
-              <img src={urlFor(post?.mainImage)?.url()} alt="" />s
-            </div>
+            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+              <a className={cl(styles.postLink)}>
+                <div className={cl(styles.postImg)}>
+                  <img src={urlFor(post?.mainImage)?.url()} alt="" />s
+                </div>
+              </a>
+            </Link>
           </div>
-          <button className={cl(styles.postBtnMobile)}>Read full article</button>
+          <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+            <a className={cl(styles.postLink)}>
+              <button className={cl(styles.postBtnMobile)}>Read full article</button>
+            </a>
+          </Link>
         </div>
       )}
 
       {post?.displayTypes && (post?.displayTypes === 'type2' || post?.displayTypes === 'type3') && (
         <div className={cl(styles.postType3)} key={post?._id}>
           <div className={cl(styles.postType3Block)}>
-            <div className={cl(styles.postType3Img, post?.displayTypes === 'type3' && styles.postType3ImgBig)}>
-              <img src={urlFor(post?.mainImage)?.url()} alt="" />
-              {post?.tags && (
-                <div className={cl(styles.postType3Info)}>
-                  <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
-                    <div className={cl(styles.postType3Tag)}>
-                      <a>{'#' + post?.tags?.title}</a>
-                    </div>
-                  </Link>
-                </div>
-              )}
-            </div>
+            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+              <div
+                className={cl(
+                  styles.postType3Img,
+                  styles.postLink,
+                  post?.displayTypes === 'type3' && styles.postType3ImgBig
+                )}
+              >
+                <img src={urlFor(post?.mainImage)?.url()} alt="" />
+                {post?.tags && (
+                  <div className={cl(styles.postType3Info)}>
+                    <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
+                      <div className={cl(styles.postType3Tag)}>
+                        <a>{'#' + post?.tags?.title}</a>
+                      </div>
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </Link>
             <div className={cl(styles.postType3Title)}>
-              <h3>
-                {post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '... '}</p> : <p>{post?.title}</p>}
-              </h3>
+              <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+                <a className={cl(styles.postLink)}>
+                  <h3>
+                    {post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '... '}</p> : <p>{post?.title}</p>}
+                  </h3>
+                </a>
+              </Link>
               {post?.description?.length > 180 ? (
                 <>
                   <p className={styles.postType3Description}>
                     {post?.description.substring(0, 180) + '... '}
-                    <span>Read more</span>
+                    <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+                      <a className={cl(styles.postLink)}>
+                        <span>Read more</span>
+                      </a>
+                    </Link>
                   </p>
                 </>
               ) : (
@@ -95,31 +121,47 @@ const Post = ({ post }) => {
       {post?.displayTypes && post?.displayTypes === 'type4' && (
         <div className={cl(styles.postType4)} key={post?._id}>
           <div className={cl(styles.postType4Block)}>
-            <div className={cl(styles.postType4Img)}>
-              <img src={urlFor(post?.mainImage)?.url()} alt="" />
-              {post?.tags && (
-                <div className={cl(styles.postType4Info)}>
-                  <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
-                    <div className={cl(styles.postType4Tag)}>
-                      <a>{'#' + post?.tags?.title}</a>
-                    </div>
-                  </Link>
-                </div>
-              )}
-            </div>
-            {post?.additionalImage && (
-              <div className={cl(styles.postType4ImgAdditional)}>
-                <img src={urlFor(post?.additionalImage)?.url()} alt="" />
+            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+              <div className={cl(styles.postType4Img, styles.postLink)}>
+                <img src={urlFor(post?.mainImage)?.url()} alt="" />
+                {post?.tags && (
+                  <div className={cl(styles.postType4Info)}>
+                    <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
+                      <div className={cl(styles.postType4Tag)}>
+                        <a>{'#' + post?.tags?.title}</a>
+                      </div>
+                    </Link>
+                  </div>
+                )}
               </div>
+            </Link>
+            {post?.additionalImage && (
+              <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+                <a className={cl(styles.postLink)}>
+                  <div className={cl(styles.postType4ImgAdditional)}>
+                    <img src={urlFor(post?.additionalImage)?.url()} alt="" />
+                  </div>
+                </a>
+              </Link>
             )}
           </div>
           <div className={cl(styles.postType3Title)}>
-            <h3>{post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '... '}</p> : <p>{post?.title}</p>}</h3>
+            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+              <a className={cl(styles.postLink)}>
+                <h3>
+                  {post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '... '}</p> : <p>{post?.title}</p>}
+                </h3>
+              </a>
+            </Link>
             {post?.description?.length > 180 ? (
               <>
                 <p className={styles.postType3Description}>
                   {post?.description.substring(0, 180) + '... '}
-                  <span>Read more</span>
+                  <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+                    <a className={cl(styles.postLink)}>
+                      <span>Read more</span>
+                    </a>
+                  </Link>
                 </p>
               </>
             ) : (
@@ -132,28 +174,38 @@ const Post = ({ post }) => {
       {post?.displayTypes && post?.displayTypes === 'type5' && (
         <div className={cl(styles.postType5)} key={post?._id}>
           <div className={cl(styles.postType5Block)}>
-            <div className={cl(styles.postType5Img)}>
-              <img src={urlFor(post?.mainImage)?.url()} alt="" />
-              {post?.tags && (
-                <div className={cl(styles.postType5Info)}>
-                  <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
-                    <div className={cl(styles.postType5Tag)}>
-                      <a>{'#' + post?.tags?.title}</a>
+            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+              <div className={cl(styles.postType5Img, styles.postLink)}>
+                <img src={urlFor(post?.mainImage)?.url()} alt="" />
+                {post?.tags && (
+                  <div className={cl(styles.postType5Info)}>
+                    <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
+                      <div className={cl(styles.postType5Tag)}>
+                        <a>{'#' + post?.tags?.title}</a>
+                      </div>
+                    </Link>
+                    <div className={cl(styles.postType5Title)}>
+                      <h3>
+                        {post?.title?.length > 70 ? (
+                          <p>{post?.title.substring(0, 70) + '... '}</p>
+                        ) : (
+                          <p>{post?.title}</p>
+                        )}
+                      </h3>
                     </div>
-                  </Link>
-                  <div className={cl(styles.postType5Title)}>
-                    <h3>
-                      {post?.title?.length > 70 ? <p>{post?.title.substring(0, 70) + '... '}</p> : <p>{post?.title}</p>}
-                    </h3>
                   </div>
-                </div>
-              )}
-            </div>
-            {post?.additionalImage && (
-              <div className={cl(styles.postType5ImgAdditional)}>
-                <img src={urlFor(post?.additionalImage)?.url()} alt="" />
+                )}
               </div>
-            )}
+            </Link>
+            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+              <a className={cl(styles.postLink)}>
+                {post?.additionalImage && (
+                  <div className={cl(styles.postType5ImgAdditional)}>
+                    <img src={urlFor(post?.additionalImage)?.url()} alt="" />
+                  </div>
+                )}
+              </a>
+            </Link>
           </div>
         </div>
       )}
@@ -161,36 +213,56 @@ const Post = ({ post }) => {
       {post?.displayTypes && post?.displayTypes === 'type6' && (
         <div className={cl(styles.postType6)} key={post?._id}>
           <div className={cl(styles.postType6Block)}>
-            <div className={cl(styles.postType6Img)}>
-              <img src={urlFor(post?.mainImage)?.url()} alt="" />
-              {post?.tags && (
-                <div className={cl(styles.postType6Info)}>
-                  <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
-                    <div className={cl(styles.postType6Tag)}>
-                      <a>{'#' + post?.tags?.title}</a>
-                    </div>
-                  </Link>
-                </div>
-              )}
-            </div>
-            {post?.additionalImage && (
-              <div className={cl(styles.postType6ImgAdditional)}>
-                <img src={urlFor(post?.additionalImage)?.url()} alt="" />
+            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+              <div className={cl(styles.postType6Img, styles.postLink)}>
+                <img src={urlFor(post?.mainImage)?.url()} alt="" />
+                {post?.tags && (
+                  <div className={cl(styles.postType6Info)}>
+                    <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
+                      <div className={cl(styles.postType6Tag)}>
+                        <a>{'#' + post?.tags?.title}</a>
+                      </div>
+                    </Link>
+                  </div>
+                )}
               </div>
-            )}
-            {post?.thirdImage && (
-              <div className={cl(styles.postType6ImgThird)}>
-                <img src={urlFor(post?.thirdImage)?.url()} alt="" />
-              </div>
-            )}
+            </Link>
+            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+              <a className={cl(styles.postLink)}>
+                {post?.additionalImage && (
+                  <div className={cl(styles.postType6ImgAdditional)}>
+                    <img src={urlFor(post?.additionalImage)?.url()} alt="" />
+                  </div>
+                )}
+              </a>
+            </Link>
+            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+              <a className={cl(styles.postLink)}>
+                {post?.thirdImage && (
+                  <div className={cl(styles.postType6ImgThird)}>
+                    <img src={urlFor(post?.thirdImage)?.url()} alt="" />
+                  </div>
+                )}
+              </a>
+            </Link>
           </div>
           <div className={cl(styles.postType3Title)}>
-            <h3>{post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '... '}</p> : <p>{post?.title}</p>}</h3>
+            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+              <a className={cl(styles.postLink)}>
+                <h3>
+                  {post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '... '}</p> : <p>{post?.title}</p>}
+                </h3>
+              </a>
+            </Link>
             {post?.description?.length > 180 ? (
               <>
                 <p className={styles.postType3Description}>
                   {post?.description.substring(0, 180) + '... '}
-                  <span>Read more</span>
+                  <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+                    <a className={cl(styles.postLink)}>
+                      <span>Read more</span>
+                    </a>
+                  </Link>
                 </p>
               </>
             ) : (

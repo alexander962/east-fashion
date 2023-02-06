@@ -10,8 +10,9 @@
   }
 
   &Link {
-    outline: 1px solid red;
     cursor: pointer;
+    text-decoration: none;
+    color: #000000;
   }
 
   &Main {
@@ -316,7 +317,7 @@
       }
 
       &Additional {
-        width: calc((100%/12)*4);
+        //width: calc((100%/12)*4);
         height: 240px;
         max-width: 280px;
         @media screen and (max-width: 700px) {
@@ -388,7 +389,7 @@
       }
 
       &Additional {
-        width: calc((100%/12)*6);
+        //width: calc((100%/12)*6);
         height: 380px;
         max-width: 360px;
         margin-left: 20px;
@@ -465,7 +466,7 @@
       }
 
       &Additional {
-        width: calc((100%/12)*4);
+        //width: calc((100%/12)*4);
         height: 240px;
         max-width: 240px;
         @media screen and (max-width: 1200px) {
@@ -483,7 +484,7 @@
       }
 
       &Third {
-        width: calc((100%/12)*4);
+        //width: calc((100%/12)*4);
         height: 240px;
         max-width: 240px;
         @media screen and (max-width: 700px) {
