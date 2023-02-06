@@ -3,7 +3,7 @@
   top: 0;
   right: 0;
   width: 320px;
-  padding: 15px 0 0 20px;
+  padding: 15px 0 20px 20px;
   background: no-repeat url("../../assets/images/shadow-side.png");
   box-sizing: border-box;
   min-width: 320px;
@@ -68,7 +68,7 @@
 
   &Description {
     font: 400 14px/110% 'FreightTextProMedium-Regular';
-    color: #000000;
+    color: #444444;
   }
 }
 
