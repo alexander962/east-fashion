@@ -74,7 +74,13 @@ const FavouritesPosts = ({ posts }) => {
                         </Link>
                       </div>
                       <div>
-                        <h3 className={cl(styles.favouritesTitle)}>{post?.title}</h3>
+                        <h3 className={cl(styles.favouritesTitle)}>
+                          {post?.title?.length > 90 ? (
+                            <p>{post?.title.substring(0, 90) + '... '}</p>
+                          ) : (
+                            <p>{post?.title}</p>
+                          )}
+                        </h3>
                       </div>
                     </div>
                   </div>

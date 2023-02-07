@@ -38,8 +38,8 @@ export default function Tags({ posts, setPosts, total, tag, visibleSearchResult,
       ) : (
         <>
           <div className={cl(styles.categoryPage__header)}>
-            {!visibleSearchResult ? <span>Posts by tag - {`#${tag}`}</span> : <span>Search results</span>}
             <hr />
+            {!visibleSearchResult ? <span>Posts by tag - {`#${tag}`}</span> : <span>Search results</span>}
           </div>
           <div className={styles.categoryPageBlock}>
             <Posts posts={posts} />
