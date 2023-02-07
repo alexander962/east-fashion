@@ -33,6 +33,7 @@
   display: block;
   position: relative;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .favouritesImg {
@@ -56,17 +57,33 @@
   }
 }
 
-.favouritesTitle {
+.favouritesInfo {
   display: block;
   position: absolute;
   bottom: 20px;
   left: 0;
-  z-index: 99;
-  font: 400 22px/120% 'FreightTextProMedium-Regular';
+  z-index: 9;
+
+  a {
+    font: 400 12px/12px  'GillSans';
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+
+.favouritesTag {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #000000;
+}
+
+.favouritesTitle {
+  font: 400 22px/130% 'FreightTextProMedium-Regular';
   color: #000000;
-  max-width: 416px;
-  background: #ffffff;
   padding: 20px 10px;
+  background: #ffffff;
+  max-width: 430px;
 }
 
 .favouritesDesc {

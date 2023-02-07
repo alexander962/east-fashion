@@ -113,6 +113,13 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'reference',
+      to: {type: 'tag'},
+      group: 'content',
+    }),
+    defineField({
       name: 'categories',
       title: 'Categories',
       type: 'string',

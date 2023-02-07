@@ -13,6 +13,10 @@
     cursor: pointer;
     text-decoration: none;
     color: #000000;
+
+    @media screen and (max-width: 500px) {
+      //width: 100%;
+    }
   }
 
   &Main {

@@ -63,14 +63,21 @@ const FavouritesPosts = ({ posts }) => {
                   href={`/favouritesPost/${encodeURIComponent(post?.slug?.current)}`}
                   className={cl(styles.favouritesPost)}
                 >
-                  <a className={cl(styles.favouritesPost)}>
+                  <div className={cl(styles.favouritesPost)}>
                     <div className={cl(styles.favouritesImg)}>
                       <img src={urlFor(post?.mainImage).url()} alt="" />
                     </div>
-                    <div className={cl(styles.favouritesTitle)}>
-                      <h3>{post?.title}</h3>
+                    <div className={styles.favouritesInfo}>
+                      <div className={cl(styles.favouritesTag)}>
+                        <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
+                          <a>{'#' + post?.tags?.title}</a>
+                        </Link>
+                      </div>
+                      <div>
+                        <h3 className={cl(styles.favouritesTitle)}>{post?.title}</h3>
+                      </div>
                     </div>
-                  </a>
+                  </div>
                 </Link>
               </div>
             );

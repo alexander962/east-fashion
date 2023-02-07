@@ -61,9 +61,7 @@ const Post = ({ post }) => {
             </Link>
           </div>
           <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
-            <a className={cl(styles.postLink)}>
-              <button className={cl(styles.postBtnMobile)}>Read full article</button>
-            </a>
+            <button className={cl(styles.postBtnMobile)}>Read full article</button>
           </Link>
         </div>
       )}
