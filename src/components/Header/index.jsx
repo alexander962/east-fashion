@@ -30,7 +30,7 @@ const Header = ({
     setVisibleSearchResult(true);
     if (category) {
       const query = `{
-      "searchPosts": *[_type=="post" && (categories->title match "${category}") &&  !(_id match "drafts*") && ((pt::text(body) match "${inputText}") || title match "${inputText}" || description match "${inputText}")] {_id, popular, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, "categories": categories->{title}, "tags": tags->{title}, comments}
+      "searchPosts": *[_type=="post" && (categories match "${category}") &&  !(_id match "drafts*") && ((pt::text(body) match "${inputText}") || title match "${inputText}" || description match "${inputText}")] {_id, popular, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, "categories": categories->{title}, "tags": tags->{title}, comments}
       }`;
       const { searchPosts } = await client.fetch(query);
       setPosts(searchPosts);

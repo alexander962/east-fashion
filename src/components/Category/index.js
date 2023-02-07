@@ -16,7 +16,7 @@ export default function Category({ posts, setPosts, total, category, visibleSear
 
     try {
       const query = `{
-      "dataPosts": *[_type == "post" && !(_id match "drafts*") && (categories->title match "${category}")] | order(publishedAt desc) [${loadedAmount}...${
+      "dataPosts": *[_type == "post" && !(_id match "drafts*") && (categories match "${category}")] | order(publishedAt desc) [${loadedAmount}...${
         loadedAmount + LOAD_MORE_STEP
       }]{_id, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, "categories": categories->{title}, "tags": tags->{title}, comments, "author": author->{name, image}}
       }`;
@@ -37,8 +37,8 @@ export default function Category({ posts, setPosts, total, category, visibleSear
       ) : (
         <>
           <div className={cl(styles.categoryPage__header)}>
-            {!visibleSearchResult ? <span>Latest posts</span> : <span>Search results</span>}
             <hr />
+            {!visibleSearchResult ? <span>Latest posts</span> : <span>Search results</span>}
           </div>
           <div className={styles.categoryPageBlock}>
             <Posts posts={posts} />
