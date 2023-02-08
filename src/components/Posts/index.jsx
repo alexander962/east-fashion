@@ -14,7 +14,7 @@ const Posts = ({ posts }) => {
         return (
           <div key={post?._id} className={cl(styles.postWrapper)}>
             <Post post={post} classVariant={classVariant} />
-            <hr />
+            <hr className={styles.postHr} />
           </div>
         );
       })}

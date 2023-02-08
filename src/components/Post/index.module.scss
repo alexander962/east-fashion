@@ -4,7 +4,7 @@
   justify-content: space-between;
   text-decoration: none;
   flex-direction: row-reverse;
-  padding: 20px 0;
+  //padding: 20px 0;
   @media screen and (max-width: 900px) {
     flex-direction: column;
   }
@@ -28,7 +28,6 @@
     width: 56px;
     min-width: 56px;
     height: 56px;
-    margin-top: 20px;
     margin-right: 30px;
     @media screen and (max-width: 1270px) {
       display: none;
@@ -219,7 +218,7 @@
   }
 
   &Type3 {
-    padding: 20px 0;
+    //padding: 20px 0;
     width: 100%;
 
     &Block {
@@ -291,7 +290,7 @@
   }
 
   &Type4 {
-    padding: 20px 0;
+    //padding: 20px 0;
     width: 100%;
 
     &Block {
@@ -368,7 +367,7 @@
   }
 
   &Type5 {
-    padding: 20px 0;
+    //padding: 20px 0;
     width: 100%;
 
     &Block {
@@ -444,7 +443,7 @@
   }
 
   &Type6 {
-    padding: 20px 0;
+    //padding: 20px 0;
     width: 100%;
 
     &Block {
