@@ -26,7 +26,7 @@ const Sidebar = ({ sideBarPosts = [] }) => {
                         : post?.tags?.title}
                     </span>
                     <p className={cl(styles.sidebarDescription)}>
-                      {post?.description?.length > 80 ? post?.description.substring(0, 70) + '... ' : post?.description}
+                      {post?.title?.length > 80 ? post?.title.substring(0, 70) + '... ' : post?.title}
                     </p>
                   </div>
                 </div>
