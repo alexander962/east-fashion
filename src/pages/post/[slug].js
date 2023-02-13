@@ -34,7 +34,7 @@ const PostInfo = ({ post, popularPosts, sideBarPosts }) => {
         setTotalPosts={setTotalPosts}
       />
       {post && <CardPostInfo post={post} popularPosts={popularPosts} sideBarPosts={sideBarPosts} />}
-      <Footer />
+      <Footer subscribe={false} />
     </Section>
   );
 };

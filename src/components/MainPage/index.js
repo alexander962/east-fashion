@@ -51,12 +51,16 @@ const MainPage = ({
         <div className={cl(styles.mainPageNotFound)}>Articles not found</div>
       ) : (
         <>
-          <div className={cl(styles.mainPage__header)}>
-            <hr className={styles.mainPageHrMain} />
-            {!visibleSearchResult ? <span>Latest posts</span> : <span>Search results</span>}
-          </div>
           <div className={styles.mainPageBlock}>
-            <Posts posts={posts} />
+            <div className={cl(styles.mainPage__header)}>
+              {/*<hr className={styles.mainPageHrMain} />*/}
+              {!visibleSearchResult ? (
+                <span className={cl(styles.mainPage__headerText)}>Latest posts</span>
+              ) : (
+                <span className={cl(styles.mainPage__headerText)}>Search results</span>
+              )}
+              <Posts posts={posts} />
+            </div>
             <Sidebar sideBarPosts={sideBarPosts} />
           </div>
         </>

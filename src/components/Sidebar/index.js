@@ -34,7 +34,7 @@ const Sidebar = ({ sideBarPosts = [] }) => {
             </>
           ))}
       </div>
-      <Footer icons={false} classname={styles.footerSidebar} />
+      <Footer icons={false} classname={styles.footerSidebar} subscribe={true} />
     </div>
   );
 };

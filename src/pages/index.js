@@ -40,7 +40,7 @@ export default function Home({ initialPosts, total, favouritesPosts, popularPost
         visiblePopularsPosts={visiblePopularsPosts}
         visibleSearchResult={visibleSearchResult}
       />
-      <Footer />
+      <Footer subscribe={false} />
     </Section>
   );
 }

@@ -39,7 +39,7 @@ export default function Interviews({ initialPosts, total, tag, sideBarPosts }) {
         visibleSearchResult={visibleSearchResult}
         sideBarPosts={sideBarPosts}
       />
-      <Footer />
+      <Footer subscribe={false} />
     </Section>
   );
 }

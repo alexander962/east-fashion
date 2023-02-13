@@ -28,7 +28,7 @@ const FavouritesPostInfo = ({ post, popularPosts }) => {
         searchVisible={false}
       />
       <CardPostInfo post={post} popularPosts={popularPosts} />
-      <Footer />
+      <Footer subscribe={false} />
     </Section>
   );
 };
