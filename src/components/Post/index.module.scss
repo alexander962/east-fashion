@@ -378,7 +378,7 @@
       &Additional {
         height: 380px;
         max-width: 360px;
-        margin-left: 8px;
+        margin-left: 6px;
         @media screen and (max-width: 700px) {
           display: none;
         }
@@ -439,8 +439,8 @@
     &Img {
       position: relative;
       width: calc((100%/12)*4);
-      height: 250px;
-      max-width: 250px;
+      height: 254px;
+      max-width: 254px;
       @media screen and (max-width: 700px) {
         width: 100%;
         max-width: 100%;
@@ -453,8 +453,8 @@
       }
 
       &Additional {
-        height: 250px;
-        max-width: 250px;
+        height: 254px;
+        max-width: 254px;
         @media screen and (max-width: 1200px) {
           margin: 0 20px;
         }
@@ -470,8 +470,8 @@
       }
 
       &Third {
-        height: 250px;
-        max-width: 250px;
+        height: 254px;
+        max-width: 254px;
         @media screen and (max-width: 700px) {
           display: none;
         }
