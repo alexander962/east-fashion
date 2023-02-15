@@ -7,11 +7,17 @@ import facebook from '@/assets/images/facebook.svg';
 import twitter from '@/assets/images/instagram.svg';
 import youtube from '@/assets/images/youtube.svg';
 import close from 'src/assets/images/close-big.svg';
+import logo from '@/assets/images/logo.svg';
 
 const ModalMenu = ({ modalVisible, setModalVisible }) => {
   return (
     <div className={cl(styles.modal, modalVisible && styles.modalActive)}>
       <div className={styles.modalMenu}>
+        <Link href={'/'}>
+          <a onClick={() => setModalVisible(false)}>
+            <img src={logo.src} alt="" />
+          </a>
+        </Link>
         <div className={styles.modalMenuBlock}>
           <Link href={'/skin-care'}>
             <a onClick={() => setModalVisible(false)}>Soins de Beauté</a>
@@ -40,9 +46,9 @@ const ModalMenu = ({ modalVisible, setModalVisible }) => {
             </a>
           </div>
         </div>
-      </div>
-      <div>
-        <img src={close.src} onClick={() => setModalVisible(false)} alt="" />
+        <div className={styles.modalClose}>
+          <img src={close.src} onClick={() => setModalVisible(false)} alt="" />
+        </div>
       </div>
     </div>
   );

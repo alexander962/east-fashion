@@ -5,9 +5,19 @@
   width: 100%;
   flex: 0 0 auto;
 
+  &Burger {
+    cursor: pointer;
+  }
+
+  &Center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   &__logo {
     width: 100%;
-    max-width: 174px;
+    max-width: 116px;
 
     img {
       width: 100%;
@@ -73,11 +83,19 @@
         width: 32px;
       }
     }
+
+    &Active {
+      svg path {
+        fill: #696969;
+        opacity: 0.5;
+      }
+    }
   }
 
   &__inputBlock {
     display: flex;
     align-items: center;
+    margin-top: 20px;
     @media screen and (max-width: 768px) {
       margin-top: 20px;
     }
@@ -100,9 +118,6 @@
       padding: 5px;
       font: 400 12px/12px 'Arial';
       color: #292828;
-      @media screen and (max-width: 820px) {
-        width: 200px;
-      }
       @media screen and (max-width: 768px) {
         width: 100%;
         margin: 0 8px;
