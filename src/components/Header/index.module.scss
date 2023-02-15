@@ -10,6 +10,7 @@
   }
 
   &Center {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -136,7 +137,11 @@
     }
 
     &Desktop {
+      position: absolute;
+      top: 30px;
+      left: 0;
       display: flex;
+      transform: translateX(-35%);
       @media screen and (max-width: 768px) {
         display: none;
       }
