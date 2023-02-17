@@ -11,6 +11,7 @@ import rightArrow from '@/assets/images/arrow-right.svg';
 import styles from './index.module.scss';
 import { toast, ToastContainer } from 'react-nextjs-toast';
 import Sidebar from '@/components/Sidebar';
+import Link from 'next/link';
 const CardPostInfo = ({ post, sideBarPosts }) => {
   const date = format(new Date(post?.publishedAt), 'dd MMM yyyy');
   const [inputName, setInputName] = useState('');
@@ -113,11 +114,23 @@ const CardPostInfo = ({ post, sideBarPosts }) => {
   return (
     <div className={cl(styles.card, 'card')}>
       <ToastContainer align={'right'} position={'bottom'} />
+      <div className={cl(styles.cardBreadCrumbs)}>
+        <Link href={'/'}>
+          <a>KYRILL KAZAK</a>
+        </Link>
+        <span>//</span>
+        {post?.tags && (
+          <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
+            <a>{'#' + post?.tags?.title}</a>
+          </Link>
+        )}
+        <span>/</span>
+        <div>{post?.slug?.current}</div>
+      </div>
       <hr className={cl(styles.cardHrTop)} />
+      <div className={cl(styles.cardTitle)}>{post?.title}</div>
       <div className={cl(styles.cardBlocks)}>
         <div className={cl(styles.cardInfo)}>
-          {date && <p className={cl(styles.cardDate)}>{date}</p>}
-          <Title>{post?.title}</Title>
           {post?.sliderImages ? (
             <>
               <Slider asNavFor={nav2} ref={slider1 => setNav1(slider1)} {...settings}>
@@ -154,12 +167,13 @@ const CardPostInfo = ({ post, sideBarPosts }) => {
                 <img src={urlFor(post?.author?.image).url()} alt="" />
               </div>
             )}
-            <div>
-              <span>Posted by</span>
-              <h4>{post?.author?.name}</h4>
+            <div className={cl(styles.cardAuthorText)}>
+              <h4>
+                par <span>{post?.author?.name}</span>
+              </h4>
+              <Content body={post?.body} />
             </div>
           </div>
-          <Content body={post?.body} />
           <h3 className={cl(styles.cardSubtitle)}>Join discussion:</h3>
           <input
             className={cl(styles.cardInput)}
@@ -190,7 +204,7 @@ const CardPostInfo = ({ post, sideBarPosts }) => {
         </div>
         <Sidebar sideBarPosts={sideBarPosts} />
       </div>
-      <hr className={cl(styles.cardHrFooter)} />
+      {/*<hr className={cl(styles.cardHrFooter)} />*/}
     </div>
   );
 };

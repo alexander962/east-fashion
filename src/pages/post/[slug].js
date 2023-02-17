@@ -42,7 +42,7 @@ const PostInfo = ({ post, popularPosts, sideBarPosts }) => {
 export default PostInfo;
 
 export async function getStaticPaths() {
-  const query = `*[type == "post"]{_id, slug { current }, publishedAt, body, title, description, displayTypes, mainImage, additionalImage, thirdImage, meta_title, "categories": categories->{title}, comments, sliderImages, "author": author->{name, image}}`;
+  const query = `*[type == "post"]{_id, slug { current }, publishedAt, body, title, description, displayTypes, mainImage, additionalImage, thirdImage, meta_title, categories, "tags": tags->{title}, comments, sliderImages, "author": author->{name, image}}`;
 
   const posts = await client.fetch(query);
   const paths = posts.map(post => ({
@@ -61,7 +61,7 @@ export async function getStaticProps(props) {
   const {
     params: { slug },
   } = props;
-  const query = `*[_type == "post" && slug.current == '${slug}']{_id, publishedAt, body, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, meta_title, "categories": categories->{title}, comments, sliderImages, "author": author->{name, image}}[0]`;
+  const query = `*[_type == "post" && slug.current == '${slug}']{_id, publishedAt, body, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, meta_title, categories, "tags": tags->{title}, comments, sliderImages, "author": author->{name, image}}[0]`;
 
   const post = await client.fetch(query);
   const { popularPosts } = await loadPopularPosts();
