@@ -117,7 +117,7 @@
       outline: none;
       border-bottom: 1px solid #A1A1AA;
       padding: 5px;
-      font: 400 12px/12px 'Arial';
+      font: 400 12px/12px 'GillSans';
       color: #292828;
       @media screen and (max-width: 768px) {
         width: 100%;
@@ -125,7 +125,7 @@
       }
 
       &::placeholder {
-        font: 400 12px/12px 'Arial';
+        font: 400 12px/12px 'GillSans';
         color: #A1A1AA;
       }
 

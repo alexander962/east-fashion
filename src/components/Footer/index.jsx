@@ -14,84 +14,12 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
   const handleSignUp = async () => {
     const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     if (reg.test(inputText)) {
-      toast.notify('Subscribed successfully!', {
+      toast.notify('Votre inscription est confirmée!', {
         duration: 5,
-        type: 'success',
-        title: '',
+        title: 'Félicitations!',
+        fontFamily: 'GillSans',
+        color: '#000',
       });
-      // const mutations = [
-      //   {
-      //     patch: {
-      //       id: 'd674cb9c-e335-4f31-a3b4-49a4ee894de0',
-      //       set: {
-      //         description: 'Emails',
-      //       },
-      //     },
-      //   },
-      //   {
-      //     create: {
-      //       _type: 'emails',
-      //       title: inputText,
-      //     },
-      //   },
-      // ];
-      // client.mutate(mutations[1]);
-
-      // const mutation = `mutation {
-      //   createOrReplace(input: { _id: "e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b", patch: { set: { text: "New text" } } }) { document { _id } }
-      // }`;
-      // client.fetch(mutation).then(res => console.log(res));
-
-      // const mutation = {
-      //   createOrReplace(input: {
-      //     id: "e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b"
-      //     patch: {
-      //       set: {
-      //         textFieldName: "New Text"
-      //       }
-      //     }
-      //   }) {}
-      // }
-
-      // const mutations = [
-      //   {
-      //     patch: {
-      //       id: 'e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b',
-      //       insert: {
-      //         after: 'emailList[-1]',
-      //         items: [inputText],
-      //       },
-      //       // set: {
-      //       //   emailList: [inputText],
-      //       // },
-      //     },
-      //   },
-      // ];
-      //
-      // client.mutate(mutations[0]);
-      // const query = `{
-      //   "emailText": *[_type == "emails"]
-      // }`;
-      // const { emailText } = await client.fetch(query);
-      // console.log(emailText);
-      // let newText = emailText[0].email ? emailText[0].email + ' ' + inputText : inputText;
-      // console.log(newText);
-      //
-      // const mutationAddEmails = [
-      //   {
-      //     patch: {
-      //       id: 'e5f88fe5-f276-4cbe-bfd3-f25cdc1d633b',
-      //       set: {
-      //         email: newText,
-      //       },
-      //     },
-      //   },
-      // ];
-      //
-      // client.mutate(mutationAddEmails[0]);
-      // client.update('email', existingText => {
-      //   return existingText + 'New Text';
-      // });
       try {
         const url =
           'https://script.google.com/macros/s/AKfycbyujzcrUoYWgbN8XSyTREcHxts917QABltBmOLZUjUcehVkq_m3uonqc3xKU4xkgzkIvw/exec';
@@ -101,10 +29,11 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
       }
       setInputText('');
     } else {
-      toast.notify('Enter a valid email, for example: example@mail.com', {
+      toast.notify('Entrez une adresse e-mail valable, par exemple: exemple@mail.com', {
         duration: 5,
-        type: 'error',
-        title: '',
+        title: 'Erreur!',
+        fontFamily: 'GillSans',
+        color: '#000',
       });
     }
   };
@@ -115,7 +44,8 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
       {subscribe && (
         <div className={cl(classname, styles.footer__form)}>
           <label className={styles.footer__form_text} htmlFor="text">
-            Sign up for news delivered right to your inbox. Unsubscribe anytime.
+            Inscrivez-vous pour recevoir des mises à jour par e-mail (y compris des articles sur Kyrill Kazak et des
+            invitations à des événements). Vous pouvez vous désabonner à tout moment.
           </label>
           <div className={styles.footer__formBlock}>
             <input
@@ -123,10 +53,10 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
               type="text"
               value={inputText}
               onChange={e => setInputText(e.target.value)}
-              placeholder="YOUR EMAIL ADDRESS"
+              placeholder="VOTRE ADRESSE E-MAIL"
               required
             />
-            <button onClick={handleSignUp}>SIGN UP</button>
+            <button onClick={handleSignUp}>INSCRIVEZ-VOUS</button>
           </div>
         </div>
       )}

@@ -2,7 +2,6 @@
     font-family: 'GillSans';
     src: url('GillSans.woff2') format('woff2'),
         url('GillSans.woff') format('woff');
-    font-weight: normal;
     font-style: normal;
 }
 

@@ -1,7 +1,0 @@
-@font-face {
-    font-family: 'FreightText-BookItalic';
-    src: url('Freight-TextBookItalic.woff2') format('woff2'),
-        url('Freight-TextBookItalic.woff') format('woff');
-    font-style: italic;
-}
-

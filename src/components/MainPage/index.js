@@ -55,7 +55,7 @@ const MainPage = ({
             <div className={cl(styles.mainPage__header)}>
               {/*<hr className={styles.mainPageHrMain} />*/}
               {!visibleSearchResult ? (
-                <span className={cl(styles.mainPage__headerText)}>Latest posts</span>
+                <span className={cl(styles.mainPage__headerText)}>Dernières publications</span>
               ) : (
                 <span className={cl(styles.mainPage__headerText)}>Search results</span>
               )}
@@ -69,7 +69,7 @@ const MainPage = ({
       {isLoadButton && (
         <div className={cl(styles.mainPageBtn)}>
           <Button onClick={getMorePosts} disabled={loading} className={cl(styles.mainPage__button)}>
-            SHOW MORE
+            VOIR PLUS
           </Button>
         </div>
       )}

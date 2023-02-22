@@ -26,7 +26,7 @@ const Post = ({ post }) => {
             {post?.tags && (
               <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
                 <div className={cl(styles.postTag)}>
-                  <a>{'#' + post?.tags?.title}</a>
+                  <a>{post?.tags?.title}</a>
                 </div>
               </Link>
             )}
@@ -82,7 +82,7 @@ const Post = ({ post }) => {
                   <div className={cl(styles.postType3Info)}>
                     <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
                       <div className={cl(styles.postType3Tag)}>
-                        <a>{'#' + post?.tags?.title}</a>
+                        <a>{post?.tags?.title}</a>
                       </div>
                     </Link>
                   </div>
@@ -126,7 +126,7 @@ const Post = ({ post }) => {
                   <div className={cl(styles.postType4Info)}>
                     <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
                       <div className={cl(styles.postType4Tag)}>
-                        <a>{'#' + post?.tags?.title}</a>
+                        <a>{post?.tags?.title}</a>
                       </div>
                     </Link>
                   </div>
@@ -179,7 +179,7 @@ const Post = ({ post }) => {
                   <div className={cl(styles.postType5Info)}>
                     <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
                       <div className={cl(styles.postType5Tag)}>
-                        <a>{'#' + post?.tags?.title}</a>
+                        <a>{post?.tags?.title}</a>
                       </div>
                     </Link>
                     <div className={cl(styles.postType5Title)}>
@@ -218,7 +218,7 @@ const Post = ({ post }) => {
                   <div className={cl(styles.postType6Info)}>
                     <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
                       <div className={cl(styles.postType6Tag)}>
-                        <a>{'#' + post?.tags?.title}</a>
+                        <a>{post?.tags?.title}</a>
                       </div>
                     </Link>
                   </div>

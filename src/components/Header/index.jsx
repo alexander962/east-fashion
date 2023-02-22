@@ -145,16 +145,16 @@ const Header = ({
           {inputVisible && (
             <div className={cl(styles.header__inputBlock, styles.header__inputBlockDesktop)}>
               <div onClick={handleClickButton} className={styles.header__inputBlock_img}>
-                <img src={search.src} />
+                <img src={search.src} alt="" />
               </div>
               <input
                 value={inputText}
                 onChange={e => setInputText(e.target.value)}
                 onKeyUp={e => handleKeyUp(e)}
-                placeholder="search"
+                placeholder="rechercher"
               />
               <div onClick={handleClickClose} className={styles.header__inputBlock_img}>
-                <img src={close.src} />
+                <img src={close.src} alt="" />
               </div>
             </div>
           )}

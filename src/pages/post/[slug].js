@@ -27,7 +27,6 @@ const PostInfo = ({ post, popularPosts, sideBarPosts }) => {
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
       <Header
-        searchVisible={false}
         setModalVisible={setModalVisible}
         setPosts={setPosts}
         setVisiblePopularsPosts={setVisiblePopularsPosts}

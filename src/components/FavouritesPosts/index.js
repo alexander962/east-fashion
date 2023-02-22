@@ -70,7 +70,7 @@ const FavouritesPosts = ({ posts }) => {
                     <div className={styles.favouritesInfo}>
                       <div className={cl(styles.favouritesTag)}>
                         <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
-                          <a>{'#' + post?.tags?.title}</a>
+                          <a>{post?.tags?.title}</a>
                         </Link>
                       </div>
                       <div>

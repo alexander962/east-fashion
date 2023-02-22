@@ -15,7 +15,7 @@
   }
 
   &Title {
-    font: 400 42px/120% 'FreightTextProMedium-Regular';
+    font: 400 42px/120% 'Freight Display Pro';
     text-align: center;
     max-width: 1000px;
     margin: 0 auto;
@@ -25,7 +25,7 @@
 
   &BreadCrumbs {
     display: flex;
-    font: 400 16px/120% 'FreightTextProMedium-Regular';
+    font: 400 16px/120% 'GillSans';
     text-transform: uppercase;
     margin-bottom: 10px;
     color: #444444;
@@ -44,7 +44,7 @@
     }
 
     a {
-      font: 400 16px/120% 'FreightTextProMedium-Regular';
+      font: 400 16px/120% 'Freight Display Pro';
       text-transform: uppercase;
       color: #444444;
       text-decoration: none;
@@ -151,13 +151,13 @@
     h4 {
       display: flex;
       align-items: flex-start;
-      font: 400 18px/100%  'GillSans';
+      font: 400 15px/100%  'Freight Display Pro';
       color: #A1A1AA;
       margin-bottom: 7px;
       font-style: italic;
 
       span {
-        font: 400 16px/120% 'Arial';
+        font: 400 14px/120% 'GillSans';
         color: #000000;
         margin-left: 10px;
         text-transform: uppercase;
@@ -206,20 +206,20 @@
     }
 
     h4 {
-      font: 700 20px/120% 'Arial';
+      font: 700 20px/120% 'GillSans';
       margin-bottom: 6px;
       word-break: break-all;
     }
 
     span {
       display: block;
-      font: 400 12px/140% 'Arial';
+      font: 400 12px/140% 'GillSans';
       color: #A1A1AA;
       margin-bottom: 20px;
     }
 
     p {
-      font: 400 14px/140% 'Arial';
+      font: 400 14px/140% 'Freight Text Pro';
       word-break: break-all;
     }
   }

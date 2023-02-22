@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-@import "src/fonts/stylesheet.css";
-@import "src/fonts/FreightTextBookItalic/stylesheet.css";
 @import "src/fonts/GillSans/stylesheet.css";
+@import "src/fonts/freight-font/stylesheet.css";
 
 html,
 body,
@@ -13,6 +12,10 @@ button {
 button {
     border: none;
     box-shadow: none;
+}
+
+.toast-container {
+  z-index: 9;
 }
 
 @media only screen and (max-width: 1150px) {

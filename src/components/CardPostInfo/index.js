@@ -48,18 +48,18 @@ const CardPostInfo = ({ post, sideBarPosts }) => {
       ];
 
       client.mutate(post.comments ? mutations[0] : mutations[1]);
-      toast.notify('Your comment is on moderation now and will appear in a couple of minutes', {
+      toast.notify('Votre commentaire est en cours de modération et apparaîtra dans quelques minutes.', {
         duration: 5,
-        type: 'success',
-        title: '',
+        title: 'Bien reçu!',
+        fontFamily: 'GillSans',
       });
       setInputName('');
       setInputComment('');
     } else {
       toast.notify('Enter name and comment', {
         duration: 5,
-        type: 'error',
-        title: '',
+        title: 'Erreur!',
+        fontFamily: 'GillSans',
       });
     }
   };

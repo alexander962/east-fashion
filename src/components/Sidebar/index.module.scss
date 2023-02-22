@@ -68,17 +68,17 @@
   }
 
   &Description {
-    font: 400 14px/110% 'FreightTextProMedium-Regular';
+    font: 400 14px/110% 'Freight Display Pro';
     color: #444444;
   }
 }
 
 .footerSidebar {
   label {
-    text-align: left;
     margin-bottom: 20px;
-    font: 400 28px/120% 'GillSans';
+    font: 400 28px/120% 'Freight Display Pro';
     color: #000000;
+    text-align: center;
   }
 
   div {
@@ -90,7 +90,8 @@
     }
 
     button {
-      padding: 10px 17px;
+      padding: 10px 10px;
+      white-space: nowrap;
     }
   }
 }
