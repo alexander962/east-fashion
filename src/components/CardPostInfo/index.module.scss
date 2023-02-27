@@ -166,7 +166,7 @@
   }
 
   &Subtitle {
-    font: 400 32px/120% 'Questrial';
+    font: 400 32px/120% 'GillSans';
     color: #000000;
     margin-bottom: 20px;
     margin-top: 50px;
@@ -175,7 +175,7 @@
   &Input {
     display: block;
     width: 100%;
-    font: 400 16px/120% 'Questrial';
+    font: 400 16px/120% 'GillSans';
     border: 1px solid #000000;
     outline: none;
     padding: 10px 26px;
@@ -195,9 +195,10 @@
     margin-top: 20px;
     background: #000000;
     padding: 10px 0;
-    font: 400 12px/140% 'Arial';
+    font: 400 12px/140% 'GillSans';
     color: #ffffff;
     cursor: pointer;
+    text-transform: uppercase;
   }
 
   &Comment{

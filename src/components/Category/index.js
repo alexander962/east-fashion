@@ -36,12 +36,13 @@ export default function Category({ posts, setPosts, total, category, visibleSear
         <div className={cl(styles.categoryPageNotFound)}>Articles not found</div>
       ) : (
         <>
-          <div className={cl(styles.categoryPage__header)}>
-            <hr />
-            {!visibleSearchResult ? <span>Latest posts</span> : <span>Search results</span>}
-          </div>
           <div className={styles.categoryPageBlock}>
-            <Posts posts={posts} />
+            <div>
+              <div className={cl(styles.categoryPage__header)}>
+                {!visibleSearchResult ? <span>Latest posts</span> : <span>Search results</span>}
+              </div>
+              <Posts posts={posts} />
+            </div>
             <Sidebar sideBarPosts={sideBarPosts} />
           </div>
         </>

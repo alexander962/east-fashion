@@ -5,7 +5,7 @@
   border:0 none;
   height:1px;
   clear:both;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 768px) {
     display: none;
   }
 }
@@ -81,7 +81,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 768px) {
       justify-content: center;
     }
   }
@@ -90,16 +90,17 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 345px;
+    max-width: 580px;
     margin-right: 41px;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 768px) {
       display: none;
     }
 
     a {
-      font: 400 14px/140% 'Questrial';
+      font: 400 14px/140% 'GillSans';
       color: #000000;
       text-decoration: none;
+      text-transform: uppercase;
     }
   }
 
@@ -108,6 +109,23 @@
 
     &:last-child {
       margin-right: 0;
+    }
+  }
+
+  &Info {
+    font: 400 18px/100% 'Freight Display Pro';
+    font-style: italic;
+    color: rgb(170, 170, 170);
+    margin-top: 20px;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+
+    a {
+      font: 400 18px/100% 'Freight Display Pro';
+      font-style: italic;
+      color: rgb(170, 170, 170);
+      text-decoration: none;
     }
   }
 }

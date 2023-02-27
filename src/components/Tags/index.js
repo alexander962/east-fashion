@@ -12,7 +12,7 @@ export default function Tags({ posts, setPosts, total, tag, visibleSearchResult,
   const [loading, setLoading] = useState(false);
   const isLoadButton = total > loadedAmount;
 
-  const getMorePosts = async category => {
+  const getMorePosts = async () => {
     setLoading(true);
 
     try {
@@ -37,12 +37,13 @@ export default function Tags({ posts, setPosts, total, tag, visibleSearchResult,
         <div className={cl(styles.categoryPageNotFound)}>Articles not found</div>
       ) : (
         <>
-          <div className={cl(styles.categoryPage__header)}>
-            <hr />
-            {!visibleSearchResult ? <span>Posts by tag - {`#${tag}`}</span> : <span>Search results</span>}
-          </div>
           <div className={styles.categoryPageBlock}>
-            <Posts posts={posts} />
+            <div>
+              <div className={cl(styles.categoryPage__header)}>
+                {!visibleSearchResult ? <span>Articles par tag - {`#${tag}`}</span> : <span>Search results</span>}
+              </div>
+              <Posts posts={posts} />
+            </div>
             <Sidebar sideBarPosts={sideBarPosts} />
           </div>
         </>
@@ -55,7 +56,7 @@ export default function Tags({ posts, setPosts, total, tag, visibleSearchResult,
             marginTop: '30px',
           }}
         >
-          <Button onClick={() => getMorePosts(category)} disabled={loading}>
+          <Button onClick={() => getMorePosts()} disabled={loading}>
             SHOW MORE
           </Button>
         </div>

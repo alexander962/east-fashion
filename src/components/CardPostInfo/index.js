@@ -172,35 +172,39 @@ const CardPostInfo = ({ post, sideBarPosts }) => {
                 par <span>{post?.author?.name}</span>
               </h4>
               <Content body={post?.body} />
+              <div>
+                <h3 className={cl(styles.cardSubtitle)}>Participez à la discussion</h3>
+                <input
+                  className={cl(styles.cardInput)}
+                  onChange={e => setInputName(e.target.value)}
+                  value={inputName}
+                  placeholder="Votre nom"
+                  maxLength="80"
+                />
+                <textarea
+                  className={cl(styles.cardInput, styles.cardInputComment)}
+                  onChange={e => setInputComment(e.target.value)}
+                  value={inputComment}
+                  placeholder="Votre commentaire"
+                  maxLength="800"
+                />
+                <button className={cl(styles.cardBtn)} onClick={handleNewComment}>
+                  Envoyez
+                </button>
+                {post?.comments &&
+                  post?.comments.reverse().map((comment, index) => (
+                    <div className={cl(styles.cardComment)} key={`comment${index}`}>
+                      <hr className={cl(styles.cardCommentHr)} />
+                      <h4>{comment?.name}</h4>
+                      <span>
+                        {comment?.publishedComment && format(new Date(comment?.publishedComment), 'MMM dd,yyyy')}
+                      </span>
+                      <p>{comment?.description}</p>
+                    </div>
+                  ))}
+              </div>
             </div>
           </div>
-          <h3 className={cl(styles.cardSubtitle)}>Join discussion:</h3>
-          <input
-            className={cl(styles.cardInput)}
-            onChange={e => setInputName(e.target.value)}
-            value={inputName}
-            placeholder="Enter your name"
-            maxLength="80"
-          />
-          <textarea
-            className={cl(styles.cardInput, styles.cardInputComment)}
-            onChange={e => setInputComment(e.target.value)}
-            value={inputComment}
-            placeholder="Comment"
-            maxLength="800"
-          />
-          <button className={cl(styles.cardBtn)} onClick={handleNewComment}>
-            SEND
-          </button>
-          {post?.comments &&
-            post?.comments.reverse().map((comment, index) => (
-              <div className={cl(styles.cardComment)} key={`comment${index}`}>
-                <hr className={cl(styles.cardCommentHr)} />
-                <h4>{comment?.name}</h4>
-                <span>{comment?.publishedComment && format(new Date(comment?.publishedComment), 'MMM dd,yyyy')}</span>
-                <p>{comment?.description}</p>
-              </div>
-            ))}
         </div>
         <Sidebar sideBarPosts={sideBarPosts} />
       </div>

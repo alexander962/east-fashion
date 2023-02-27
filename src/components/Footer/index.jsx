@@ -8,6 +8,7 @@ import twitter from '@/assets/images/instagram.svg';
 import youtube from '@/assets/images/youtube.svg';
 import styles from './index.module.scss';
 import cl from 'classnames';
+import logo from '@/assets/images/logo.svg';
 const Footer = ({ classname, subscribe = true, icons = true }) => {
   const [inputText, setInputText] = useState('');
 
@@ -66,6 +67,11 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
           <footer className={styles.footer}>
             <nav className={styles.footer__nav}>
               <div className={styles.footer__menu}>
+                <Link href={'/'}>
+                  <a>
+                    <img src={logo.src} alt="" />
+                  </a>
+                </Link>
                 <Link href={'/skin-care'}>
                   <a>Soins de Beauté</a>
                 </Link>
@@ -94,6 +100,13 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
           </footer>
           <hr className={styles.hr} />
         </>
+      )}
+
+      {!subscribe && (
+        <div className={styles.footerInfo}>
+          Vous souhaiter nous joindre? Envoyez nous un e-mail à l’adresse{' '}
+          <a href="mailto:info@kyrillkazak.com">info@kyrillkazak.com</a>
+        </div>
       )}
     </div>
   );

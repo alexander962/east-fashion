@@ -32,9 +32,9 @@ const About = ({ aboutInfo }) => {
       <div className={cl(styles.aboutImg)}>
         <img src={urlFor(aboutInfo.image).url()} alt="" />
       </div>
-      <span className={cl(styles.aboutName)}>A propos de nous</span>
+      <span className={cl(styles.aboutName)}>À propos de nous</span>
       <hr className={cl(styles.aboutHr)} />
-      <p className={cl(styles.aboutTitle)}>{aboutInfo.title}</p>
+      {/*<p className={cl(styles.aboutTitle)}>{aboutInfo.title}</p>*/}
       <p className={cl(styles.aboutDescription)}> {aboutInfo.description} </p>
       <Footer subscribe={false} />
     </Section>
