@@ -28,6 +28,16 @@ export default defineType({
       name: 'popular',
       type: 'boolean',
     }),
+    defineField({
+      title: 'Favourite',
+      name: 'favourite',
+      type: 'boolean',
+    }),
+    defineField({
+      title: 'Sidebar',
+      name: 'sidebar',
+      type: 'boolean',
+    }),
     // defineField({
     //   name: 'displayTypes',
     //   title: 'Display type',
@@ -265,6 +275,8 @@ export default defineType({
     popularity: 1,
     comments: [{}],
     popular: false,
+    favourite: false,
+    sidebar: false,
   },
   preview: {
     select: {

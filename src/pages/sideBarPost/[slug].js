@@ -36,7 +36,7 @@ const SideBarPost = ({ post, sideBarPosts }) => {
 export default SideBarPost;
 
 export async function getStaticPaths() {
-  const query = `*[type == "sideBarPost"]{_id, publishedAt, body, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, meta_title, "categories": categories->{title}, comments, sliderImages, "author": author->{name, image}}`;
+  const query = `*[type == "post"]{_id, publishedAt, body, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, meta_title, "categories": categories->{title}, comments, sliderImages, "author": author->{name, image}}`;
 
   const posts = await client.fetch(query);
   const paths = posts.map(post => ({
@@ -52,7 +52,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const query = `*[_type == "sideBarPost" && slug.current == '${slug}']{_id, publishedAt, body, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, meta_title, "categories": categories->{title}, comments, sliderImages, "author": author->{name, image}}[0]`;
+  const query = `*[_type == "post" && slug.current == '${slug}']{_id, publishedAt, body, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, meta_title, "categories": categories->{title}, comments, sliderImages, "author": author->{name, image}}[0]`;
 
   const post = await client.fetch(query);
   const { sideBarPosts } = await loadSideBarPosts();

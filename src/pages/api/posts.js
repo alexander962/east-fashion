@@ -32,7 +32,7 @@ export async function loadPosts(start, end) {
 
 export async function loadFavouritesPosts() {
   const query = `{
-    "favouritesPosts": *[_type == "favouritesPosts" && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, body, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, comments, "author": author->{name, image}}
+    "favouritesPosts": *[_type == "post" && favourite == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, body, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, comments, "author": author->{name, image}}
   }`;
   const { favouritesPosts } = await client.fetch(query);
 
@@ -86,7 +86,7 @@ export async function loadTagPosts(tag) {
 
 export async function loadSideBarPosts() {
   const query = `{
-    "sideBarPosts": *[_type == "sideBarPost" && !(_id match "drafts*")] | order(publishedAt desc) {_id, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, comments, "author": author->{name, image}}
+    "sideBarPosts": *[_type == "post" && sidebar == true && !(_id match "drafts*")] | order(publishedAt desc) {_id, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, comments, "author": author->{name, image}}
   }`;
   const { sideBarPosts } = await client.fetch(query);
 

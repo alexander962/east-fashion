@@ -36,7 +36,7 @@ const FavouritesPostInfo = ({ post, popularPosts }) => {
 export default FavouritesPostInfo;
 
 export async function getStaticPaths() {
-  const query = `*[type == "favouritesPosts"] {
+  const query = `*[type == "post"] {
     slug {
       current
     }
@@ -56,7 +56,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const query = `*[_type == "favouritesPosts" && slug.current == '${slug}'][0]`;
+  const query = `*[_type == "post" && slug.current == '${slug}'][0]`;
 
   const post = await client.fetch(query);
   const { popularPosts } = await loadPopularPosts();

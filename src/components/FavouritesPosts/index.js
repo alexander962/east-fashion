@@ -59,10 +59,7 @@ const FavouritesPosts = ({ posts }) => {
           if (index < 6) {
             return (
               <div className={cl(styles.inner, index % 2 && styles.innerSmall)} key={post._id}>
-                <Link
-                  href={`/favouritesPost/${encodeURIComponent(post?.slug?.current)}`}
-                  className={cl(styles.favouritesPost)}
-                >
+                <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.favouritesPost)}>
                   <div className={cl(styles.favouritesPost)}>
                     <div className={cl(styles.favouritesImg)}>
                       <img src={urlFor(post?.mainImage).url()} alt="" />
