@@ -86,7 +86,7 @@ export async function loadTagPosts(tag) {
 
 export async function loadSideBarPosts() {
   const query = `{
-    "sideBarPosts": *[_type == "post" && sidebar == true && !(_id match "drafts*")] | order(publishedAt desc) {_id, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, comments, "author": author->{name, image}}
+    "sideBarPosts": *[_type == "post" && sidebar == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, comments, "author": author->{name, image}}
   }`;
   const { sideBarPosts } = await client.fetch(query);
 
