@@ -33,22 +33,18 @@ const Post = ({ post }) => {
             <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
               <a className={cl(styles.postLink)}>
                 <Title>
-                  {post?.title?.length > 55 ? <p>{post?.title.substring(0, 55) + '... '}</p> : <p>{post?.title}</p>}
+                  {post?.title?.length > 55 ? <p>{post?.title.substring(0, 55) + '...'}</p> : <p>{post?.title}</p>}
                 </Title>
               </a>
             </Link>
-            {post?.description?.length > 180 ? (
-              <p className={styles.postDescription}>
-                {post?.description.substring(0, 180) + '... '}
-                <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
-                  <a className={cl(styles.postLink)}>
-                    <span>Read more</span>
-                  </a>
-                </Link>
-              </p>
-            ) : (
-              <p className={styles.postDescription}>{post?.description}</p>
-            )}
+            <p className={styles.postDescription}>
+              {post?.description.substring(0, 180) + '  '}
+              <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+                <a className={cl(styles.postLink)}>
+                  <span>{'Read more >'}</span>
+                </a>
+              </Link>
+            </p>
           </div>
 
           <div className={cl(styles.postImagesBlock)}>
@@ -93,24 +89,18 @@ const Post = ({ post }) => {
               <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                 <a className={cl(styles.postLink)}>
                   <h3>
-                    {post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '... '}</p> : <p>{post?.title}</p>}
+                    {post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '...'}</p> : <p>{post?.title}</p>}
                   </h3>
                 </a>
               </Link>
-              {post?.description?.length > 180 ? (
-                <>
-                  <p className={styles.postType3Description}>
-                    {post?.description.substring(0, 180) + '... '}
-                    <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
-                      <a className={cl(styles.postLink)}>
-                        <span>Read more</span>
-                      </a>
-                    </Link>
-                  </p>
-                </>
-              ) : (
-                <p className={styles.postType3Description}>{post?.description}</p>
-              )}
+              <p className={styles.postType3Description}>
+                {post?.description.substring(0, 180) + '  '}
+                <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+                  <a className={cl(styles.postLink)}>
+                    <span>{'Read more >'}</span>
+                  </a>
+                </Link>
+              </p>
             </div>
           </div>
         </div>
@@ -147,24 +137,18 @@ const Post = ({ post }) => {
             <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
               <a className={cl(styles.postLink)}>
                 <h3>
-                  {post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '... '}</p> : <p>{post?.title}</p>}
+                  {post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '...'}</p> : <p>{post?.title}</p>}
                 </h3>
               </a>
             </Link>
-            {post?.description?.length > 180 ? (
-              <>
-                <p className={styles.postType3Description}>
-                  {post?.description.substring(0, 180) + '... '}
-                  <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
-                    <a className={cl(styles.postLink)}>
-                      <span>Read more</span>
-                    </a>
-                  </Link>
-                </p>
-              </>
-            ) : (
-              <p className={styles.postType3Description}>{post?.description}</p>
-            )}
+            <p className={styles.postType3Description}>
+              {post?.description.substring(0, 180) + '  '}
+              <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+                <a className={cl(styles.postLink)}>
+                  <span>{'Read more >'}</span>
+                </a>
+              </Link>
+            </p>
           </div>
         </div>
       )}
@@ -182,15 +166,6 @@ const Post = ({ post }) => {
                         <a>{post?.tags?.title}</a>
                       </div>
                     </Link>
-                    <div className={cl(styles.postType5Title)}>
-                      <h3>
-                        {post?.title?.length > 70 ? (
-                          <p>{post?.title.substring(0, 70) + '... '}</p>
-                        ) : (
-                          <p>{post?.title}</p>
-                        )}
-                      </h3>
-                    </div>
                   </div>
                 )}
               </div>
@@ -204,6 +179,29 @@ const Post = ({ post }) => {
                 )}
               </a>
             </Link>
+          </div>
+          <div className={cl(styles.postType3Title)}>
+            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+              <a className={cl(styles.postLink)}>
+                <h3>
+                  {post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '...'}</p> : <p>{post?.title}</p>}
+                </h3>
+              </a>
+            </Link>
+            {post?.description?.length > 180 ? (
+              <>
+                <p className={styles.postType3Description}>
+                  {post?.description.substring(0, 180) + '  '}
+                  <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+                    <a className={cl(styles.postLink)}>
+                      <span>{'Read more >'}</span>
+                    </a>
+                  </Link>
+                </p>
+              </>
+            ) : (
+              <p className={styles.postType3Description}>{post?.description}</p>
+            )}
           </div>
         </div>
       )}
@@ -248,24 +246,18 @@ const Post = ({ post }) => {
             <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
               <a className={cl(styles.postLink)}>
                 <h3>
-                  {post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '... '}</p> : <p>{post?.title}</p>}
+                  {post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '...'}</p> : <p>{post?.title}</p>}
                 </h3>
               </a>
             </Link>
-            {post?.description?.length > 180 ? (
-              <>
-                <p className={styles.postType3Description}>
-                  {post?.description.substring(0, 180) + '... '}
-                  <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
-                    <a className={cl(styles.postLink)}>
-                      <span>Read more</span>
-                    </a>
-                  </Link>
-                </p>
-              </>
-            ) : (
-              <p className={styles.postType3Description}>{post?.description}</p>
-            )}
+            <p className={styles.postType3Description}>
+              {post?.description.substring(0, 180) + '  '}
+              <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
+                <a className={cl(styles.postLink)}>
+                  <span>{'Read more >'}</span>
+                </a>
+              </Link>
+            </p>
           </div>
         </div>
       )}

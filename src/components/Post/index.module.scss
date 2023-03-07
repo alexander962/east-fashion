@@ -48,10 +48,10 @@
 
   &Img {
     position: relative;
-    width: 240px;
-    height: 240px;
+    width: 219px;
+    height: 219px;
     overflow: hidden;
-    margin-right: 20px;
+    margin-right: 41px;
     @media screen and (max-width: 900px) {
       width: 100%;
       margin-right: 0;
@@ -74,18 +74,17 @@
 
   &Tag {
     display: inline-block;
-    background: black;
     z-index: 9;
-    padding: 5px 10px;
-    margin-bottom: 15px;
+    padding: 10px 0;
+    margin-bottom: 16px;
     cursor: pointer;
-    letter-spacing: 1.56px;
 
     a {
-      font: 400 12px/140%  'GillSans';
-      color: #ffffff;
+      font: 400 14px/140%  'GillSans';
       text-decoration: none;
       text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #000000;
     }
   }
 
@@ -114,20 +113,21 @@
   }
 
   &Description {
-    font: 700 14px/140% 'Freight Display Pro';
-    color: rgb(133,133,133);
+    font: 400 16px/140% 'Freight Display Pro';
+    color: #A1A1AA;
     @media screen and (max-width: 1280px) {
       margin-bottom: 40px;
     }
     @media screen and (max-width: 500px) {
-      font: 400 14px/140%  'Arial';
+      font: 400 14px/140%  'Freight Display Pro';
       margin-bottom: 20px;
     }
 
     span {
-      font: 700 14px/140% 'Arial';
+      font: 600 14px/140% 'GillSans';
       color: #000000;
-      border-bottom: 2px solid #000000;
+      text-decoration: none;
+      text-transform: uppercase;
     }
   }
 
@@ -214,7 +214,7 @@
       height: 380px;
 
       &Big {
-        height: 450px;
+        height: 497px;
       }
 
       img {
@@ -236,8 +236,8 @@
       z-index: 9;
 
       a {
-        font: 400 12px/140%  'GillSans';
-        color: #ffffff;
+        font: 400 14px/140% 'GillSans';
+        color: #000000;
         text-decoration: none;
         text-transform: uppercase;
       }
@@ -245,7 +245,7 @@
 
     &Title {
       display: inline-block;
-      font: 400 28px/120% 'Freight Display Pro';
+      font: 400 34px/120% 'Freight Display Pro';
       color: rgb(51,51,51);
       background: #ffffff;
       margin: 20px 0 0 0;
@@ -253,23 +253,24 @@
     }
 
     &Description {
-      font: 700 14px/140% 'Freight Display Pro';
-      color: rgb(133,133,133);
+      font: 400 16px/140% 'Freight Display Pro';
+      color: #A1A1AA;
       margin-top: 5px;
 
       span {
-        font: 700 14px/140% 'Arial';
+        font: 600 14px/140% 'GillSans';
         color: #000000;
-        border-bottom: 2px solid #000000;
+        text-transform: uppercase;
       }
     }
 
     &Tag {
       display: inline-block;
-      padding: 5px 10px;
-      background: #000000;
+      padding: 5px 16px;
+      background: #ffffff;
       cursor: pointer;
       letter-spacing: 1.56px;
+      color: #000000;
     }
   }
 
@@ -280,17 +281,13 @@
     &Block {
       display: flex;
       align-items: center;
-      justify-content: space-between;
     }
 
     &Img {
       position: relative;
-      width: calc((100%/12)*8);
-      height: 240px;
-      max-width: 479px;
-      @media screen and (max-width: 1200px) {
-        margin-right: 20px;
-      }
+      width: 385px;
+      height: 385px;
+      margin-right: 4px;
       @media screen and (max-width: 700px) {
         width: 100%;
         max-width: 100%;
@@ -304,8 +301,8 @@
       }
 
       &Additional {
-        height: 240px;
-        max-width: 286px;
+        width: 385px;
+        height: 385px;
         @media screen and (max-width: 700px) {
           display: none;
         }
@@ -326,8 +323,8 @@
       z-index: 9;
 
       a {
-        font: 400 12px/12px  'Arial';
-        color: #ffffff;
+        font: 400 14px/140% 'GillSans';
+        color: #000000;
         text-decoration: none;
         text-transform: uppercase;
       }
@@ -335,10 +332,11 @@
 
     &Tag {
       display: inline-block;
-      padding: 5px 10px;
-      background: #000000;
+      padding: 5px 16px;
+      background: #ffffff;
       cursor: pointer;
       letter-spacing: 1.56px;
+      color: #000000;
     }
 
     &Title {
@@ -361,9 +359,9 @@
 
     &Img {
       position: relative;
-      width: calc((100%/12)*6);
-      height: 380px;
-      max-width: 360px;
+      width: 385px;
+      height: 427px;
+      margin-right: 4px;
       @media screen and (max-width: 700px) {
         width: 100%;
         max-width: 100%;
@@ -376,9 +374,8 @@
       }
 
       &Additional {
-        height: 380px;
-        max-width: 360px;
-        margin-left: 6px;
+        width: 385px;
+        height: 427px;
         @media screen and (max-width: 700px) {
           display: none;
         }
@@ -394,13 +391,13 @@
     &Info {
       display: block;
       position: absolute;
-      bottom: 20px;
+      bottom: 0;
       left: 0;
       z-index: 9;
 
       a {
-        font: 400 12px/12px  'Arial';
-        color: #ffffff;
+        font: 400 14px/140% 'GillSans';
+        color: #000000;
         text-decoration: none;
         text-transform: uppercase;
       }
@@ -408,10 +405,11 @@
 
     &Tag {
       display: inline-block;
-      padding: 5px 10px;
-      background: #000000;
+      padding: 5px 16px;
+      background: #ffffff;
       cursor: pointer;
       letter-spacing: 1.56px;
+      color: #000000;
     }
 
     &Title {
@@ -439,8 +437,8 @@
     &Img {
       position: relative;
       width: calc((100%/12)*4);
-      height: 254px;
-      max-width: 254px;
+      height: 226px;
+      max-width: 256px;
       @media screen and (max-width: 700px) {
         width: 100%;
         max-width: 100%;
@@ -453,8 +451,8 @@
       }
 
       &Additional {
-        height: 254px;
-        max-width: 254px;
+        height: 226px;
+        width: 256px;
         @media screen and (max-width: 1200px) {
           margin: 0 20px;
         }
@@ -470,8 +468,8 @@
       }
 
       &Third {
-        height: 254px;
-        max-width: 254px;
+        height: 226px;
+        width: 256px;
         @media screen and (max-width: 700px) {
           display: none;
         }
@@ -492,8 +490,8 @@
       z-index: 9;
 
       a {
-        font: 400 12px/12px  'Arial';
-        color: #ffffff;
+        font: 400 14px/140% 'GillSans';
+        color: #000000;
         text-decoration: none;
         text-transform: uppercase;
       }
@@ -501,10 +499,11 @@
 
     &Tag {
       display: inline-block;
-      padding: 5px 10px;
-      background: #000000;
+      padding: 5px 16px;
+      background: #ffffff;
       cursor: pointer;
       letter-spacing: 1.56px;
+      color: #000000;
     }
 
     &Title {
