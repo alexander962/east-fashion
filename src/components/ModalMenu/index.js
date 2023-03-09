@@ -29,7 +29,7 @@ const ModalMenu = ({ modalVisible, setModalVisible }) => {
             <a onClick={() => setModalVisible(false)}>Art &amp; Culture</a>
           </Link>
           <Link href={'/about'}>
-            <a onClick={() => setModalVisible(false)}>A Propos</a>
+            <a onClick={() => setModalVisible(false)}>À Propos</a>
           </Link>
         </div>
         <div className={styles.modalIcons}>
