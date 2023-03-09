@@ -50,7 +50,7 @@ export default function Category({ posts, setPosts, total, category, visibleSear
       {isLoadButton && (
         <div className={cl(styles.categoryPageBtn)}>
           <Button onClick={() => getMorePosts(category)} disabled={loading}>
-            SHOW MORE
+            VOIR PLUS
           </Button>
         </div>
       )}

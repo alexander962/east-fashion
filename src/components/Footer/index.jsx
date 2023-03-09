@@ -54,7 +54,7 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
               type="text"
               value={inputText}
               onChange={e => setInputText(e.target.value)}
-              placeholder="VOTRE ADRESSE E-MAIL"
+              placeholder="VOTRE ADRESSE"
               required
             />
             <button onClick={handleSignUp}>INSCRIVEZ-VOUS</button>

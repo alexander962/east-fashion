@@ -57,7 +57,7 @@ export default function Tags({ posts, setPosts, total, tag, visibleSearchResult,
           }}
         >
           <Button onClick={() => getMorePosts()} disabled={loading}>
-            SHOW MORE
+            VOIR PLUS
           </Button>
         </div>
       )}
