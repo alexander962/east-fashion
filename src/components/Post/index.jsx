@@ -41,7 +41,7 @@ const Post = ({ post }) => {
               {post?.description.substring(0, 180) + '  '}
               <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                 <a className={cl(styles.postLink)}>
-                  <span>{'Read more >'}</span>
+                  <span>{'LIRE PLUS >'}</span>
                 </a>
               </Link>
             </p>
@@ -97,7 +97,7 @@ const Post = ({ post }) => {
                 {post?.description.substring(0, 180) + '  '}
                 <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                   <a className={cl(styles.postLink)}>
-                    <span>{'Read more >'}</span>
+                    <span>{'LIRE PLUS >'}</span>
                   </a>
                 </Link>
               </p>
@@ -145,7 +145,7 @@ const Post = ({ post }) => {
               {post?.description.substring(0, 180) + '  '}
               <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                 <a className={cl(styles.postLink)}>
-                  <span>{'Read more >'}</span>
+                  <span>{'LIRE PLUS >'}</span>
                 </a>
               </Link>
             </p>
@@ -194,7 +194,7 @@ const Post = ({ post }) => {
                   {post?.description.substring(0, 180) + '  '}
                   <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                     <a className={cl(styles.postLink)}>
-                      <span>{'Read more >'}</span>
+                      <span>{'LIRE PLUS >'}</span>
                     </a>
                   </Link>
                 </p>
@@ -254,7 +254,7 @@ const Post = ({ post }) => {
               {post?.description.substring(0, 180) + '  '}
               <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                 <a className={cl(styles.postLink)}>
-                  <span>{'Read more >'}</span>
+                  <span>{'LIRE PLUS >'}</span>
                 </a>
               </Link>
             </p>

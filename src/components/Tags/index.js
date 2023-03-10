@@ -34,13 +34,17 @@ export default function Tags({ posts, setPosts, total, tag, visibleSearchResult,
   return (
     <main className={cl(styles.categoryPage)}>
       {posts.length === 0 ? (
-        <div className={cl(styles.categoryPageNotFound)}>Articles not found</div>
+        <div className={cl(styles.categoryPageNotFound)}>Aucun article trouvé</div>
       ) : (
         <>
           <div className={styles.categoryPageBlock}>
             <div>
               <div className={cl(styles.categoryPage__header)}>
-                {!visibleSearchResult ? <span>Articles par tag - {`#${tag}`}</span> : <span>Search results</span>}
+                {!visibleSearchResult ? (
+                  <span>Articles par tag - {`#${tag}`}</span>
+                ) : (
+                  <span>Résultats de la recherche</span>
+                )}
               </div>
               <Posts posts={posts} />
             </div>

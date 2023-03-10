@@ -48,7 +48,7 @@ const MainPage = ({
         </>
       )}
       {posts.length === 0 ? (
-        <div className={cl(styles.mainPageNotFound)}>Articles not found</div>
+        <div className={cl(styles.mainPageNotFound)}>Aucun article trouvé</div>
       ) : (
         <>
           <div className={styles.mainPageBlock}>
@@ -57,7 +57,7 @@ const MainPage = ({
               {!visibleSearchResult ? (
                 <span className={cl(styles.mainPage__headerText)}>Dernières publications</span>
               ) : (
-                <span className={cl(styles.mainPage__headerText)}>Search results</span>
+                <span className={cl(styles.mainPage__headerText)}>Résultats de la recherche</span>
               )}
               <Posts posts={posts} />
             </div>
