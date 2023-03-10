@@ -35,7 +35,7 @@ const ModalMenu = ({ modalVisible, setModalVisible }) => {
         <div className={styles.modalIcons}>
           <span>Suivez-nous</span>
           <div>
-            <a href="#" target="_blank">
+            <a href="https://www.facebook.com/kyrillkazak" target="_blank">
               <img src={facebook.src} alt="" />
             </a>
             <a href="#" target="_blank">
