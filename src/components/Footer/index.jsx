@@ -72,16 +72,16 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
                     <img src={logo.src} alt="" />
                   </a>
                 </Link>
-                <Link href={'/skin-care'}>
+                <Link href={'/soins-de-beaute'}>
                   <a>Soins de Beauté</a>
                 </Link>
-                <Link href={'/interviews'}>
+                <Link href={'/entretiens'}>
                   <a>Entretiens</a>
                 </Link>
-                <Link href={'/culture'}>
+                <Link href={'/art-et-culture'}>
                   <a>Art &amp; Culture</a>
                 </Link>
-                <Link href={'/about'}>
+                <Link href={'/a-propos'}>
                   <a>A Propos</a>
                 </Link>
               </div>

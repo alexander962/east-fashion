@@ -17,7 +17,7 @@ const About = ({ aboutInfo }) => {
   return (
     <Section>
       <Head>
-        <title>A propos de nous</title>
+        <title>À Propos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
