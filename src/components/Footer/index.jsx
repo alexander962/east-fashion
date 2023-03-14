@@ -8,7 +8,7 @@ import twitter from '@/assets/images/instagram.svg';
 import youtube from '@/assets/images/youtube.svg';
 import styles from './index.module.scss';
 import cl from 'classnames';
-import logo from '@/assets/images/logo.svg';
+import logo from '@/assets/images/logo.jpeg';
 const Footer = ({ classname, subscribe = true, icons = true }) => {
   const [inputText, setInputText] = useState('');
 
@@ -68,7 +68,7 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
             <nav className={styles.footer__nav}>
               <div className={styles.footer__menu}>
                 <Link href={'/'}>
-                  <a>
+                  <a className={styles.footer__logo}>
                     <img src={logo.src} alt="" />
                   </a>
                 </Link>

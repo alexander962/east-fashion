@@ -7,14 +7,14 @@ import facebook from '@/assets/images/facebook.svg';
 import twitter from '@/assets/images/instagram.svg';
 import youtube from '@/assets/images/youtube.svg';
 import close from 'src/assets/images/close-big.svg';
-import logo from '@/assets/images/logo.svg';
+import logo from '@/assets/images/logo.jpeg';
 
 const ModalMenu = ({ modalVisible, setModalVisible }) => {
   return (
     <div className={cl(styles.modal, modalVisible && styles.modalActive)}>
       <div className={styles.modalMenu}>
         <Link href={'/'}>
-          <a onClick={() => setModalVisible(false)}>
+          <a onClick={() => setModalVisible(false)} className={styles.modalMenuLogo}>
             <img src={logo.src} alt="" />
           </a>
         </Link>
