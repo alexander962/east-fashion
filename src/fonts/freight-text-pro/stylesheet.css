@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'Freight Text Pro ';
+  src: url('FreightTextProMedium-Regular.woff2') format('woff2'),
+  url('FreightTextProMedium-Regular.woff') format('woff'),
+  url('FreightTextProMedium-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Freight Text Pro ';
+  src: url('FreightTextProBold-Regular.woff2') format('woff2'),
+  url('FreightTextProBold-Regular.woff') format('woff'),
+  url('FreightTextProBold-Regular.ttf') format('truetype');
+  font-weight: 700;
+}
+
