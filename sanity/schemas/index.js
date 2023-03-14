@@ -1,4 +1,4 @@
-import blockContent from './blockContent'
+// import blockContent from './blockContent'
 import post from './post'
 import author from './author'
 // import favouritesPosts from './favouritesPosts'
@@ -10,7 +10,7 @@ import shared from './shared'
 export const schemaTypes = [
   post,
   author,
-  blockContent,
+  // blockContent,
   // favouritesPosts,
   about,
   tag,

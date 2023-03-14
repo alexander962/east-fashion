@@ -228,6 +228,30 @@ export default defineType({
         {
           type: 'block',
           styles: textEditorStyles,
+          marks: {
+            annotations: [
+              {
+                name: 'link',
+                title: 'Link',
+                type: 'object',
+                fields: [
+                  {
+                    name: 'href',
+                    title: 'URL',
+                    type: 'url',
+                  },
+                  {
+                    name: 'target',
+                    title: 'Open link in new tab',
+                    type: 'boolean',
+                    options: {
+                      layout: 'checkbox',
+                    },
+                  },
+                ],
+              },
+            ],
+          },
         },
         {
           type: 'image',

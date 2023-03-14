@@ -4,6 +4,16 @@ import cl from 'classnames';
 
 import { clientConfig } from '~/lib/client';
 import styles from './index.module.scss';
+
+const serializers = {
+  marks: {
+    link: ({ children, mark: { href, target } }) => (
+      <a href={href} target={target ? '_blank' : '_self'} rel="noopener noreferrer">
+        {children}
+      </a>
+    ),
+  },
+};
 const Content = ({ body }) => {
   return (
     <>
@@ -14,6 +24,8 @@ const Content = ({ body }) => {
           projectId={clientConfig.projectId}
           dataset={clientConfig.dataset}
           className={cl(styles.content)}
+          renderContainerOnSingleChild
+          serializers={serializers}
         />
       )}
     </>
