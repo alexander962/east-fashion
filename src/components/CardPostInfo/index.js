@@ -125,7 +125,7 @@ const CardPostInfo = ({ post, sideBarPosts }) => {
           </Link>
         )}
         <span>/</span>
-        <div>{post?.slug?.current}</div>
+        <div>{post?.title}</div>
       </div>
       <hr className={cl(styles.cardHrTop)} />
       <div className={cl(styles.cardTitle)}>{post?.title}</div>
