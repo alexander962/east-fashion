@@ -82,7 +82,7 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
                   <a>Art &amp; Culture</a>
                 </Link>
                 <Link href={'/a-propos'}>
-                  <a>A Propos</a>
+                  <a>À Propos</a>
                 </Link>
               </div>
               <div className={styles.footer__icons}>
