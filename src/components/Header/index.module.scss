@@ -18,7 +18,7 @@
 
   &__logo {
     width: 100%;
-    max-width: 150px;
+    max-width: 224px;
 
     img {
       width: 100%;
@@ -138,10 +138,10 @@
 
     &Desktop {
       position: absolute;
-      top: 20px;
-      left: 0;
+      top: 25px;
+      left: 50%;
       display: flex;
-      transform: translateX(-35%);
+      transform: translateX(-50%);
       @media screen and (max-width: 768px) {
         display: none;
       }

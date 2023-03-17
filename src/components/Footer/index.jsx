@@ -8,7 +8,7 @@ import twitter from '@/assets/images/instagram.svg';
 import youtube from '@/assets/images/youtube.svg';
 import styles from './index.module.scss';
 import cl from 'classnames';
-import logo from '@/assets/images/logo.jpeg';
+import logo from '@/assets/images/logo.svg';
 const Footer = ({ classname, subscribe = true, icons = true }) => {
   const [inputText, setInputText] = useState('');
 

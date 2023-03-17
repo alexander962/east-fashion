@@ -4,7 +4,7 @@ import cl from 'classnames';
 
 import { client } from '~/lib/client';
 import { loadPosts } from '@/pages/api/posts';
-import logo from 'src/assets/images/logo.jpeg';
+import logo from 'src/assets/images/logo.svg';
 import burger from 'src/assets/images/burger.svg';
 import search from 'src/assets/images/search.svg';
 import close from 'src/assets/images/close.svg';
