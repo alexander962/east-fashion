@@ -8,6 +8,12 @@
     flex-direction: row-reverse;
   }
 
+  &Outer {
+    @media screen and (max-width: 768px) {
+      height: 37.5px;
+    }
+  }
+
   &Burger {
     cursor: pointer;
     @media screen and (max-width: 768px) {
@@ -104,7 +110,7 @@
     align-items: center;
     margin-top: 20px;
     @media screen and (max-width: 768px) {
-      margin-top: 20px;
+      margin-top: 0;
     }
 
     &_img {
@@ -157,6 +163,7 @@
       display: none;
       @media screen and (max-width: 768px) {
         display: flex;
+        height: 37.5px;
       }
     }
   }
