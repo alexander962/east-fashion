@@ -16,6 +16,8 @@ const CardPostInfo = ({ post, sideBarPosts }) => {
   const date = format(new Date(post?.publishedAt), 'dd MMM yyyy');
   const [inputName, setInputName] = useState('');
   const [inputComment, setInputComment] = useState('');
+
+  console.log(post);
   const handleNewComment = () => {
     if (inputName !== '' && inputComment !== '') {
       const newComment = {
@@ -121,7 +123,7 @@ const CardPostInfo = ({ post, sideBarPosts }) => {
         <span>//</span>
         {post?.tags && (
           <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
-            <a>{'#' + post?.tags?.title}</a>
+            <a>{post?.tags?.title}</a>
           </Link>
         )}
         <span>/</span>
@@ -131,7 +133,7 @@ const CardPostInfo = ({ post, sideBarPosts }) => {
       <div className={cl(styles.cardTitle)}>{post?.title}</div>
       <div className={cl(styles.cardBlocks)}>
         <div className={cl(styles.cardInfo)}>
-          {post?.sliderImages ? (
+          {post?.sliderImages && post?.sliderImages.length !== 0 ? (
             <>
               <Slider asNavFor={nav2} ref={slider1 => setNav1(slider1)} {...settings}>
                 {post?.sliderImages.map((image, index) => (
