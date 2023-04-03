@@ -1,7 +1,7 @@
 .popularPosts {
   margin-bottom: 30px;
   @media screen and (max-width: 768px) {
-    margin-bottom: 90px;
+    margin-bottom: 50px;
   }
 }
 
@@ -59,6 +59,10 @@
   color: #000000;
   margin-bottom: 15px;
   font-style: italic;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 .popularPost {

@@ -39,7 +39,7 @@ export default function Category({ posts, setPosts, total, category, visibleSear
           <div className={styles.categoryPageBlock}>
             <div>
               <div className={cl(styles.categoryPage__header)}>
-                {!visibleSearchResult ? <span>Dernières Publications</span> : <span>Résultats de la recherche</span>}
+                {!visibleSearchResult ? <span>Dernières Publications</span> : <span>Dernières Publications</span>}
               </div>
               <Posts posts={posts} />
             </div>

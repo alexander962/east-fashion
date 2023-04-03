@@ -57,7 +57,7 @@ const MainPage = ({
               {!visibleSearchResult ? (
                 <span className={cl(styles.mainPage__headerText)}>Dernières publications</span>
               ) : (
-                <span className={cl(styles.mainPage__headerText)}>Résultats de la recherche</span>
+                <span className={cl(styles.mainPage__headerText)}>Dernières publications</span>
               )}
               <Posts posts={posts} />
             </div>

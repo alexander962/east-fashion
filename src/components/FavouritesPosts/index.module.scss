@@ -1,5 +1,8 @@
 .favouritesPosts {
   margin-bottom: 30px;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 .inner {
