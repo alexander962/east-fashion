@@ -73,44 +73,11 @@ const Header = ({
   return (
     <>
       <nav className={styles.header}>
-        {/*{inputVisible ? (*/}
-        {/*  <div className={cl(styles.header__inputBlock, styles.header__inputBlockDesktop)}>*/}
-        {/*    <div onClick={handleClickButton} className={styles.header__inputBlock_img}>*/}
-        {/*      <img src={search.src} />*/}
-        {/*    </div>*/}
-        {/*    <input*/}
-        {/*      value={inputText}*/}
-        {/*      onChange={e => setInputText(e.target.value)}*/}
-        {/*      onKeyUp={e => handleKeyUp(e)}*/}
-        {/*      placeholder="search"*/}
-        {/*    />*/}
-        {/*    <div onClick={handleClickClose} className={styles.header__inputBlock_img}>*/}
-        {/*      <img src={close.src} />*/}
-        {/*    </div>*/}
-        {/*  </div>*/}
-        {/*) : (*/}
-        {/*  <div className={styles.header__menu}>*/}
-        {/*    <Link href={'/skin-care'}>*/}
-        {/*      <a>Soins de Beauté</a>*/}
-        {/*    </Link>*/}
-        {/*    <Link href={'/interviews'}>*/}
-        {/*      <a>Entretiens</a>*/}
-        {/*    </Link>*/}
-        {/*    <Link href={'/culture'}>*/}
-        {/*      <a>Art &amp; Culture</a>*/}
-        {/*    </Link>*/}
-        {/*    <Link href={'/about'}>*/}
-        {/*      <a>A Propos</a>*/}
-        {/*    </Link>*/}
-        {/*  </div>*/}
-        {/*)}*/}
-
         {searchVisible && (
           <div
             className={cl(styles.header__iconSearch, inputVisible && styles.header__iconSearchActive)}
             onClick={() => setInputVisible(true)}
           >
-            {/*<img src={search.src} alt="" />*/}
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <mask id="path-1-inside-1_243_292" fill="white">
                 <path
@@ -163,31 +130,11 @@ const Header = ({
         <div className={styles.headerBurger} onClick={() => setModalVisible(true)}>
           <img src={burger.src} alt="" />
         </div>
-
-        {/*<div className={styles.header__icons}>*/}
-        {/*  {searchVisible && (*/}
-        {/*    <div className={styles.header__iconSearch} onClick={() => setInputVisible(true)}>*/}
-        {/*      <img src={search.src} alt="" />*/}
-        {/*    </div>*/}
-        {/*  )}*/}
-        {/*  <div className={styles.header__iconBurger} onClick={() => setModalVisible(true)}>*/}
-        {/*    <img src={burger.src} alt="" />*/}
-        {/*  </div>*/}
-        {/*  <a href="#" target="_blank">*/}
-        {/*    <img src={facebook.src} alt="" />*/}
-        {/*  </a>*/}
-        {/*  <a href="#" target="_blank">*/}
-        {/*    <img src={twitter.src} alt="" />*/}
-        {/*  </a>*/}
-        {/*  <a href="#" target="_blank">*/}
-        {/*    <img src={youtube.src} alt="" />*/}
-        {/*  </a>*/}
-        {/*</div>*/}
       </nav>
       {inputVisible && (
         <div className={cl(styles.header__inputBlock, styles.header__inputBlockMobile)}>
           <div onClick={handleClickButton} className={styles.header__inputBlock_img}>
-            <img src={search.src} />
+            <img src={search.src} alt="" />
           </div>
           <input
             value={inputText}
@@ -196,10 +143,25 @@ const Header = ({
             placeholder="search"
           />
           <div onClick={handleClickClose} className={styles.header__inputBlock_img}>
-            <img src={close.src} />
+            <img src={close.src} alt="" />
           </div>
         </div>
       )}
+
+      <nav className={styles.headerNavMobile}>
+        <Link href={'/soins-de-beaute'}>
+          <a onClick={() => setModalVisible(false)}>Soins de Beauté</a>
+        </Link>
+        <Link href={'/entretiens'}>
+          <a onClick={() => setModalVisible(false)}>Entretiens</a>
+        </Link>
+        <Link href={'/art-et-culture'}>
+          <a onClick={() => setModalVisible(false)}>Art &amp; Culture</a>
+        </Link>
+        <Link href={'/a-propos'}>
+          <a onClick={() => setModalVisible(false)}>À Propos</a>
+        </Link>
+      </nav>
     </>
   );
 };

@@ -4,9 +4,15 @@
   align-items: center;
   width: 100%;
   flex: 0 0 auto;
+  @media screen and (max-width: 768px) {
+    flex-direction: row-reverse;
+  }
 
   &Burger {
     cursor: pointer;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 
   &Center {
@@ -76,7 +82,7 @@
     margin-right: 12px;
     cursor: pointer;
     @media screen and (max-width: 768px) {
-      width: 48px;
+      margin-right: 0;
     }
 
     img {
@@ -151,6 +157,32 @@
       display: none;
       @media screen and (max-width: 768px) {
         display: flex;
+      }
+    }
+  }
+
+  &NavMobile {
+    display: none;
+    @media screen and (max-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 999;
+      width: 100%;
+      background: black;
+      padding: 10px;
+      box-sizing: border-box;
+
+      a {
+        font: 400 14px/140% "GillSans";
+        color: #FFFFFF;
+        text-transform: uppercase;
+        text-decoration: none;
+        @media screen and (max-width: 420px) {
+          font: 400 12px/140% "GillSans";
+        }
       }
     }
   }
