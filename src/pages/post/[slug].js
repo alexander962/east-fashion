@@ -7,6 +7,7 @@ import { Footer, Header, Section } from '@/components';
 import CardPostInfo from '@/components/CardPostInfo';
 import ModalMenu from '@/components/ModalMenu';
 import { loadPopularPosts, loadSideBarPosts } from '@/pages/api/posts';
+import logo from '@/assets/images/logo.jpeg';
 const PostInfo = ({ post, popularPosts, sideBarPosts }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [posts, setPosts] = useState([]);
@@ -24,6 +25,9 @@ const PostInfo = ({ post, popularPosts, sideBarPosts }) => {
     <Section>
       <Head>
         <title>{post?.meta_title}</title>
+
+        <meta property="og:image" content={logo.src} />
+        <meta name="twitter:image" content={logo.src} />
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
       <Header

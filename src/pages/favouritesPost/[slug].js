@@ -6,6 +6,7 @@ import Head from 'next/head';
 import CardPostInfo from '@/components/CardPostInfo';
 import ModalMenu from '@/components/ModalMenu';
 import { loadPopularPosts } from '@/pages/api/posts';
+import logo from '@/assets/images/logo.jpeg';
 const FavouritesPostInfo = ({ post, popularPosts }) => {
   const [posts, setPosts] = useState([]);
   const [totalPosts, setTotalPosts] = useState(0);
@@ -17,6 +18,9 @@ const FavouritesPostInfo = ({ post, popularPosts }) => {
     <Section>
       <Head>
         <title>My blog</title>
+
+        <meta property="og:image" content={logo.src} />
+        <meta name="twitter:image" content={logo.src} />
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
       <Header

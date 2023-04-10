@@ -7,6 +7,7 @@ import ModalMenu from '@/components/ModalMenu';
 import { loadAboutPage } from '@/pages/api/posts';
 import { urlFor } from '~/lib/client';
 import styles from './index.module.scss';
+import logo from '@/assets/images/logo.jpeg';
 
 const About = ({ aboutInfo }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -21,6 +22,9 @@ const About = ({ aboutInfo }) => {
         <title>À Propos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+
+        <meta property="og:image" content={logo.src} />
+        <meta name="twitter:image" content={logo.src} />
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
       <Header

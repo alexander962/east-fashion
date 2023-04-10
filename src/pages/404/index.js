@@ -3,6 +3,7 @@ import Head from 'next/head';
 import cl from 'classnames';
 import styles from './index.module.scss';
 import { Footer, Header, Section } from '@/components';
+import logo from '@/assets/images/logo.jpeg';
 
 const PageNotFound = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -16,6 +17,9 @@ const PageNotFound = () => {
         <title>Page Not Found</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+
+        <meta property="og:image" content={logo.src} />
+        <meta name="twitter:image" content={logo.src} />
       </Head>
       <Header
         searchVisible={false}
