@@ -13,6 +13,7 @@ const About = ({ aboutInfo }) => {
   const [posts, setPosts] = useState([]);
   const [totalPosts, setTotalPosts] = useState(0);
   const [visiblePopularsPosts, setVisiblePopularsPosts] = useState(true);
+  const [visibleSearchResult, setVisibleSearchResult] = useState(false);
 
   return (
     <Section>
@@ -24,10 +25,10 @@ const About = ({ aboutInfo }) => {
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
       <Header
         setModalVisible={setModalVisible}
-        searchVisible={false}
         setPosts={setPosts}
         setVisiblePopularsPosts={setVisiblePopularsPosts}
         setTotalPosts={setTotalPosts}
+        setVisibleSearchResult={setVisibleSearchResult}
       />
       <div className={cl(styles.aboutImg)}>
         <img src={urlFor(aboutInfo.image).url()} alt="" />
