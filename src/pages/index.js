@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 
 import { Footer, Header, Section } from '@/components';
@@ -13,6 +13,20 @@ export default function Home({ initialPosts, total, favouritesPosts, popularPost
   const [modalVisible, setModalVisible] = useState(false);
   const [visiblePopularsPosts, setVisiblePopularsPosts] = useState(true);
   const [visibleSearchResult, setVisibleSearchResult] = useState(false);
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setModalVisible(false);
+      }
+    }
+
+    window.addEventListener('click', handleClickOutside);
+    return () => {
+      window.removeEventListener('click', handleClickOutside);
+    };
+  }, [modalRef]);
 
   return (
     <Section>

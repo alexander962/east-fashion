@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import cl from 'classnames';
 import Link from 'next/link';
 
@@ -10,9 +10,25 @@ import close from 'src/assets/images/close-big.svg';
 import logo from '@/assets/images/logo.svg';
 
 const ModalMenu = ({ modalVisible, setModalVisible }) => {
+  const modalMenuRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (modalMenuRef.current && !modalMenuRef.current.contains(event.target)) {
+        setModalVisible(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [modalMenuRef, setModalVisible]);
+
   return (
     <div className={cl(styles.modal, modalVisible && styles.modalActive)}>
-      <div className={styles.modalMenu}>
+      <div ref={modalMenuRef} className={styles.modalMenu}>
         <Link href={'/'}>
           <a onClick={() => setModalVisible(false)} className={styles.modalMenuLogo}>
             <img src={logo.src} alt="" />
