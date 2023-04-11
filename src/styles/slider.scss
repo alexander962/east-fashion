@@ -70,3 +70,11 @@
     display: block;
   }
 }
+
+.popularPosts .slick-slider {
+  margin: 0 -20px;
+}
+
+.popularPosts .slick-initialized .slick-slide {
+  padding: 0 20px;
+}
