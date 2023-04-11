@@ -218,17 +218,20 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
                       Envoyez
                     </button>
                     {post?.comments &&
-                      post?.comments.showComment === true &&
-                      post?.comments.reverse().map((comment, index) => (
-                        <div className={cl(styles.cardComment)} key={`comment${index}`}>
-                          <hr className={cl(styles.cardCommentHr)} />
-                          <h4>{comment?.name}</h4>
-                          <span>
-                            {comment?.publishedComment && format(new Date(comment?.publishedComment), 'MMM dd,yyyy')}
-                          </span>
-                          <p>{comment?.description}</p>
-                        </div>
-                      ))}
+                      post?.comments.reverse().map(
+                        (comment, index) =>
+                          comment.showComment && (
+                            <div className={cl(styles.cardComment)} key={`comment${index}`}>
+                              <hr className={cl(styles.cardCommentHr)} />
+                              <h4>{comment?.name}</h4>
+                              <span>
+                                {comment?.publishedComment &&
+                                  format(new Date(comment?.publishedComment), 'MMM dd,yyyy')}
+                              </span>
+                              <p>{comment?.description}</p>
+                            </div>
+                          )
+                      )}
                   </div>
                 </div>
               </div>
