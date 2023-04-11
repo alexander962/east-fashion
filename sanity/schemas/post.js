@@ -270,6 +270,12 @@ export default defineType({
           type: 'document',
           fields: [
             {
+              name: 'showComment',
+              title: 'Show comment',
+              type: 'boolean',
+              initialValue: false,
+            },
+            {
               name: 'name',
               type: 'string',
               title: 'Name',

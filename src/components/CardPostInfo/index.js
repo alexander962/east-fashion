@@ -25,6 +25,7 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
         name: inputName,
         publishedComment: new Date(),
         description: inputComment,
+        showComment: false,
       };
 
       console.log(post);
