@@ -13,6 +13,7 @@ const PostInfo = ({ post, popularPosts, sideBarPosts }) => {
   const [posts, setPosts] = useState([]);
   const [totalPosts, setTotalPosts] = useState(0);
   const [visiblePopularsPosts, setVisiblePopularsPosts] = useState(true);
+  const [visibleSearchResult, setVisibleSearchResult] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -35,8 +36,17 @@ const PostInfo = ({ post, popularPosts, sideBarPosts }) => {
         setPosts={setPosts}
         setVisiblePopularsPosts={setVisiblePopularsPosts}
         setTotalPosts={setTotalPosts}
+        setVisibleSearchResult={setVisibleSearchResult}
       />
-      {post && <CardPostInfo post={post} popularPosts={popularPosts} sideBarPosts={sideBarPosts} />}
+      {post && (
+        <CardPostInfo
+          post={post}
+          popularPosts={popularPosts}
+          sideBarPosts={sideBarPosts}
+          visibleSearchResult={visibleSearchResult}
+          posts={posts}
+        />
+      )}
       <Footer subscribe={false} />
     </Section>
   );

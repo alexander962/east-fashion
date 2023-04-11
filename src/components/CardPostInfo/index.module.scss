@@ -234,3 +234,58 @@
     max-width: 760px;
   }
 }
+
+.searchPage {
+  &Block {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(161, 161, 170, 0.5);
+    border-top: 1px solid rgba(161, 161, 170, 0.5);
+    margin-top: 56px;
+    @media screen and (max-width: 1024px) {
+      margin-top: 28px;
+    }
+  }
+
+  &__header {
+    font: 400 20px/120% 'Questrial';
+    color: #000000;
+    border-right: 1px solid rgba(161, 161, 170, 0.5);
+    @media screen and (max-width: 1024px) {
+      border-right: none;
+    }
+
+    &Text {
+      display: block;
+      margin: 20px 0;
+      font: 400 22px/120% 'FreightText-BookItalic' ;
+      color: #000000;
+      padding-left: 86px;
+      font-style: italic;
+      @media screen and (max-width: 1270px) {
+        padding-left: 0;
+      }
+    }
+  }
+
+  hr {
+    margin: 0;
+    color: rgba(161, 161, 170, 0.5);
+    background-color: rgba(161, 161, 170, 0.5);
+    border:0 none;
+    height:1px;
+    clear:both;
+  }
+
+  &NotFound {
+    font: 400 40px/120% 'Questrial';
+  }
+
+  &Btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}

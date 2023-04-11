@@ -4,12 +4,11 @@ import Head from 'next/head';
 
 import { Footer, Header, Section } from '@/components';
 import ModalMenu from '@/components/ModalMenu';
-import { loadAboutPage } from '@/pages/api/posts';
-import { urlFor } from '~/lib/client';
-import styles from './index.module.scss';
+import { loadAboutPage, loadSideBarPosts } from '@/pages/api/posts';
 import logo from '@/assets/images/logo.jpeg';
+import AboutPage from '@/components/About';
 
-const About = ({ aboutInfo }) => {
+const About = ({ aboutInfo, sideBarPosts }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [posts, setPosts] = useState([]);
   const [totalPosts, setTotalPosts] = useState(0);
@@ -34,13 +33,12 @@ const About = ({ aboutInfo }) => {
         setTotalPosts={setTotalPosts}
         setVisibleSearchResult={setVisibleSearchResult}
       />
-      <div className={cl(styles.aboutImg)}>
-        <img src={urlFor(aboutInfo.image).url()} alt="" />
-      </div>
-      <span className={cl(styles.aboutName)}>À propos de nous</span>
-      <hr className={cl(styles.aboutHr)} />
-      {/*<p className={cl(styles.aboutTitle)}>{aboutInfo.title}</p>*/}
-      <p className={cl(styles.aboutDescription)}> {aboutInfo.description} </p>
+      <AboutPage
+        aboutInfo={aboutInfo}
+        visibleSearchResult={visibleSearchResult}
+        posts={posts}
+        sideBarPosts={sideBarPosts}
+      />
       <Footer subscribe={false} />
     </Section>
   );
@@ -50,10 +48,12 @@ export default About;
 
 export const getServerSideProps = async () => {
   const { aboutInfo } = await loadAboutPage();
+  const { sideBarPosts } = await loadSideBarPosts();
 
   return {
     props: {
       aboutInfo,
+      sideBarPosts,
     },
   };
 };
