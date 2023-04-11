@@ -183,12 +183,17 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
               <hr className={cl(styles.cardHrBottom)} />
               <div className={cl(styles.cardAuthor)}>
                 {post?.author?.image && (
-                  <div className={cl(styles.cardAuthorImg)}>
-                    <img src={urlFor(post?.author?.image).url()} alt="" />
+                  <div className={cl(styles.cardAuthorBlock)}>
+                    <div className={cl(styles.cardAuthorImg)}>
+                      <img src={urlFor(post?.author?.image).url()} alt="" />
+                    </div>
+                    <h4 className={cl(styles.cardAuthorNameMobile)}>
+                      par <span>{post?.author?.name}</span>
+                    </h4>
                   </div>
                 )}
                 <div className={cl(styles.cardAuthorText)}>
-                  <h4>
+                  <h4 className={cl(styles.cardAuthorName)}>
                     par <span>{post?.author?.name}</span>
                   </h4>
                   <Content body={post?.body} />

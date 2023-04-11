@@ -42,6 +42,9 @@
         margin-bottom: 5px;
       }
     }
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
 
     a {
       font: 400 16px/120% 'Freight Display Pro';
@@ -133,7 +136,16 @@
     align-items: flex-start;
     margin-bottom: 20px;
     @media screen and (max-width: 768px) {
+      flex-direction: column;
       margin-top: 50px;
+    }
+
+    &Block {
+      display: flex;
+      align-items: flex-start;
+      @media screen and (max-width: 768px) {
+        margin-bottom: 20px;
+      }
     }
 
     &Img {
@@ -148,7 +160,7 @@
       }
     }
 
-    h4 {
+    &Name {
       display: flex;
       align-items: flex-start;
       font: 400 15px/100%  'Freight Display Pro';
@@ -161,6 +173,28 @@
         color: #000000;
         margin-left: 10px;
         text-transform: uppercase;
+      }
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+
+      &Mobile {
+        display: none;
+        @media screen and (max-width: 768px) {
+          display: flex;
+          align-items: flex-start;
+          font: 400 15px/100%  'Freight Display Pro';
+          color: #A1A1AA;
+          margin-bottom: 7px;
+          font-style: italic;
+
+          span {
+            font: 400 14px/120% 'GillSans';
+            color: #000000;
+            margin-left: 10px;
+            text-transform: uppercase;
+          }
+        }
       }
     }
   }
