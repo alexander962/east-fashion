@@ -218,6 +218,7 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
                       Envoyez
                     </button>
                     {post?.comments &&
+                      post?.comments.showComment === true &&
                       post?.comments.reverse().map((comment, index) => (
                         <div className={cl(styles.cardComment)} key={`comment${index}`}>
                           <hr className={cl(styles.cardCommentHr)} />
