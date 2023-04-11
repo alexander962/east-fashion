@@ -71,10 +71,12 @@
   }
 }
 
-.popularPosts .slick-slider {
-  margin: 0 -20px;
-}
+@media screen and (max-width: 768px) {
+  .popularPosts .slick-slider {
+    margin: 0 -20px;
+  }
 
-.popularPosts .slick-initialized .slick-slide {
-  padding: 0 20px;
+  .popularPosts .slick-initialized .slick-slide {
+    padding: 0 20px;
+  }
 }
