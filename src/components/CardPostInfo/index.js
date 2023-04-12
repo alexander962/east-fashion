@@ -225,7 +225,8 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
                               <hr className={cl(styles.cardCommentHr)} />
                               <h4>{comment?.name}</h4>
                               <span>
-                                {comment?.publishedComment & format(new Date(comment?.publishedComment), 'MMM dd,yyyy')}
+                                {comment?.publishedComment &&
+                                  format(new Date(comment?.publishedComment), 'MMM dd,yyyy')}
                               </span>
                               <p>{comment?.description}</p>
                             </div>
