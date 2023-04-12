@@ -76,12 +76,20 @@
   height: 360px;
   margin-bottom: 20px;
   overflow: hidden;
+  @media screen and (max-width: 500px) {
+    height: auto;
+    //padding-bottom: 75%;
+    aspect-ratio: 4 / 3;
+  }
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform .3s ease-out;
+    @media screen and (max-width: 500px) {
+      position: absolute;
+    }
 
     &:hover {
       transform: scale(1.05);

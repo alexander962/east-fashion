@@ -17,7 +17,6 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
   const [inputName, setInputName] = useState('');
   const [inputComment, setInputComment] = useState('');
 
-  console.log(post);
   const handleNewComment = () => {
     if (inputName !== '' && inputComment !== '') {
       const newComment = {
@@ -27,8 +26,6 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
         description: inputComment,
         showComment: false,
       };
-
-      console.log(post);
 
       const mutations = [
         {
