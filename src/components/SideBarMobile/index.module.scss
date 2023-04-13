@@ -1,0 +1,112 @@
+.favouritesBlockInnerMobile {
+  width: calc(((100% / 12)*6) - 20px);
+  padding: 0 10px;
+}
+
+.favouritesImgMobile {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 10px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.favouritesTitleMobile {
+  font: 400 16px/120% "Freight Display Pro";
+  padding: 0 14px;
+  text-align: center;
+}
+
+.favouritesPosts hr.favouritesHr {
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+    color: rgba(161, 161, 170, 0.5);
+    background-color: rgba(161, 161, 170, 0.5);
+    border:0 none;
+    height:1px;
+    clear:both;
+    margin: 20px 0;
+  }
+}
+
+.sidebarMobile {
+
+  hr {
+    margin: 40px 0 20px;
+
+    &.sidebarMobileHr {
+      margin: 30px 0 40px;
+    }
+  }
+
+  &Title {
+    font: 400 22px/120% 'FreightText-BookItalic';
+    font-style: italic;
+    color: #000000;
+    margin-bottom: 15px;
+  }
+
+  &Items {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 0 -10px 60px;
+    gap: 20px 0;
+  }
+
+  &Item {
+    width: calc(((100% / 12)*6) - 20px);
+    padding: 0 10px;
+
+    a {
+      text-decoration: none;
+      color: #000000;
+    }
+
+    &Img {
+      width: 100%;
+      aspect-ratio: 1;
+      margin-bottom: 10px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &Description {
+    font: 400 16px/120% "Freight Display Pro";
+    padding: 0 14px;
+    text-align: center;
+  }
+}
+
+.footerSidebarMobile {
+  label {
+    margin-bottom: 20px;
+    font: 400 28px/120% 'Freight Display Pro';
+    color: #000000;
+    text-align: center;
+  }
+
+  div {
+    margin-bottom: 0;
+
+    input {
+      padding: 10px 17px 9px;
+      width: calc(100% - 157px);
+    }
+
+    button {
+      padding: 10px 10px;
+      white-space: nowrap;
+    }
+  }
+}

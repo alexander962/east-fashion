@@ -6,6 +6,8 @@ import PopularPosts from '@/components/PopularPosts';
 import FavouritesPosts from '@/components/FavouritesPosts';
 import styles from './index.module.scss';
 import Sidebar from '@/components/Sidebar';
+import SidebarMobile from '@/components/SideBarMobile';
+import useWindowSize from '@/hooks/useWindowSize';
 
 const LOAD_MORE_STEP = 4;
 const MainPage = ({
@@ -20,6 +22,7 @@ const MainPage = ({
 }) => {
   const [loading, setLoading] = useState(false);
   const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
+  const { width } = useWindowSize();
 
   const isLoadButton = total > loadedAmount;
   const getMorePosts = async () => {
@@ -45,6 +48,7 @@ const MainPage = ({
         <>
           <PopularPosts posts={popularPosts} />
           <FavouritesPosts posts={favouritesPosts} />
+          {width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}
         </>
       )}
       {posts.length === 0 ? (

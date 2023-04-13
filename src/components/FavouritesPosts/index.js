@@ -98,13 +98,19 @@ const FavouritesPosts = ({ posts }) => {
               return (
                 <div className={styles.favouritesBlockInnerMobile}>
                   <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
-                    <div className={cl(styles.favouritesImgMobile)}>
-                      <img src={urlFor(post?.mainImage).url()} alt="" />
-                    </div>
+                    <a>
+                      <div className={cl(styles.favouritesImgMobile)}>
+                        <img src={urlFor(post?.mainImage).url()} alt="" />
+                      </div>
+                      <h3 className={cl(styles.favouritesTitleMobile)}>
+                        {post?.title?.length > 90 ? (
+                          <p>{post?.title.substring(0, 90) + '... '}</p>
+                        ) : (
+                          <p>{post?.title}</p>
+                        )}
+                      </h3>
+                    </a>
                   </Link>
-                  <h3 className={cl(styles.favouritesTitleMobile)}>
-                    {post?.title?.length > 90 ? <p>{post?.title.substring(0, 90) + '... '}</p> : <p>{post?.title}</p>}
-                  </h3>
                 </div>
               );
             }
