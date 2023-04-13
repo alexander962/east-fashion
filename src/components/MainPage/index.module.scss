@@ -2,7 +2,8 @@
   flex-grow: 1;
   padding: 56px 0 80px;
   @media screen and (max-width: 768px) {
-    padding: 80px 0;
+    padding: 80px 0 20px;
+    width: 100%;
   }
 
   &Block {
@@ -12,6 +13,9 @@
     align-items: flex-start;
     border-bottom: 1px solid rgba(161, 161, 170, 0.5);
     border-top: 1px solid rgba(161, 161, 170, 0.5);
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
   }
 
   &__header {
@@ -49,8 +53,22 @@
   }
 
   &Btn {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
+    button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      padding: 10px 0;
+      text-align: center;
+      background: black;
+      color: #FFFFFF;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:hover {
+        background: black;
+        opacity: 1;
+      }
+    }
   }
 }

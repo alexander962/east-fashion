@@ -13,7 +13,7 @@ const Posts = ({ posts }) => {
 
         return (
           <div key={post?._id} className={cl(styles.postWrapper)}>
-            <Post post={post} classVariant={classVariant} />
+            <Post post={post} classVariant={classVariant} index={index} />
             <hr className={styles.postHr} />
           </div>
         );
