@@ -12,7 +12,7 @@ const Sidebar = ({ sideBarPosts = [] }) => {
       <div className={cl(styles.sidebarPosts)}>
         {sideBarPosts &&
           sideBarPosts?.map(post => (
-            <>
+            <div key={post._id}>
               <hr />
               <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                 <div className={cl(styles.sidebarItems)}>
@@ -31,7 +31,7 @@ const Sidebar = ({ sideBarPosts = [] }) => {
                   </div>
                 </div>
               </Link>
-            </>
+            </div>
           ))}
       </div>
       <Footer icons={false} classname={styles.footerSidebar} subscribe={true} />

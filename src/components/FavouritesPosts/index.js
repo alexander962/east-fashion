@@ -96,7 +96,7 @@ const FavouritesPosts = ({ posts }) => {
           {posts.map((post, index) => {
             if (index < 6) {
               return (
-                <div className={styles.favouritesBlockInnerMobile}>
+                <div className={styles.favouritesBlockInnerMobile} key={post._id}>
                   <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                     <a>
                       <div className={cl(styles.favouritesImgMobile)}>
