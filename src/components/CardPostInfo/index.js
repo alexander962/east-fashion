@@ -12,6 +12,7 @@ import styles from './index.module.scss';
 import { toast, ToastContainer } from 'react-nextjs-toast';
 import Sidebar from '@/components/Sidebar';
 import Link from 'next/link';
+import Image from 'next/image';
 const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
   const date = format(new Date(post?.publishedAt), 'dd MMM yyyy');
   const [inputName, setInputName] = useState('');
@@ -154,7 +155,7 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
                   <Slider asNavFor={nav2} ref={slider1 => setNav1(slider1)} {...settings}>
                     {post?.sliderImages.map((image, index) => (
                       <div className={cl(styles.cardImg)} key={`image${index}`}>
-                        <img src={urlFor(image).url()} alt="" />
+                        <Image layout="fill" objectFit="cover" alt="" src={urlFor(image).url()} />
                       </div>
                     ))}
                   </Slider>
@@ -168,14 +169,14 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
                   >
                     {post?.sliderImages.map((image, index) => (
                       <div className={cl(styles.cardImgInner)} key={`image${index}`}>
-                        <img src={urlFor(image).url()} alt="" />
+                        <Image layout="fill" objectFit="cover" alt="" src={urlFor(image).url()} />
                       </div>
                     ))}
                   </Slider>
                 </>
               ) : (
                 <div className={cl(styles.cardImg)}>
-                  <img src={urlFor(post.mainImage).url()} alt="" />
+                  <Image layout="fill" objectFit="cover" alt="" src={urlFor(post.mainImage).url()} />
                 </div>
               )}
               <hr className={cl(styles.cardHrBottom)} />
@@ -183,7 +184,7 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
                 {post?.author?.image && (
                   <div className={cl(styles.cardAuthorBlock)}>
                     <div className={cl(styles.cardAuthorImg)}>
-                      <img src={urlFor(post?.author?.image).url()} alt="" />
+                      <Image layout="fill" objectFit="cover" alt="" src={urlFor(post?.author?.image).url()} />
                     </div>
                     <h4 className={cl(styles.cardAuthorNameMobile)}>
                       par <span>{post?.author?.name}</span>
@@ -235,7 +236,6 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
             </div>
             <Sidebar sideBarPosts={sideBarPosts} />
           </div>
-          {/*<hr className={cl(styles.cardHrFooter)} />*/}
         </div>
       )}
     </>

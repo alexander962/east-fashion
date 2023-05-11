@@ -5,6 +5,7 @@ import styles from './index.module.scss';
 import { Footer } from '@/components';
 import { urlFor } from '~/lib/client';
 import Link from 'next/link';
+import Image from 'next/image';
 const Sidebar = ({ sideBarPosts = [] }) => {
   return (
     <div className={cl(styles.sidebar)}>
@@ -17,7 +18,7 @@ const Sidebar = ({ sideBarPosts = [] }) => {
               <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                 <div className={cl(styles.sidebarItems)}>
                   <div className={cl(styles.sidebarImg)}>
-                    <img src={urlFor(post?.mainImage).url()} alt="" />
+                    <Image layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage).url()} />
                   </div>
                   <div className={cl(styles.sidebarInfo)}>
                     <span className={cl(styles.sidebarPostTitle)}>

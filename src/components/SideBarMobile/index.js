@@ -5,6 +5,7 @@ import styles from './index.module.scss';
 import { urlFor } from '~/lib/client';
 import Link from 'next/link';
 import { Footer } from '@/components';
+import Image from 'next/image';
 const SidebarMobile = ({ sideBarPosts = [] }) => {
   return (
     <div className={cl(styles.sidebarMobile)}>
@@ -19,7 +20,7 @@ const SidebarMobile = ({ sideBarPosts = [] }) => {
               <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                 <a>
                   <div className={cl(styles.sidebarMobileItemImg)}>
-                    <img src={urlFor(post?.mainImage).url()} alt="" />
+                    <Image layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage).url()} />
                   </div>
                   <p className={cl(styles.sidebarMobileDescription)}>
                     {post?.title?.length > 80 ? post?.title.substring(0, 70) + '... ' : post?.title}

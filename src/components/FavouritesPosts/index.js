@@ -8,6 +8,7 @@ import leftArrow from '../../assets/images/arrow-left.svg';
 import rightArrow from '../../assets/images/arrow-right.svg';
 import styles from './index.module.scss';
 import useWindowSize from '@/hooks/useWindowSize';
+import Image from 'next/image';
 const FavouritesPosts = ({ posts }) => {
   const { width } = useWindowSize();
   const SlickButtonFix = ({ currentSlide, slideCount, children, ...props }) => <span {...props}>{children}</span>;
@@ -66,7 +67,7 @@ const FavouritesPosts = ({ posts }) => {
                   <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.favouritesPost)}>
                     <div className={cl(styles.favouritesPost)}>
                       <div className={cl(styles.favouritesImg)}>
-                        <img src={urlFor(post?.mainImage).url()} alt="" />
+                        <Image layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage).url()} />
                       </div>
                       <div className={styles.favouritesInfo}>
                         <div className={cl(styles.favouritesTag)}>
@@ -100,7 +101,7 @@ const FavouritesPosts = ({ posts }) => {
                   <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                     <a>
                       <div className={cl(styles.favouritesImgMobile)}>
-                        <img src={urlFor(post?.mainImage).url()} alt="" />
+                        <Image layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage).url()} />
                       </div>
                       <h3 className={cl(styles.favouritesTitleMobile)}>
                         {post?.title?.length > 90 ? (

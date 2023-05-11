@@ -28,6 +28,7 @@
   }
 
   &Author {
+    position: relative;
     width: 56px;
     min-width: 56px;
     height: 56px;
@@ -340,6 +341,7 @@
       }
 
       &Additional {
+        position: relative;
         width: 385px;
         height: 385px;
         @media screen and (max-width: 700px) {
@@ -347,8 +349,8 @@
         }
 
         img {
-          width: 100%;
-          height: 100%;
+          width: 100%!important;
+          height: 100%!important;
           object-fit: cover;
         }
       }
@@ -413,6 +415,7 @@
       }
 
       &Additional {
+        position: relative;
         width: 385px;
         height: 427px;
         @media screen and (max-width: 700px) {
@@ -420,8 +423,8 @@
         }
 
         img {
-          width: 100%;
-          height: 100%;
+          width: 100%!important;
+          height: 100%!important;
           object-fit: cover;
         }
       }
@@ -490,6 +493,7 @@
       }
 
       &Additional {
+        position: relative;
         height: 226px;
         width: 256px;
         @media screen and (max-width: 1200px) {
@@ -499,14 +503,15 @@
           display: none;
         }
 
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+        span, img {
+          width: 100%!important;
+          height: 100%!important;
+          object-fit: cover!important;
         }
       }
 
       &Third {
+        position: relative;
         height: 226px;
         width: 256px;
         @media screen and (max-width: 700px) {

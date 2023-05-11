@@ -5,6 +5,7 @@ import styles from './index.module.scss';
 import { urlFor } from '~/lib/client';
 import { Posts } from '@/components';
 import Sidebar from '@/components/Sidebar';
+import Image from 'next/image';
 const AboutPage = ({ aboutInfo, visibleSearchResult, posts, sideBarPosts }) => {
   return (
     <section>
@@ -27,7 +28,7 @@ const AboutPage = ({ aboutInfo, visibleSearchResult, posts, sideBarPosts }) => {
       ) : (
         <div>
           <div className={cl(styles.aboutImg)}>
-            <img src={urlFor(aboutInfo?.image).url()} alt="" />
+            <Image layout="fill" objectFit="cover" alt="" src={urlFor(aboutInfo?.image).url()} />
           </div>
           <span className={cl(styles.aboutName)}>À propos de nous</span>
           <hr className={cl(styles.aboutHr)} />

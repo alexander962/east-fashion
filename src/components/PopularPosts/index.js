@@ -7,6 +7,7 @@ import { urlFor } from '~/lib/client';
 import leftArrow from '../../assets/images/arrow-left.svg';
 import rightArrow from '../../assets/images/arrow-right.svg';
 import styles from './index.module.scss';
+import Image from 'next/image';
 const PopularPosts = ({ posts }) => {
   const SlickButtonFix = ({ currentSlide, slideCount, children, ...props }) => <span {...props}>{children}</span>;
 
@@ -61,7 +62,7 @@ const PopularPosts = ({ posts }) => {
               <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.popularPost)}>
                 <div className={cl(styles.popularPost)}>
                   <div className={cl(styles.popularImg)}>
-                    <img src={urlFor(post?.mainImage).url()} alt="" />
+                    <Image layout="fill" objectFit="cover" src={urlFor(post?.mainImage).url()} />
                     <div className={cl(styles.popularInfo)}>
                       {post?.tags && (
                         <div className={cl(styles.popularTag)}>
