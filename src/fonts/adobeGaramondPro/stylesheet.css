@@ -18,7 +18,7 @@
         url('AGaramondPro-Italic.woff2') format('woff2'),
         url('AGaramondPro-Italic.woff') format('woff'),
         url('AGaramondPro-Italic.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: italic;
 }
 
@@ -42,7 +42,7 @@
         url('AGaramondPro-Regular.woff2') format('woff2'),
         url('AGaramondPro-Regular.woff') format('woff'),
         url('AGaramondPro-Regular.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
 }
 
