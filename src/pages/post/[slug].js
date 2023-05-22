@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-import { client } from '~/lib/client';
+import { client, urlFor } from '~/lib/client';
 import { Footer, Header, Section } from '@/components';
 import CardPostInfo from '@/components/CardPostInfo';
 import ModalMenu from '@/components/ModalMenu';
@@ -27,8 +27,8 @@ const PostInfo = ({ post, popularPosts, sideBarPosts }) => {
       <Head>
         <title>{post?.meta_title}</title>
 
-        <meta property="og:image" content={logo.src} />
-        <meta name="twitter:image" content={logo.src} />
+        <meta property="og:image" content={urlFor(post.mainImage).url()} />
+        <meta name="twitter:image" content={urlFor(post.mainImage).url()} />
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
       <Header
