@@ -174,6 +174,18 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'video',
+      type: 'document',
+      title: 'Video YouTube',
+      fields: [
+        {
+          name: 'videoId',
+          type: 'string',
+          title: 'Enter videoId',
+        },
+      ],
+    }),
+    defineField({
       name: 'categories',
       title: 'Categories',
       type: 'string',

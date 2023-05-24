@@ -13,6 +13,7 @@ import { toast, ToastContainer } from 'react-nextjs-toast';
 import Sidebar from '@/components/Sidebar';
 import Link from 'next/link';
 import Image from 'next/image';
+import YouTubePlayer from '@/components/YouTubePlayer';
 const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
   const date = format(new Date(post?.publishedAt), 'dd MMM yyyy');
   const [inputName, setInputName] = useState('');
@@ -180,6 +181,11 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
                 </div>
               )}
               <hr className={cl(styles.cardHrBottom)} />
+              {post?.video && post?.video?.videoId && (
+                <div className={styles.cardVideo}>
+                  <YouTubePlayer videoId={post?.video?.videoId} />
+                </div>
+              )}
               <div className={cl(styles.cardAuthor)}>
                 {post?.author?.image && (
                   <div className={cl(styles.cardAuthorBlock)}>
