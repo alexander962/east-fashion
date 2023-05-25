@@ -8,7 +8,7 @@ export default defineConfig({
   name: 'default',
   title: 'sanity',
 
-  projectId: 'lnrtwdfv',
+  projectId: 'vo8irzzh',
   dataset: 'production',
 
   plugins: [
