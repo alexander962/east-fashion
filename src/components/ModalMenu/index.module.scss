@@ -11,6 +11,9 @@
   box-sizing: border-box;
   transform: translateY(-120vh);
   transition: transform .7s ease;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 
   &MenuLogo {
     width: 100%;
