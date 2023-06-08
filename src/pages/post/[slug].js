@@ -16,6 +16,8 @@ const PostInfo = ({ post, popularPosts, sideBarPosts }) => {
   const [visibleSearchResult, setVisibleSearchResult] = useState(false);
   const router = useRouter();
 
+  console.log(post);
+
   useEffect(() => {
     if (!post) {
       router.push('/404');
@@ -27,8 +29,12 @@ const PostInfo = ({ post, popularPosts, sideBarPosts }) => {
       <Head>
         <title>{post?.meta_title}</title>
 
-        <meta property="og:image" content={urlFor(post.mainImage).url()} />
-        <meta name="twitter:image" content={urlFor(post.mainImage).url()} />
+        {post && (
+          <>
+            <meta property="og:image" content={urlFor(post?.mainImage).url()} />
+            <meta name="twitter:image" content={urlFor(post?.mainImage).url()} />
+          </>
+        )}
       </Head>
       <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
       <Header

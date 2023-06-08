@@ -35,7 +35,7 @@ const PageNotFound = () => {
           <h6>page not found</h6>
         </div>
       </div>
-      <Footer />
+      <Footer subscribe={false} />
     </Section>
   );
 };
