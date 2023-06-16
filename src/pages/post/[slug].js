@@ -7,7 +7,6 @@ import { Footer, Header, Section } from '@/components';
 import CardPostInfo from '@/components/CardPostInfo';
 import ModalMenu from '@/components/ModalMenu';
 import { loadPopularPosts, loadSideBarPosts } from '@/pages/api/posts';
-import logo from '@/assets/images/logo.jpeg';
 const PostInfo = ({ post, popularPosts, sideBarPosts }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [posts, setPosts] = useState([]);
@@ -15,8 +14,6 @@ const PostInfo = ({ post, popularPosts, sideBarPosts }) => {
   const [visiblePopularsPosts, setVisiblePopularsPosts] = useState(true);
   const [visibleSearchResult, setVisibleSearchResult] = useState(false);
   const router = useRouter();
-
-  console.log(post);
 
   useEffect(() => {
     if (!post) {
@@ -80,7 +77,7 @@ export async function getStaticProps(props) {
   const {
     params: { slug },
   } = props;
-  const query = `*[_type == "post" && slug.current == '${slug}']{_id, publishedAt, body, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, video, meta_title, categories, "tags": tags->{title}, comments, sliderImages, "author": author->{name, image}}[0]`;
+  const query = `*[_type == "post" && slug.current == "${slug}"]{_id, publishedAt, body, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, video, meta_title, categories, "tags": tags->{title}, comments, sliderImages, "author": author->{name, image}}[0]`;
 
   const post = await client.fetch(query);
   const { popularPosts } = await loadPopularPosts();

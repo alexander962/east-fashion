@@ -181,11 +181,6 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
                 </div>
               )}
               <hr className={cl(styles.cardHrBottom)} />
-              {post?.video && post?.video?.videoId && (
-                <div className={styles.cardVideo}>
-                  <YouTubePlayer videoId={post?.video?.videoId} />
-                </div>
-              )}
               <div className={cl(styles.cardAuthor)}>
                 {post?.author?.image && (
                   <div className={cl(styles.cardAuthorBlock)}>
@@ -201,7 +196,7 @@ const CardPostInfo = ({ post, sideBarPosts, visibleSearchResult, posts }) => {
                   <h4 className={cl(styles.cardAuthorName)}>
                     par <span>{post?.author?.name}</span>
                   </h4>
-                  <Content body={post?.body} />
+                  {post?.body && <Content body={post?.body} />}
                   <div>
                     <h3 className={cl(styles.cardSubtitle)}>Participez à la discussion</h3>
                     <input

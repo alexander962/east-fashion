@@ -6,6 +6,7 @@ const textEditorStyles = [
   {title: 'Heading 2', value: 'h2'},
   {title: 'Heading 3', value: 'h3'},
   {title: 'Quote', value: 'blockquote'},
+  {title: 'cardItem', value: 'div'},
 ]
 
 export default defineType({
@@ -38,14 +39,6 @@ export default defineType({
       name: 'sidebar',
       type: 'boolean',
     }),
-    // defineField({
-    //   name: 'displayTypes',
-    //   title: 'Display type',
-    //   type: 'reference',
-    //   to: {type: 'displayType'},
-    //   group: 'content',
-    //   validation: (Rule) => Rule.required(),
-    // }),
     defineField({
       name: 'displayTypes',
       title: 'Post layout type',
@@ -202,13 +195,6 @@ export default defineType({
       group: 'content',
       validation: (Rule) => Rule.required(),
     }),
-    // defineField({
-    //   name: 'tags',
-    //   title: 'Tags',
-    //   type: 'array',
-    //   of: [{type: 'reference', to: {type: 'tag'}}],
-    //   group: 'content',
-    // }),
     defineField({
       name: 'tags',
       title: 'Tags',
@@ -267,6 +253,46 @@ export default defineType({
         },
         {
           type: 'image',
+        },
+        {
+          name: 'video',
+          type: 'document',
+          title: 'Video YouTube',
+          fields: [
+            {
+              name: 'videoId',
+              type: 'string',
+              title: 'Enter videoId',
+            },
+          ],
+        },
+        {
+          name: 'cardItem',
+          title: 'Card Item',
+          type: 'document',
+          styles: textEditorStyles,
+          fields: [
+            {
+              name: 'href',
+              title: 'URL',
+              type: 'url',
+            },
+            {
+              name: 'imageCard',
+              type: 'image',
+              title: 'Image Card',
+            },
+            {
+              name: 'title',
+              type: 'string',
+              title: 'Title',
+            },
+            {
+              name: 'btnText',
+              type: 'string',
+              title: 'Button Text',
+            },
+          ],
         },
       ],
     }),
