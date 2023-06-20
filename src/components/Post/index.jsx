@@ -231,7 +231,7 @@ const Post = ({ post, index }) => {
                   </div>
                 </Link>
                 <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
-                  <a className={cl(styles.postLink)}>
+                  <a className={cl(styles.postLink, styles.postLinkMiddle)}>
                     {post?.additionalImage && (
                       <div className={cl(styles.postType6ImgAdditional)}>
                         <Image layout="fill" objectFit="cover" alt="" src={urlFor(post?.additionalImage)?.url()} />
