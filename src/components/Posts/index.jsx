@@ -3,7 +3,6 @@ import cl from 'classnames';
 
 import { Post } from '@/components';
 import styles from './index.module.scss';
-import Sidebar from '@/components/Sidebar';
 
 const Posts = ({ posts }) => {
   return (
