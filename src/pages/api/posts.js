@@ -32,7 +32,7 @@ export async function loadPosts(start, end) {
 
 export async function loadFavouritesPosts() {
   const query = `{
-    "favouritesPosts": *[_type == "post" && favourite == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, body, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, comments, "author": author->{name, image}}
+    "favouritesPosts": *[_type == "post" && favourite == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, body, slug, description, displayTypes, mainImage, categories, "tags": tags->{title}}
   }`;
   const { favouritesPosts } = await client.fetch(query);
 
@@ -43,10 +43,10 @@ export async function loadFavouritesPosts() {
 
 export async function loadPopularPosts() {
   const query = `{
-    "popularPosts": *[_type == "post" && popular == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, comments, "author": author->{name, image}}
+    "popularPosts": *[_type == "post" && popular == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, slug, description, displayTypes, mainImage, categories, "tags": tags->{title}}
   }`;
   const queryCount = `{
-    "popularPostsCount": *[_type == "post" && popular == false && !(_id match "drafts*")] | order(popularity desc) [0...6] {_id, popular, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, comments, "author": author->{name, image}}
+    "popularPostsCount": *[_type == "post" && popular == false && !(_id match "drafts*")] | order(popularity desc) [0...6] {_id, popular, publishedAt, title, slug, description, displayTypes, mainImage, categories, "tags": tags->{title}}
   }`;
   const { popularPosts } = await client.fetch(query);
   const { popularPostsCount } = await client.fetch(queryCount);
@@ -86,7 +86,7 @@ export async function loadTagPosts(tag) {
 
 export async function loadSideBarPosts() {
   const query = `{
-    "sideBarPosts": *[_type == "post" && sidebar == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, comments, "author": author->{name, image}}
+    "sideBarPosts": *[_type == "post" && sidebar == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, publishedAt, title, slug, description, displayTypes, mainImage, categories, "tags": tags->{title}}
   }`;
   const { sideBarPosts } = await client.fetch(query);
 
