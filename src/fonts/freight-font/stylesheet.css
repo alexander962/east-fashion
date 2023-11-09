@@ -6,6 +6,7 @@
         url('FreightDispProSemibold-Italic.woff2') format('woff2'),
         url('FreightDispProSemibold-Italic.woff') format('woff'),
         url('FreightDispProSemibold-Italic.ttf') format('truetype');
+    font-display: swap;
     font-weight: 600;
     font-style: italic;
 }
@@ -18,6 +19,7 @@
         url('FreightDispProBold-Regular.woff2') format('woff2'),
         url('FreightDispProBold-Regular.woff') format('woff'),
         url('FreightDispProBold-Regular.ttf') format('truetype');
+    font-display: swap;
     font-weight: 700;
     font-style: normal;
 }
@@ -30,6 +32,7 @@
         url('FreightDispProLight-Italic.woff2') format('woff2'),
         url('FreightDispProLight-Italic.woff') format('woff'),
         url('FreightDispProLight-Italic.ttf') format('truetype');
+    font-display: swap;
     font-weight: 300;
     font-style: italic;
 }
@@ -42,6 +45,7 @@
         url('FreightDispProMedium-Regular.woff2') format('woff2'),
         url('FreightDispProMedium-Regular.woff') format('woff'),
         url('FreightDispProMedium-Regular.ttf') format('truetype');
+    font-display: swap;
     font-weight: 500;
     font-style: normal;
 }
@@ -54,6 +58,7 @@
         url('FreightDispProMedium-Italic.woff2') format('woff2'),
         url('FreightDispProMedium-Italic.woff') format('woff'),
         url('FreightDispProMedium-Italic.ttf') format('truetype');
+    font-display: swap;
     font-weight: 500;
     font-style: italic;
 }
@@ -66,6 +71,7 @@
         url('FreightDispProBlack-Regular.woff2') format('woff2'),
         url('FreightDispProBlack-Regular.woff') format('woff'),
         url('FreightDispProBlack-Regular.ttf') format('truetype');
+    font-display: swap;
     font-weight: 900;
     font-style: normal;
 }
@@ -78,6 +84,7 @@
         url('FreightDispProBold-Italic.woff2') format('woff2'),
         url('FreightDispProBold-Italic.woff') format('woff'),
         url('FreightDispProBold-Italic.ttf') format('truetype');
+    font-display: swap;
     font-weight: 700;
     font-style: italic;
 }
@@ -90,6 +97,7 @@
         url('FreightDispProBook-Italic.woff2') format('woff2'),
         url('FreightDispProBook-Italic.woff') format('woff'),
         url('FreightDispProBook-Italic.ttf') format('truetype');
+    font-display: swap;
     font-weight: normal;
     font-style: italic;
 }
@@ -102,6 +110,7 @@
         url('FreightDispProBlack-Italic.woff2') format('woff2'),
         url('FreightDispProBlack-Italic.woff') format('woff'),
         url('FreightDispProBlack-Italic.ttf') format('truetype');
+    font-display: swap;
     font-weight: 900;
     font-style: italic;
 }
@@ -114,6 +123,7 @@
         url('FreightDispProSemibold-Regular.woff2') format('woff2'),
         url('FreightDispProSemibold-Regular.woff') format('woff'),
         url('FreightDispProSemibold-Regular.ttf') format('truetype');
+    font-display: swap;
     font-weight: 600;
     font-style: normal;
 }
@@ -126,6 +136,7 @@
         url('FreightDispProLight-Regular.woff2') format('woff2'),
         url('FreightDispProLight-Regular.woff') format('woff'),
         url('FreightDispProLight-Regular.ttf') format('truetype');
+    font-display: swap;
     font-weight: 300;
     font-style: normal;
 }
@@ -138,6 +149,7 @@
         url('FreightDispProBook-Regular.woff2') format('woff2'),
         url('FreightDispProBook-Regular.woff') format('woff'),
         url('FreightDispProBook-Regular.ttf') format('truetype');
+    font-display: swap;
     font-weight: normal;
     font-style: normal;
 }

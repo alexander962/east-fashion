@@ -3,6 +3,7 @@
   src: url('FreightTextProMedium-Regular.woff2') format('woff2'),
   url('FreightTextProMedium-Regular.woff') format('woff'),
   url('FreightTextProMedium-Regular.ttf') format('truetype');
+  font-display: swap;
   font-weight: 400;
 }
 
@@ -11,6 +12,7 @@
   src: url('FreightTextProBold-Regular.woff2') format('woff2'),
   url('FreightTextProBold-Regular.woff') format('woff'),
   url('FreightTextProBold-Regular.ttf') format('truetype');
+  font-display: swap;
   font-weight: 700;
 }
 
