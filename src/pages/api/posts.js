@@ -19,12 +19,12 @@ export default async function posts(req, res) {
 
 export async function loadAllPosts(start, end) {
   const query = `{
-    "posts": *[_type == "post" && !(_id match "drafts*")] | order(publishedAt desc) [${start}...${end}] {_id, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, "author": author->{name, image}},
+    "posts": *[_type == "post" && !(_id match "drafts*")] | order(publishedAt desc) [${start}...${end}] {_id, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, "author": author->{name, image}},
     "total": count(*[_type == "post" && !(_id match "drafts*")]),
-    "favouritesPosts": *[_type == "post" && favourite == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, body, slug, description, displayTypes, mainImage, categories, "tags": tags->{title}},
-    "sideBarPosts": *[_type == "post" && sidebar == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, publishedAt, title, slug, description, displayTypes, mainImage, categories, "tags": tags->{title}},
-    "popularPosts": *[_type == "post" && popular == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, slug, description, displayTypes, mainImage, categories, "tags": tags->{title}},
-    "popularPostsCount": *[_type == "post" && popular == false && !(_id match "drafts*")] | order(popularity desc) [0...6] {_id, popular, publishedAt, title, slug, description, displayTypes, mainImage, categories, "tags": tags->{title}}
+    "favouritesPosts": *[_type == "post" && favourite == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, slug, title, description, mainImage, "tags": tags->{title}},
+    "sideBarPosts": *[_type == "post" && sidebar == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, title, slug, description, displayTypes, mainImage, categories, "tags": tags->{title}},
+    "popularPosts": *[_type == "post" && popular == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, title, slug, description, displayTypes, mainImage, categories, "tags": tags->{title}},
+    "popularPostsCount": *[_type == "post" && popular == false && !(_id match "drafts*")] | order(popularity desc) [0...6] {_id, popular, title, slug, description, displayTypes, mainImage, categories, "tags": tags->{title}}
   }`;
   const { posts, total, favouritesPosts, sideBarPosts, popularPosts, popularPostsCount } = await client.fetch(query);
 
