@@ -64,10 +64,22 @@ export default function Home({ initialPosts, total, favouritesPosts, popularPost
 }
 
 export const getServerSideProps = async () => {
-  const { posts, total } = await loadPosts(0, LOAD_MORE_STEP);
-  const { favouritesPosts } = await loadFavouritesPosts();
-  const { popularPosts } = await loadPopularPosts();
-  const { sideBarPosts } = await loadSideBarPosts();
+  // const { posts, total } = loadPosts(0, LOAD_MORE_STEP);
+  // const { favouritesPosts } = loadFavouritesPosts();
+  // const { popularPosts } = loadPopularPosts();
+  // const { sideBarPosts } = loadSideBarPosts();
+
+  const promise1 = loadPosts(0, LOAD_MORE_STEP);
+  const promise2 = loadFavouritesPosts();
+  const promise3 = loadPopularPosts();
+  const promise4 = loadSideBarPosts();
+
+  const arr = await Promise.all([promise1, promise2, promise3, promise4]);
+
+  const { posts, total } = arr[0];
+  const { favouritesPosts } = arr[1];
+  const { popularPosts } = arr[2];
+  const { sideBarPosts } = arr[3];
 
   return {
     props: {
