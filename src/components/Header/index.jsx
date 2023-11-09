@@ -115,7 +115,7 @@ const Header = ({
             <div className={styles.header__logo} onClick={handleClickLogo}>
               <Link href={'/'}>
                 <a>
-                  <img src={logo.src} alt="" />
+                  <img src={logo.src} alt="" width="224px" height="35px" />
                 </a>
               </Link>
             </div>

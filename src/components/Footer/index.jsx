@@ -87,13 +87,13 @@ const Footer = ({ classname, subscribe = true, icons = true }) => {
               </div>
               <div className={styles.footer__icons}>
                 <a href="https://www.facebook.com/kyrillkazak" target="_blank">
-                  <img src={facebook.src} alt="" />
+                  <img src={facebook.src} alt="" width="24px" height="24px" />
                 </a>
                 <a href="#" target="_blank">
-                  <img src={twitter.src} alt="" />
+                  <img src={twitter.src} alt="" width="24px" height="24px" />
                 </a>
                 <a href="#" target="_blank">
-                  <img src={youtube.src} alt="" />
+                  <img src={youtube.src} alt="" width="24px" height="24px" />
                 </a>
               </div>
             </nav>
