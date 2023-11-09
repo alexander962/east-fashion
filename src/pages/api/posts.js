@@ -28,11 +28,11 @@ export async function loadAllPosts(start, end) {
   }`;
   const { posts, total, favouritesPosts, sideBarPosts, popularPosts, popularPostsCount } = await client.fetch(query);
 
-  // let count = 0;
-  // for (let i = popularPosts.length; i < 6; i++) {
-  //   popularPosts.push(popularPostsCount[count]);
-  //   count++;
-  // }
+  let count = 0;
+  for (let i = popularPosts.length; i < 6; i++) {
+    popularPosts.push(popularPostsCount[count]);
+    count++;
+  }
 
   return {
     posts,
