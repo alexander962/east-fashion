@@ -67,7 +67,13 @@ const FavouritesPosts = ({ posts }) => {
                   <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.favouritesPost)}>
                     <div className={cl(styles.favouritesPost)}>
                       <div className={cl(styles.favouritesImg)}>
-                        <Image layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage).url()} />
+                        <Image
+                          loading="lazy"
+                          layout="fill"
+                          objectFit="cover"
+                          alt=""
+                          src={urlFor(post?.mainImage).url()}
+                        />
                       </div>
                       <div className={styles.favouritesInfo}>
                         <div className={cl(styles.favouritesTag)}>
@@ -101,7 +107,13 @@ const FavouritesPosts = ({ posts }) => {
                   <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                     <a>
                       <div className={cl(styles.favouritesImgMobile)}>
-                        <Image layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage).url()} />
+                        <Image
+                          loading="lazy"
+                          layout="fill"
+                          objectFit="cover"
+                          alt=""
+                          src={urlFor(post?.mainImage).url()}
+                        />
                       </div>
                       <h3 className={cl(styles.favouritesTitleMobile)}>
                         {post?.title?.length > 90 ? (

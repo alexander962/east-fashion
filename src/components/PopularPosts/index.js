@@ -62,7 +62,7 @@ const PopularPosts = ({ posts }) => {
               <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.popularPost)}>
                 <div className={cl(styles.popularPost)}>
                   <div className={cl(styles.popularImg)}>
-                    <Image layout="fill" objectFit="cover" src={urlFor(post?.mainImage).url()} />
+                    <Image layout="fill" objectFit="cover" src={urlFor(post?.mainImage).url()} loading="lazy" />
                     <div className={cl(styles.popularInfo)}>
                       {post?.tags && (
                         <div className={cl(styles.popularTag)}>
