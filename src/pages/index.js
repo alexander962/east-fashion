@@ -29,6 +29,10 @@ export default function Home({ initialPosts, total, favouritesPosts, popularPost
     };
   }, [modalRef]);
 
+  if (!initialPosts) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Section>
       <Head>
