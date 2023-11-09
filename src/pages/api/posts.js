@@ -17,6 +17,21 @@ export default async function posts(req, res) {
   });
 }
 
+export async function loadAllPosts(start, end) {
+  const query = `{
+    "posts": *[_type == "post" && !(_id match "drafts*")] | order(publishedAt desc) [${start}...${end}] {_id, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, "author": author->{name, image}},
+    "total": count(*[_type == "post" && !(_id match "drafts*")]),
+    "favouritesPosts": *[_type == "post" && favourite == true && !(_id match "drafts*")] | order(publishedAt desc) [0...6] {_id, popular, publishedAt, title, body, slug, description, displayTypes, mainImage, categories, "tags": tags->{title}}
+  }`;
+  const { posts, total, favouritesPosts } = await client.fetch(query);
+
+  return {
+    posts,
+    total,
+    favouritesPosts,
+  };
+}
+
 export async function loadPosts(start, end) {
   const query = `{
     "posts": *[_type == "post" && !(_id match "drafts*")] | order(publishedAt desc) [${start}...${end}] {_id, publishedAt, title, slug, description, displayTypes, mainImage, additionalImage, thirdImage, categories, "tags": tags->{title}, "author": author->{name, image}},
