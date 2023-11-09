@@ -16,7 +16,7 @@ const SidebarMobile = ({ sideBarPosts = [] }) => {
       <div className={cl(styles.sidebarMobileItems)}>
         {sideBarPosts &&
           sideBarPosts?.map((post, index) => (
-            <div className={cl(styles.sidebarMobileItem)}>
+            <div className={cl(styles.sidebarMobileItem)} key={`${index}${post?.title}`}>
               <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                 <a>
                   <div className={cl(styles.sidebarMobileItemImg)}>
