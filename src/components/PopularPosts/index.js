@@ -8,9 +8,10 @@ import leftArrow from '../../assets/images/arrow-left.svg';
 import rightArrow from '../../assets/images/arrow-right.svg';
 import styles from './index.module.scss';
 import Image from 'next/image';
-const PopularPosts = ({ posts }) => {
-  const SlickButtonFix = ({ currentSlide, slideCount, children, ...props }) => <span {...props}>{children}</span>;
 
+const SlickButtonFix = ({ currentSlide, slideCount, children, ...props }) => <span {...props}>{children}</span>;
+
+const PopularPosts = ({ posts }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -56,40 +57,40 @@ const PopularPosts = ({ posts }) => {
     <div className={cl(styles.popularPosts, 'popularPosts')}>
       <h2 className={styles.popularHeader}>Les Plus Lus</h2>
       <Slider {...settings}>
-        {posts.map((post, index) => {
-          return (
-            <div className={cl(styles.inner, index % 2 && styles.innerBig)} key={post?._id}>
-              <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.popularPost)}>
-                <div className={cl(styles.popularPost)}>
-                  <div className={cl(styles.popularImg)}>
-                    <Image layout="fill" objectFit="cover" src={urlFor(post?.mainImage).url()} loading="lazy" />
-                    <div className={cl(styles.popularInfo)}>
-                      {post?.tags && (
-                        <div className={cl(styles.popularTag)}>
-                          <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
-                            <a>{post?.tags?.title}</a>
-                          </Link>
-                        </div>
-                      )}
-                      <div>
-                        <h3 className={cl(styles.popularTitle)}>
-                          {post?.title?.length > 90 ? (
-                            <p>{post?.title.substring(0, 90) + '... '}</p>
-                          ) : (
-                            <p>{post?.title}</p>
-                          )}
-                        </h3>
+        {posts.map((post, index) => (
+          <div className={cl(styles.inner, index % 2 && styles.innerBig)} key={post?._id}>
+            <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.popularPost)}>
+              <div className={cl(styles.popularPost)}>
+                <div className={cl(styles.popularImg)}>
+                  <Image layout="fill" objectFit="cover" src={urlFor(post?.mainImage).url()} loading="lazy" />
+                  <div className={cl(styles.popularInfo)}>
+                    {post?.tags && (
+                      <div className={cl(styles.popularTag)}>
+                        <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
+                          <a>{post?.tags?.title}</a>
+                        </Link>
                       </div>
+                    )}
+                    <div>
+                      <h3 className={cl(styles.popularTitle)}>
+                        {post?.title?.length > 90 ? (
+                          <p>{post?.title.substring(0, 90) + '... '}</p>
+                        ) : (
+                          <p>{post?.title}</p>
+                        )}
+                      </h3>
                     </div>
                   </div>
                 </div>
-              </Link>
-            </div>
-          );
-        })}
+              </div>
+            </Link>
+          </div>
+        ))}
       </Slider>
     </div>
   );
 };
 
-export default PopularPosts;
+const MemoizedPopularPosts = React.memo(PopularPosts);
+
+export default MemoizedPopularPosts;
