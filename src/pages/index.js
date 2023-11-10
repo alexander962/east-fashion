@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
@@ -31,7 +31,7 @@ export default function Home({ initialPosts, total, favouritesPosts, popularPost
     return () => {
       window.removeEventListener('click', handleClickOutside);
     };
-  }, [modalRef]);
+  }, [modalRef, setModalVisible]);
 
   return (
     <Section>
@@ -43,25 +43,27 @@ export default function Home({ initialPosts, total, favouritesPosts, popularPost
         <meta property="og:image" content={logo.src} />
         <meta name="twitter:image" content={logo.src} />
       </Head>
-      <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
-      <Header
-        setPosts={setPosts}
-        setTotalPosts={setTotalPosts}
-        setModalVisible={setModalVisible}
-        setVisiblePopularsPosts={setVisiblePopularsPosts}
-        setVisibleSearchResult={setVisibleSearchResult}
-      />
-      <MainPage
-        posts={posts}
-        setPosts={setPosts}
-        total={totalPosts}
-        favouritesPosts={favouritesPosts}
-        popularPosts={popularPosts}
-        sideBarPosts={sideBarPosts}
-        visiblePopularsPosts={visiblePopularsPosts}
-        visibleSearchResult={visibleSearchResult}
-      />
-      <Footer subscribe={false} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ModalMenu setModalVisible={setModalVisible} modalVisible={modalVisible} />
+        <Header
+          setPosts={setPosts}
+          setTotalPosts={setTotalPosts}
+          setModalVisible={setModalVisible}
+          setVisiblePopularsPosts={setVisiblePopularsPosts}
+          setVisibleSearchResult={setVisibleSearchResult}
+        />
+        <MainPage
+          posts={posts}
+          setPosts={setPosts}
+          total={totalPosts}
+          favouritesPosts={favouritesPosts}
+          popularPosts={popularPosts}
+          sideBarPosts={sideBarPosts}
+          visiblePopularsPosts={visiblePopularsPosts}
+          visibleSearchResult={visibleSearchResult}
+        />
+        <Footer subscribe={false} />
+      </Suspense>
     </Section>
   );
 }
