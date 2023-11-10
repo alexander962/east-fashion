@@ -52,16 +52,16 @@ export default function Home({ initialPosts, total, favouritesPosts, popularPost
           setVisiblePopularsPosts={setVisiblePopularsPosts}
           setVisibleSearchResult={setVisibleSearchResult}
         />
-        <MainPage
-          posts={posts}
-          setPosts={setPosts}
-          total={totalPosts}
-          favouritesPosts={favouritesPosts}
-          popularPosts={popularPosts}
-          sideBarPosts={sideBarPosts}
-          visiblePopularsPosts={visiblePopularsPosts}
-          visibleSearchResult={visibleSearchResult}
-        />
+        {/*<MainPage*/}
+        {/*  posts={posts}*/}
+        {/*  setPosts={setPosts}*/}
+        {/*  total={totalPosts}*/}
+        {/*  favouritesPosts={favouritesPosts}*/}
+        {/*  popularPosts={popularPosts}*/}
+        {/*  sideBarPosts={sideBarPosts}*/}
+        {/*  visiblePopularsPosts={visiblePopularsPosts}*/}
+        {/*  visibleSearchResult={visibleSearchResult}*/}
+        {/*/>*/}
         <Footer subscribe={false} />
       </Suspense>
     </Section>
