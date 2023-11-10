@@ -7,6 +7,7 @@ import { urlFor } from '~/lib/client';
 import Title from '../Title';
 import styles from './index.module.scss';
 import useWindowSize from '@/hooks/useWindowSize';
+
 const Post = ({ post, index }) => {
   const { width } = useWindowSize();
 
@@ -81,7 +82,6 @@ const Post = ({ post, index }) => {
                       post?.displayTypes === 'type3' && styles.postType3ImgBig
                     )}
                   >
-                    {/*<img src={urlFor(post?.mainImage)?.url()} alt="" />*/}
                     <Image loading="lazy" layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage)?.url()} />
                     {post?.tags && (
                       <div className={cl(styles.postType3Info)}>
@@ -319,4 +319,6 @@ const Post = ({ post, index }) => {
   );
 };
 
-export default Post;
+const MemoizedPost = React.memo(Post);
+
+export default MemoizedPost;
