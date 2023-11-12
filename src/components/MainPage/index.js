@@ -1,12 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import cl from 'classnames';
 import { Button, Posts } from '@/components';
-import PopularPosts from '@/components/PopularPosts';
-import FavouritesPosts from '@/components/FavouritesPosts';
 import styles from './index.module.scss';
 import Sidebar from '@/components/Sidebar';
 import SidebarMobile from '@/components/SideBarMobile';
 import useWindowSize from '@/hooks/useWindowSize';
+import SliderPost from '@/components/SliderPost';
 
 const LOAD_MORE_STEP = 4;
 
@@ -40,8 +39,8 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, sideB
     <main className={cl(styles.mainPage)}>
       {visiblePopularsPosts && (
         <>
-          <PopularPosts posts={popularPosts} />
-          <FavouritesPosts posts={favouritesPosts} />
+          <SliderPost posts={popularPosts} isFavorite={false} />
+          <SliderPost posts={favouritesPosts} isFavorite={true} />
           {width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}
         </>
       )}

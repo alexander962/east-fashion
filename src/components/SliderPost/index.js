@@ -10,7 +10,7 @@ import rightArrow from '../../assets/images/arrow-right.svg';
 import styles from './index.module.scss';
 import useWindowSize from '@/hooks/useWindowSize';
 
-const FavouritesPosts = ({ posts }) => {
+const SliderPosts = ({ posts, isFavorite }) => {
   const { width } = useWindowSize();
 
   const SlickButtonFix = ({ currentSlide, slideCount, children, ...props }) => <span {...props}>{children}</span>;
@@ -58,7 +58,15 @@ const FavouritesPosts = ({ posts }) => {
   };
 
   const renderPost = (post, index) => (
-    <div className={cl(styles.inner, index % 2 && styles.innerSmall)} key={post._id}>
+    <div
+      className={cl(
+        isFavorite && styles.innerFav,
+        index % 2 && isFavorite && styles.innerSmall,
+        !isFavorite && styles.innerPopular,
+        index % 2 && !isFavorite && styles.innerBig
+      )}
+      key={post._id}
+    >
       <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.favouritesPost)}>
         <div className={cl(styles.favouritesPost)}>
           <div className={cl(styles.favouritesImg)}>
@@ -82,17 +90,19 @@ const FavouritesPosts = ({ posts }) => {
   );
 
   return (
-    <div className={cl(styles.favouritesPosts, 'favouritesPosts')}>
-      <hr className={styles.favouritesHr} />
-      <h2 className={styles.favouritesHeader}>À la Une</h2>
+    <div className={cl(styles.favouritesPosts, 'favouritesPosts', !isFavorite && styles.popularPosts)}>
+      {isFavorite && <hr className={styles.favouritesHr} />}
+      <h2 className={cl(styles.favouritesHeader, !isFavorite && styles.favouritesHeaderPopular)}>
+        {isFavorite ? 'À la Une' : 'Les Plus Lus'}
+      </h2>
 
-      {width > 768 ? (
-        <Slider {...settings}>{posts.slice(0, 6).map(renderPost)}</Slider>
-      ) : (
+      {width < 768 && isFavorite ? (
         <div className={styles.favouritesBlockMobile}>{posts.slice(0, 6).map(renderPost)}</div>
+      ) : (
+        <Slider {...settings}>{posts.slice(0, 6).map(renderPost)}</Slider>
       )}
     </div>
   );
 };
 
-export default FavouritesPosts;
+export default SliderPosts;
