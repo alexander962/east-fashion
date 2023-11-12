@@ -41,7 +41,7 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, sideB
       {visiblePopularsPosts && (
         <>
           <PopularPosts posts={popularPosts} />
-          {/*<FavouritesPosts posts={favouritesPosts} />*/}
+          <FavouritesPosts posts={favouritesPosts} />
           {width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}
         </>
       )}
