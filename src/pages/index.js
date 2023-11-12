@@ -38,6 +38,7 @@ export default function Home({ initialPosts, total, favouritesPosts, popularPost
       <Head>
         <title>Kyrill Kazak</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Kyrill Kazak main page" />
         <link rel="icon" href="/favicon.ico" />
 
         <meta property="og:image" content={logo.src} />
