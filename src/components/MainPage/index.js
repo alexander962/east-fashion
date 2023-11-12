@@ -42,7 +42,7 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, sideB
         <>
           <PopularPosts posts={popularPosts} />
           <FavouritesPosts posts={favouritesPosts} />
-          {width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}
+          {/*{width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}*/}
         </>
       )}
       {/*{posts.length === 0 ? (*/}
