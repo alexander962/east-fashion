@@ -42,20 +42,20 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, sideB
         <>
           <PopularPosts posts={popularPosts} />
           <FavouritesPosts posts={favouritesPosts} />
-          {/*{width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}*/}
+          {width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}
         </>
       )}
-      {/*{posts.length === 0 ? (*/}
-      {/*  <div className={cl(styles.mainPageNotFound)}>Aucun article trouvé</div>*/}
-      {/*) : (*/}
-      {/*  <div className={styles.mainPageBlock}>*/}
-      {/*    <div className={cl(styles.mainPage__header)}>*/}
-      {/*      <span className={cl(styles.mainPage__headerText)}>Dernières publications</span>*/}
-      {/*      <Posts posts={posts} />*/}
-      {/*    </div>*/}
-      {/*    <Sidebar sideBarPosts={sideBarPosts} />*/}
-      {/*  </div>*/}
-      {/*)}*/}
+      {posts.length === 0 ? (
+        <div className={cl(styles.mainPageNotFound)}>Aucun article trouvé</div>
+      ) : (
+        <div className={styles.mainPageBlock}>
+          <div className={cl(styles.mainPage__header)}>
+            <span className={cl(styles.mainPage__headerText)}>Dernières publications</span>
+            <Posts posts={posts} />
+          </div>
+          <Sidebar sideBarPosts={sideBarPosts} />
+        </div>
+      )}
 
       {isLoadButton && (
         <div className={cl(styles.mainPageBtn)}>
