@@ -38,13 +38,13 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, sideB
 
   return (
     <main className={cl(styles.mainPage)}>
-      {visiblePopularsPosts && (
-        <>
-          <PopularPosts posts={popularPosts} />
-          <FavouritesPosts posts={favouritesPosts} />
-          {width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}
-        </>
-      )}
+      {/*{visiblePopularsPosts && (*/}
+      {/*  <>*/}
+      {/*    <PopularPosts posts={popularPosts} />*/}
+      {/*    <FavouritesPosts posts={favouritesPosts} />*/}
+      {/*    {width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}*/}
+      {/*  </>*/}
+      {/*)}*/}
       {posts.length === 0 ? (
         <div className={cl(styles.mainPageNotFound)}>Aucun article trouvé</div>
       ) : (
