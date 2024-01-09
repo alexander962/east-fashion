@@ -8,11 +8,12 @@
     flex-direction: row-reverse;
     position: fixed;
     top: 0;
-    left: 20px;
-    width: calc(100% - 40px);
+    left: 0;
+    width: 100%;
     background: white;
     z-index: 99;
-    padding: 20px 0;
+    padding: 20px 20px;
+    box-sizing: border-box;
   }
 
   &Outer {
