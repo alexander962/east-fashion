@@ -156,12 +156,15 @@
 }
 
 .favouritesBlockMobile {
-  display: flex;
+  display: none;
   align-items: flex-start;
   flex-wrap: wrap;
   //margin: 0 -10px;
   margin: 0;
   gap: 20px 0;
+  @media screen and (max-width: 768px) {
+    display: flex;
+  }
 
   a {
     text-decoration: none;

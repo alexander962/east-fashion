@@ -96,7 +96,7 @@ const SliderPosts = ({ posts, isFavorite }) => {
         {isFavorite ? 'À la Une' : 'Les Plus Lus'}
       </h2>
 
-      {width < 768 && isFavorite ? (
+      {isFavorite ? (
         <div className={styles.favouritesBlockMobile}>{posts.slice(0, 6).map(renderPost)}</div>
       ) : (
         <Slider {...settings}>{posts.slice(0, 6).map(renderPost)}</Slider>
