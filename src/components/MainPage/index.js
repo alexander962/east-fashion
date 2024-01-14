@@ -39,8 +39,8 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, sideB
     <main className={cl(styles.mainPage)}>
       {visiblePopularsPosts && (
         <>
-          <SliderPost posts={popularPosts} isFavorite={false} />
-          <SliderPost posts={favouritesPosts} isFavorite={true} />
+          {/*<SliderPost posts={popularPosts} isFavorite={false} />*/}
+          {/*<SliderPost posts={favouritesPosts} isFavorite={true} />*/}
           {width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}
         </>
       )}
