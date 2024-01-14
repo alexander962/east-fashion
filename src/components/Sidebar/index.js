@@ -18,7 +18,7 @@ const Sidebar = ({ sideBarPosts = [] }) => {
               <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                 <div className={cl(styles.sidebarItems)}>
                   <div className={cl(styles.sidebarImg)}>
-                    <Image layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage).url()} />
+                    {/*<Image layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage).url()} />*/}
                   </div>
                   <div className={cl(styles.sidebarInfo)}>
                     <span className={cl(styles.sidebarPostTitle)}>
