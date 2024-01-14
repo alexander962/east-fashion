@@ -39,8 +39,8 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, sideB
     <main className={cl(styles.mainPage)}>
       {visiblePopularsPosts && (
         <>
-          {/*<SliderPost posts={popularPosts} isFavorite={false} />*/}
-          {/*<SliderPost posts={favouritesPosts} isFavorite={true} />*/}
+          <SliderPost posts={popularPosts} isFavorite={false} />
+          <SliderPost posts={favouritesPosts} isFavorite={true} />
           {width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}
         </>
       )}
@@ -50,7 +50,7 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, sideB
         <div className={styles.mainPageBlock}>
           <div className={cl(styles.mainPage__header)}>
             <span className={cl(styles.mainPage__headerText)}>Dernières publications</span>
-            <Posts posts={posts} />
+            {/*<Posts posts={posts} />*/}
           </div>
           <Sidebar sideBarPosts={sideBarPosts} />
         </div>
