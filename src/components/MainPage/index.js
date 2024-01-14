@@ -41,7 +41,7 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, sideB
         <>
           {/*<SliderPost posts={popularPosts} isFavorite={false} />*/}
           {/*<SliderPost posts={favouritesPosts} isFavorite={true} />*/}
-          {/*{width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}*/}
+          {width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}
         </>
       )}
       {posts.length === 0 ? (
