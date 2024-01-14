@@ -53,20 +53,16 @@ export default function Home({ initialPosts, total, favouritesPosts, popularPost
           setVisiblePopularsPosts={setVisiblePopularsPosts}
           setVisibleSearchResult={setVisibleSearchResult}
         />
-        {initialPosts ? (
-          <MainPage
-            posts={posts}
-            setPosts={setPosts}
-            total={totalPosts}
-            favouritesPosts={favouritesPosts}
-            popularPosts={popularPosts}
-            sideBarPosts={sideBarPosts}
-            visiblePopularsPosts={visiblePopularsPosts}
-            visibleSearchResult={visibleSearchResult}
-          />
-        ) : (
-          <div>Loading...</div>
-        )}
+        <MainPage
+          posts={posts}
+          setPosts={setPosts}
+          total={totalPosts}
+          favouritesPosts={favouritesPosts}
+          popularPosts={popularPosts}
+          sideBarPosts={sideBarPosts}
+          visiblePopularsPosts={visiblePopularsPosts}
+          visibleSearchResult={visibleSearchResult}
+        />
         <Footer subscribe={false} />
       </Suspense>
     </Section>
