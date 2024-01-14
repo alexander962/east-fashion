@@ -40,7 +40,7 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, sideB
       {visiblePopularsPosts && (
         <>
           {/*<SliderPost posts={popularPosts} isFavorite={false} />*/}
-          {/*<SliderPost posts={favouritesPosts} isFavorite={true} />*/}
+          <SliderPost posts={favouritesPosts} isFavorite={true} />
           <SidebarMobile sideBarPosts={sideBarPosts} />
         </>
       )}
