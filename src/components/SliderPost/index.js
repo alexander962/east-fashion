@@ -70,7 +70,7 @@ const SliderPosts = ({ posts, isFavorite }) => {
       <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`} className={cl(styles.favouritesPost)}>
         <div className={cl(styles.favouritesPost)}>
           <div className={cl(styles.favouritesImg)}>
-            {/*<Image loading="lazy" layout="fill" objectFit="cover" src={urlFor(post?.mainImage).url()} alt="" />*/}
+            <Image loading="lazy" layout="fill" objectFit="cover" src={urlFor(post?.mainImage).url()} alt="" />
           </div>
           <div className={styles.favouritesInfo}>
             <div className={cl(styles.favouritesTag)}>

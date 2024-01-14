@@ -17,7 +17,7 @@ const Post = ({ post, index }) => {
         <div className={cl(styles.postMain)}>
           {post?.author?.image ? (
             <div className={cl(styles.postAuthor)}>
-              {/*<Image loading="lazy" layout="fill" objectFit="cover" alt="" src={urlFor(post?.author?.image).url()} />*/}
+              <Image loading="lazy" layout="fill" objectFit="cover" alt="" src={urlFor(post?.author?.image).url()} />
             </div>
           ) : (
             <div className={cl(styles.postAuthor, styles.postAuthorBlack)}></div>
@@ -25,7 +25,6 @@ const Post = ({ post, index }) => {
           {post?.displayTypes && post?.displayTypes === 'type1' && (
             <div className={cl(styles.post)}>
               <div className={cl(styles.postInfo)}>
-                {/*{date && <p className={cl(styles.postDate)}>{date}</p>}*/}
                 {post?.tags && (
                   <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
                     <div className={cl(styles.postTag)}>
@@ -54,13 +53,13 @@ const Post = ({ post, index }) => {
                 <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                   <a className={cl(styles.postLink)}>
                     <div className={cl(styles.postImg)}>
-                      {/*<Image*/}
-                      {/*  loading="lazy"*/}
-                      {/*  layout="fill"*/}
-                      {/*  objectFit="cover"*/}
-                      {/*  alt=""*/}
-                      {/*  src={urlFor(post?.mainImage)?.url()}*/}
-                      {/*/>*/}
+                      <Image
+                        loading="lazy"
+                        layout="fill"
+                        objectFit="cover"
+                        alt=""
+                        src={urlFor(post?.mainImage)?.url()}
+                      />
                     </div>
                   </a>
                 </Link>
@@ -82,7 +81,7 @@ const Post = ({ post, index }) => {
                       post?.displayTypes === 'type3' && styles.postType3ImgBig
                     )}
                   >
-                    {/*<Image loading="lazy" layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage)?.url()} />*/}
+                    <Image loading="lazy" layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage)?.url()} />
                     {post?.tags && (
                       <div className={cl(styles.postType3Info)}>
                         <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
@@ -124,7 +123,7 @@ const Post = ({ post, index }) => {
               <div className={cl(styles.postType4Block)}>
                 <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                   <div className={cl(styles.postType4Img, styles.postLink)}>
-                    {/*<Image loading="lazy" layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage)?.url()} />*/}
+                    <Image loading="lazy" layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage)?.url()} />
                     {post?.tags && (
                       <div className={cl(styles.postType4Info)}>
                         <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
@@ -193,13 +192,13 @@ const Post = ({ post, index }) => {
                   <a className={cl(styles.postLink)}>
                     {post?.additionalImage && (
                       <div className={cl(styles.postType5ImgAdditional)}>
-                        {/*<Image*/}
-                        {/*  loading="lazy"*/}
-                        {/*  layout="fill"*/}
-                        {/*  objectFit="cover"*/}
-                        {/*  alt=""*/}
-                        {/*  src={urlFor(post?.additionalImage)?.url()}*/}
-                        {/*/>*/}
+                        <Image
+                          loading="lazy"
+                          layout="fill"
+                          objectFit="cover"
+                          alt=""
+                          src={urlFor(post?.additionalImage)?.url()}
+                        />
                       </div>
                     )}
                   </a>
@@ -236,7 +235,7 @@ const Post = ({ post, index }) => {
               <div className={cl(styles.postType6Block)}>
                 <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
                   <div className={cl(styles.postType6Img, styles.postLink)}>
-                    {/*<Image loading="lazy" layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage)?.url()} />*/}
+                    <Image loading="lazy" layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage)?.url()} />
                     {post?.tags && (
                       <div className={cl(styles.postType6Info)}>
                         <Link href={`/tags/${encodeURIComponent(post?.tags?.title)}`}>
@@ -252,13 +251,13 @@ const Post = ({ post, index }) => {
                   <a className={cl(styles.postLink, styles.postLinkMiddle)}>
                     {post?.additionalImage && (
                       <div className={cl(styles.postType6ImgAdditional)}>
-                        {/*<Image*/}
-                        {/*  loading="lazy"*/}
-                        {/*  layout="fill"*/}
-                        {/*  objectFit="cover"*/}
-                        {/*  alt=""*/}
-                        {/*  src={urlFor(post?.additionalImage)?.url()}*/}
-                        {/*/>*/}
+                        <Image
+                          loading="lazy"
+                          layout="fill"
+                          objectFit="cover"
+                          alt=""
+                          src={urlFor(post?.additionalImage)?.url()}
+                        />
                       </div>
                     )}
                   </a>
@@ -267,13 +266,13 @@ const Post = ({ post, index }) => {
                   <a className={cl(styles.postLink)}>
                     {post?.thirdImage && (
                       <div className={cl(styles.postType6ImgThird)}>
-                        {/*<Image*/}
-                        {/*  loading="lazy"*/}
-                        {/*  layout="fill"*/}
-                        {/*  objectFit="cover"*/}
-                        {/*  alt=""*/}
-                        {/*  src={urlFor(post?.thirdImage)?.url()}*/}
-                        {/*/>*/}
+                        <Image
+                          loading="lazy"
+                          layout="fill"
+                          objectFit="cover"
+                          alt=""
+                          src={urlFor(post?.thirdImage)?.url()}
+                        />
                       </div>
                     )}
                   </a>
@@ -305,7 +304,7 @@ const Post = ({ post, index }) => {
             <Link href={`/post/${encodeURIComponent(post?.slug?.current)}`}>
               <a className={cl(styles.postLink, index === 0 && styles.postLinkFirst)}>
                 <div className={cl(styles.postImg, index === 0 && styles.postImgFirst)}>
-                  {/*<Image loading="lazy" layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage)?.url()} />*/}
+                  <Image loading="lazy" layout="fill" objectFit="cover" alt="" src={urlFor(post?.mainImage)?.url()} />
                 </div>
                 <h2 className={cl(styles.postTitle, index === 0 && styles.postTitleFirst)}>
                   {post?.title?.length > 100 ? <p>{post?.title.substring(0, 100) + '...'}</p> : <p>{post?.title}</p>}
