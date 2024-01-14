@@ -52,7 +52,7 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, sideB
             <span className={cl(styles.mainPage__headerText)}>Dernières publications</span>
             {/*<Posts posts={posts} />*/}
           </div>
-          {/*<Sidebar sideBarPosts={sideBarPosts} />*/}
+          <Sidebar sideBarPosts={sideBarPosts} />
         </div>
       )}
 
