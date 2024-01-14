@@ -12,7 +12,7 @@ const LOAD_MORE_STEP = 4;
 const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, sideBarPosts, visiblePopularsPosts }) => {
   const [loading, setLoading] = useState(false);
   const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
-  const { width } = useWindowSize();
+  // const { width } = useWindowSize();
 
   const isLoadButton = total > loadedAmount;
 
@@ -41,7 +41,7 @@ const MainPage = ({ posts, setPosts, total, favouritesPosts, popularPosts, sideB
         <>
           {/*<SliderPost posts={popularPosts} isFavorite={false} />*/}
           {/*<SliderPost posts={favouritesPosts} isFavorite={true} />*/}
-          {width <= 768 && <SidebarMobile sideBarPosts={sideBarPosts} />}
+          <SidebarMobile sideBarPosts={sideBarPosts} />
         </>
       )}
       {posts.length === 0 ? (
